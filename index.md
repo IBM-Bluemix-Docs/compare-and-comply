@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-16"
+lastupdated: "2018-03-23"
 
 ---
 
@@ -29,5 +29,7 @@ lastupdated: "2018-03-16"
  - Identification of legal entities and categories that align with subject matter expertise
 
 {{site.data.keyword.cnc_short}} brings together a functionally rich set of integrated, automated Watson APIs to input a programmatic PDF to identify sections, lists (numbered and bulleted), footnotes, and tables, converting these items into a structured HTML format. Furthermore, classification of this structured format is annotated and output as JSON with labeled elements, types, and categories.
+
+To get started with the service, see the [Getting started](getting-started.md) page.
 
 An accessible version of this page is available at: [https://www.ibm.com/watson/developercloud/compare-and-comply/doc/index.html](https://www.ibm.com/watson/developercloud/compare-and-comply/doc/index.html)

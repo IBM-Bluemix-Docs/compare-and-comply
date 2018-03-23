@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-16"
+lastupdated: "2018-03-23"
 
 ---
 
@@ -26,29 +26,29 @@ You can set up alerts for your {{site.data.keyword.cnc_short}} instance.
 
 To install the alerts dashboard for {{site.data.keyword.cnc_short}}, perform the following steps.
 
- 1. Download the Passport Advantage (PPA) file for {{site.data.keyword.cnc_short}}. The file is a zipped tar file with a name similar to `ibm-watson-compare-comply-prod-1.0.0.tar.gz`. The file includes the alerts dashboard template and a `bash` script to render the dashboard from the template.
+ 1. Download the Passport Advantage (PPA) file for {{site.data.keyword.cnc_short}}. The file is a zipped tar file with a name similar to `compare-and-comply-0.1.0.tar.gz`. The file includes the alerts dashboard template and a `bash` script to render the dashboard from the template.
 
  1. Uncompress and expand the PPA file:
   ```bash
-  $ mkdir ibm-watson-compare-comply-prod-1.0.0 && tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tar.gz -C ibm-watson-compare-comply-prod-1.0.0
+  $ mkdir compare-and-comply-0.1.0 && tar -xvzf compare-and-comply-0.1.0.tar.gz -C compare-and-comply-0.1.0
   ```
   {: codeblock}
 
  1. Change to the `charts` directory in the extracted directory:
    ```bash
-   $ cd ibm-watson-compare-comply-prod-1.0.0/charts    
+   $ cd compare-and-comply-0.1.0/charts    
    ```
 
  1. Uncompress and expand the zipped tar file in the `charts` directory:
    ```bash
-   $ tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tgz
+   $ tar -xvzf compare-and-comply-0.2.6.tgz
    ```
 
  1. Change to the `dashboard` directory. It includes templates for metrics and logging, and a bash script to generate dashboards
 from templates.
 
    ```bash
-   $ cd ibm-watson-compare-comply-prod/dashboard
+   $ cd compare-and-comply/dashboard
 
    $ tree
    .
@@ -63,14 +63,14 @@ from templates.
 
   1. Run the `render-dashboards.sh` script to render the templates. Options for the script include:
   
-    -  `-v, --version {chart_version}`: The chart version; for example, `1.0.0`.
+    -  `-v, --version {chart_version}`: The chart version; for example, `2.0.0`.
     -  `-h, --help`: Print command help and exit.
     -  `-r, --release {release_name}`: The Helm release name.
     -  `-n, --namespace {namespace}`: The namespace of the deployment. The default namespace is `default`.
 
    ```bash
-   $ ./render-dashboards.sh -v 1.0.0 -r my-test-release -n default
-   The dashboard JSON files are generated under /Users/{user}/Downloads/ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard.
+   $ ./render-dashboards.sh -v 0.2.6 -r my-test-release -n default
+   The dashboard JSON files are generated under /Users/{user}/Downloads/compare-and-comply-0.1.0/charts/compare-and-comply/dashboard.
 
    $ tree
    .
@@ -100,7 +100,7 @@ To add the alert rules to the dashboard, perform the following steps.
   1. The **ConfigMaps** page opens to display a table of configmaps. In the table, locate the row labeled `alert-rules`. In the **Action** column of the `alert-rules` row, click the menu icon and select **Edit**.
      ![alert-rules Edit](images/configmaps-page.png)
 
-  1. Open the `.../ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard/alerts.json` file in a text editor and copy the line that begins with `cnc.rules`.
+  1. Open the `.../compare-and-comply-0.1.0/charts/compare-and-comply/dashboard/alerts.json` file in a text editor and copy the line that begins with `cnc.rules`.
 
   1. The **Edit ConfigMap** window opens. In the `data` object, add a comma at the end of the last line of the object, then paste in the `cnc.rules` line you copied in the preceding step. <br />
      ![Edit the ConfigMap](images/edit-configmap.png)
