@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-04-05"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-03-23"
 # Release notes
 {: #release_notes}
 
-The release notes provide information about changes to the {{site.data.keyword.cnc_long}} service release.
+The release notes provide information about changes to the {{site.data.keyword.cnc_long}} service release on IBM Private Cloud.
 
 ## Service API Versioning
 {: #api_versioning}
@@ -36,7 +36,14 @@ The current version is `2018-03-23`.
 
 The following new features and changes to the service are available.
 
-### General Availability release, 23 March 2018
+**Important**: The version number referred to in the following sections is the version of the {{site.data.keyword.cnc_long}} Helm chart that you have deployed on your IBM Cloud Private instance. 
+
+### 1.0.3, 6 April 2018
+
+ - Updates to supported `categories` . See the [Categories documentation](parsing.md#contract_categories) for the most recent list of supported categories.
+ - Documentation updates, including corrections to the examples in [Getting Started](getting-started.md).
+
+### 1.0.1 (General Availability release), 23 March 2018
 
 The following notes apply to the General Availability (GA) release of the {{site.data.keyword.cnc_long}} service.
 

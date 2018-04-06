@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-04-05"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-03-23"
 # Getting started
 {: #getting_started}
 
-In this short tutorial, we introduce {{site.data.keyword.cnc_long}} and go through the process of parsing a contract to identify component pieces, their nature, the parties affected, and any identified categories.
+In this short tutorial, we introduce {{site.data.keyword.cnc_long}} on IBM Cloud Private and go through the process of parsing a contract to identify component pieces, their nature, the parties affected, and any identified categories.
 
 ## Step 1: Identify content
 {: #identify_content}
@@ -38,10 +38,10 @@ Identify appropriate documents to analyze. {{site.data.keyword.cnc_short}} has b
 ## Step 2: Parse a contract
 {: #parse_contract}
 
-In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/parse` method to parse your contract. Replace `{url}:{port}` with the IP address and port for your IBM Cloud Private installation. Replace `{PDF_file}` with the path to the PDF to parse.
+In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/parse` method to parse your contract. Replace `{IP_address}:{port_number}` with the IP address and port number for your IBM Cloud Private installation. Replace `{PDF_file}` with the path to the PDF to parse.
 
 ```
-curl -X POST -F "file=@{PDF_file}"  "{url}:{port}/compare-and-comply/api/v1/parse?version=2018-03-23&analyze=true&subdomain=contract&categorize=true"
+curl -k -X POST -F 'file=@{PDF_file};type=application/pdf' https://{IP_address}:{port_number}/api/v1/parse?version=2018-03-23
 ```
 {: codeblock}
 
@@ -60,25 +60,24 @@ The method returns a JSON object that contains:
 Each object in the `elements` array describes an element of the contract that {{site.data.keyword.cnc_short}} has identified. The following code represents a typical element:
 
 ```
-{
-   "sentence" : {
-     "begin" : 34941,
-     "end" : 35307
-   },
-   "sentence_text" : "A buyer must buy from the supplier.",
-   "types" : [ {
-     "label" : {
-       "nature" : "Obligation",
-       "party" : "Buyer"
-     },
-     "assurance" : "High"
-   } ],
-   "categories" : [ {
-     "label" : "Responsibilities",
-     "assurance" : "High"
-     }
-   ]
-}
+  {
+    "sentence" : {
+      "begin" : 6185,
+      "end" : 6331
+    },
+    "sentence_text" : "(ii) the parties wish to grant and receive certain other licenses (or options with respect to licenses), in each case as further described herein.",
+    "types" : [ {
+      "label" : {
+        "nature" : "Obligation",
+        "party" : "Supplier"
+      },
+      "assurance" : "Low"
+    } ],
+    "categories" : [ {
+      "label" : "Intellectual Property",
+      "assurance" : "High"
+    } ]
+  }
 ```
 
 The element has four important sections:
