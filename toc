@@ -21,7 +21,7 @@ Compare and Comply: Element Classification
     {: .navgroup-end}
     
     {: .navgroup id="reference"}
-    [API reference](https://www.ibm.com/watson/developercloud/compare-and-comply/api)
+    [API reference](https://www.ibm.com/watson/developercloud/compare-and-comply/)
 
     {: .navgroup-end}
 

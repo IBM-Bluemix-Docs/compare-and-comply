@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-04-05"
 
 ---
 
@@ -59,33 +59,32 @@ The `categories` array defines the the subject matter of the sentence. Currently
 
 | `categories`     |Description                                                |
 |:----------------:|-----------------------------------------------------------|
-|`Amendments`      | A modification of the original contract that stipulates the conditions for changing the terms.|
-|`Assignments`     |A description of how to transfer rights held by one party to another.|
-|`Audits`          | This clause allows for the buyer to examine or inspect the supplier of the services being provided.|
-|`Business Continuity`| Describes how an organization will continue delivery of work at predefined levels, in the event of a disruptive incident.|
-|`Confidentiality` |A description of how confidential or private information will be handled, such as who can share what and how.|
-|`Definitions`     |A section that defines a term used in the document.|
-|`Deliverables`    |A list of the goods or services to be delivered at the end of a piece of work.|
-|`Delivery`        |Details of the specific schedule or process needed to complete a project.|
-|`Dispute Resolution`|Provisions for any dispute arising among contracting parties, and how disputes are to be handled.|
-|`Force Majeure`   |A clause that frees both parties from liability in case of a disruptive event.|
-|`Indemnification` |A description of the remedies or consequences if the terms of the contract are breached.|
-|`Insurance`       |A description of the level of insurance coverage a supplier must carry.|
-|`Intellectual Property`|A clause that relates to patents, copyrights, and trademarks. More generally it can relate to invention, authorship, or know-how.|
-|`Liability`       |A description of obligations and limitations for which each party is responsible.|
-|`Miscellaneous`   |Sections of interest that do not fit into other categories.|
-|`Payment Terms & Billing`|A description of payments due and the payment schedule.|
-|`Pricing & Taxes` |A description of how the prices are made up and how taxes are to be applied.|
-|`Responsibilities`|A description of each party's responsibilities.|
-|`Scope of Work`   |A description of what is to be achieved by the parties, as detailed in the statement of work.|
-|`Subcontracts`    |Information related to any third parties involved to fulfill a requirement.|
-|`Term & Termination`|The time over which something will happen, and the conditions under which it can end.|
-|`Warranties`      |Guarantee by a supplier of how a product will work.|
+|`Amendments`      |Elements that specify changes to the contract after it has been signed, or alterations to a standard contract. Elements referring to alterations to a contract and changes to agreements also fall into this category.|
+|`Assignments`     |Elements that describe the transfer of rights,  responsibilities, or both to a third party.|
+|`Audits`          |This category includes elements referring to record-keeping and the right of parties to inspect the books or records of the other party, and elements referring to either the right of a party to inspect or review compliance, or requirements that a party be available for inspection or compliance review.|
+|`Business Continuity`| Elements referring to the consequences if the entire business of one of the parties is sold.|
+|`Confidentiality` |This category includes elements describing how the parties can use information that they learn in the course of completing the contract; elements that discuss maintaining trade secrets; and elements describing the nondisclosure of business information.|
+|`Deliverables`    |This category includes elements specifying the item or items one party gives to the other party in exchange for money, and elements describing the preparation of deliverables.|
+|`Delivery`        |Elements that specify the means of transferring the item or items in the `Deliverables` category from one party to another. For example, if one party is selling access or cloud services, the means of getting that access falls into this category.|
+|`Dispute Resolution`|This category includes elements that discuss provisions for settling any dispute arising between contracting parties; for example, settlement by a defined procedure such as an arbitration panel. Disputes can be settled by various methods other than arbitration; for example, irreparable harm, obtaining an injunction, or a statement to the effect of "You may not pursue this as a class action". Examples of disputes include labor disputes and disputes about invoices or billing. The category also includes elements that specify the contract's governing law or choice of law, such as a particular country or jurisdiction.|
+|`Force Majeure`   |Elements that refer to disruptive events outside a party's control. It is a specific limitation of liability.|
+|`Indemnification` |Elements that specify the remediation of certain liabilities. Indemnification is when one party of the contract becomes responsible for paying for another party's liability. The fact of indemnification implies that a liability has occurred.|
+|`Insurance`       |Elements referring to any kind of insurance coverage or terms of coverage provided by one party to the other party.|
+|`Intellectual Property`|Examples tend to fall into two categories: those using formal definitions of patents, copyrights, and trademarks, typically taken from statutes; and those using broader concepts of inventions, authorship, and know-how. Definitions can also be provided for intellectual property rights, such as the right to sue and claim damages for violation of such property rights. `Intellectual Property` includes patents, rights to apply for patents, trademarks, trade names, service marks, domain names, copyrights, and all applications and registration of such worldwide, schematics, industrial models, inventions, know-how, trade secrets, computer software programs, and other intangible proprietary information. For "Third Party Code", if any part of the code belongs to someone else, IP needs to be called out.|
+|`Liability`       |Elements that describe the method for determining when and how fault attaches to any party.|
+|`Payment Terms & Billing`|A broad category that includes elements that describe how a party pays or gets paid, including the following: elements that refer to the final mode of payment under the contract or how one party is paying; elements detailing how and when the party is to be be paid or the types of items the parties will be paying or billed for; elements referring to any kind of fee payment, except those that refer to specific prices or figures; and elements referring to the party that receives the payments under the contract.|
+|`Pricing & Taxes` |This category includes elements that describe what a party pays or gets paid. The category includes elements that refer to taxes and specific amounts associated with individual deliverables that are exchanged, including details about the costs of a particular element, and elements that describe specific figures or methods for calculating prices.|
+|`Privacy`         | Elements that specify the treatment of personal information; that is, private information about a specific individual or individuals that needs to be protected. The category is a very specific subset of the broader `Confidentiality` category.|
+|`Responsibilities`|Tasks ancillary to the agreement, over which only one of the parties has oversight and control. The types of elements that fall into this category differ depending on the nature of the contract.|
+|`Scope of Work`   |This category defines what is in the contract versus what is not in the contract. Typically, elements that tell the parties how a particular order is to be defined fall into this category. Examples include discussions of "statements of work" or descriptions of applicable communications standards.|
+|`Subcontracts`    |Elements referring to the hiring of third parties to perform certain duties under the contract, and the permissions, rights, restrictions, and consequences thereto and arising therefrom.|
+|`Term & Termination`|Elements referring to duration of the contract, the schedule and terms of contract termination, and any consequences of termination, including any obligations that apply at or after termination.|
+|`Warranties`      |Elements that refer specifically to background, underlying assumptions that the parties can rely on. Consequences of breaching warranties also fall under this category.|
 
 # Assurance
 {: #assurance}
 
-{{site.data.keyword.cnc_short}} gives an assurance rating to each `type` or `category` element it identifies. Possible assurance values include:
+{{site.data.keyword.cnc_short}} gives an assurance rating to each `type` or `category` element it identifies. Assurance values include the following:
 
 | `assurance`      |Description                                                |
 |:----------------:|-----------------------------------------------------------|

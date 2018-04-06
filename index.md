@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-04-05"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-03-23"
 # About
 {: #about}
 
-{{site.data.keyword.cnc_long}} makes it possible to rapidly parse through governing documents to convert, identify, and classify important elements. Using state-of-the-art Natural Language Processing, the service extracts elements including `party` (to whom the document refers), `nature` (type of element), and `category` (specific element class).
+{{site.data.keyword.cnc_long}} on IBM Cloud Private makes it possible to rapidly parse through governing documents to convert, identify, and classify important elements. Using state-of-the-art Natural Language Processing, the service extracts elements including `party` (to whom the document refers), `nature` (type of element), and `category` (specific element class).
 
 {{site.data.keyword.cnc_short}} is designed to provide:
 
@@ -30,6 +30,9 @@ lastupdated: "2018-03-23"
 
 {{site.data.keyword.cnc_short}} brings together a functionally rich set of integrated, automated Watson APIs to input a programmatic PDF to identify sections, lists (numbered and bulleted), footnotes, and tables, converting these items into a structured HTML format. Furthermore, classification of this structured format is annotated and output as JSON with labeled elements, types, and categories.
 
+**Important:** This documentation set applies only to the {{site.data.keyword.cnc_short}} service on IBM Cloud Private. It does not apply to other Watson services that are available on the public IBM Cloud.
+
 To get started with the service, see the [Getting started](getting-started.md) page.
 
 An accessible version of this page is available at: [https://www.ibm.com/watson/developercloud/compare-and-comply/doc/index.html](https://www.ibm.com/watson/developercloud/compare-and-comply/doc/index.html)
+
