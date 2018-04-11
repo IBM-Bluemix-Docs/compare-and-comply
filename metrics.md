@@ -141,4 +141,3 @@ You can edit the metrics dashboard or create a new dashboard by performing the f
 
         1. Multiple queries can be added to a single panel. For example, you can display read and write operations on the same graph, or total visits and total visitors in the same table.
         
-An accessible version of this page is available at: [https://www.ibm.com/watson/developercloud/compare-and-comply/doc/metrics.html](https://www.ibm.com/watson/developercloud/compare-and-comply/doc/metrics.html)

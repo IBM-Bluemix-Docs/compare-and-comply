@@ -34,5 +34,4 @@ lastupdated: "2018-04-05"
 
 To get started with the service, see the [Getting started](getting-started.md) page.
 
-An accessible version of this page is available at: [https://www.ibm.com/watson/developercloud/compare-and-comply/doc/index.html](https://www.ibm.com/watson/developercloud/compare-and-comply/doc/index.html)
 

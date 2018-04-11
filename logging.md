@@ -123,5 +123,4 @@ To view the logging dashboards, perform the following steps.
 
 You can easily change the time range and the frequency of auto-refreshing:
   ![Change the time range and refresh rate](images/log-dboard-change.png)
-  
-An accessible version of this page is available at: [https://www.ibm.com/watson/developercloud/compare-and-comply/doc/logging.html](https://www.ibm.com/watson/developercloud/compare-and-comply/doc/logging.html)
+

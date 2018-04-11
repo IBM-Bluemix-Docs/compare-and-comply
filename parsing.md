@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-05"
+lastupdated: "2018-04-10"
 
 ---
 
@@ -60,9 +60,11 @@ The `categories` array defines the the subject matter of the sentence. Currently
 | `categories`     |Description                                                |
 |:----------------:|-----------------------------------------------------------|
 |`Amendments`      |Elements that specify changes to the contract after it has been signed, or alterations to a standard contract. Elements referring to alterations to a contract and changes to agreements also fall into this category.|
-|`Assignments`     |Elements that describe the transfer of rights,  responsibilities, or both to a third party.|
+|`Asset Use`       |Elements that refer to situations in which one party must use the assets (licenses or equipment) of the other party in conducting their duties under the agreement, including permissions and restrictions thereon.|
+|`Assignments`     |Elements that describe the transfer of rights, obligations, or both to a third party.|
 |`Audits`          |This category includes elements referring to record-keeping and the right of parties to inspect the books or records of the other party, and elements referring to either the right of a party to inspect or review compliance, or requirements that a party be available for inspection or compliance review.|
-|`Business Continuity`| Elements referring to the consequences if the entire business of one of the parties is sold.|
+|`Business Continuity`|A narrow category for elements that reference the effect of a sale, merger, or other substantial change to one of the parties to the agreement.|
+|`Communications`  |Elements referring to requirements to notify or provide notice, details about communication methods (the act or process of exchanging information), contact representatives, and contact information. Additionally, elements referring to acceptable means of exchanging information between parties.|
 |`Confidentiality` |This category includes elements describing how the parties can use information that they learn in the course of completing the contract; elements that discuss maintaining trade secrets; and elements describing the nondisclosure of business information.|
 |`Deliverables`    |This category includes elements specifying the item or items one party gives to the other party in exchange for money, and elements describing the preparation of deliverables.|
 |`Delivery`        |Elements that specify the means of transferring the item or items in the `Deliverables` category from one party to another. For example, if one party is selling access or cloud services, the means of getting that access falls into this category.|
@@ -91,4 +93,3 @@ The `categories` array defines the the subject matter of the sentence. Currently
 |`High`            |There is significant evidence that the listed classification is representative of the content.|
 |`Low`             |There is some evidence to support the listed classification, but it might need further review to confirm.|
 
-An accessible version of this page is available at: [https://www.ibm.com/watson/developercloud/compare-and-comply/doc/parsing.html](https://www.ibm.com/watson/developercloud/compare-and-comply/doc/parsing.html)
