@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-05"
+lastupdated: "2018-04-10"
 
 ---
 
@@ -38,9 +38,15 @@ The following new features and changes to the service are available.
 
 **Important**: The version number referred to in the following sections is the version of the {{site.data.keyword.cnc_long}} Helm chart that you have deployed on your IBM Cloud Private instance. 
 
+### 1.0.4, 10 April 2018
+
+Additional supported `categories`: `Asset Use` and `Communication`.
+
+See the [Categories documentation](parsing.md#contract_categories) for the most recent list of supported categories.
+
 ### 1.0.3, 6 April 2018
 
- - Updates to supported `categories` . See the [Categories documentation](parsing.md#contract_categories) for the most recent list of supported categories.
+ - Updates to the descriptions of supported `categories`. See the [Categories documentation](parsing.md#contract_categories) for the most recent list of supported categories.
  - Documentation updates, including corrections to the examples in [Getting Started](getting-started.md).
 
 ### 1.0.1 (General Availability release), 23 March 2018
@@ -62,4 +68,3 @@ The following notes apply to the General Availability (GA) release of the {{site
  - PDFs with security enabled cannot be parsed.
  - Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
 
-An accessible version of this page is available at: [https://www.ibm.com/watson/developercloud/compare-and-comply/doc/relnotes.html](https://www.ibm.com/watson/developercloud/compare-and-comply/doc/relnotes.html)

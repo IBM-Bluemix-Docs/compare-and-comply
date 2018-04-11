@@ -111,6 +111,5 @@ You have successfully parsed a contract to identify the nature, parties, and cat
 
  - Understand types and categories.
  - Review parsing options.
- 
-An accessible version of this page is available at: [https://www.ibm.com/watson/developercloud/compare-and-comply/doc/getting-started.html](https://www.ibm.com/watson/developercloud/compare-and-comply/doc/getting-started.html)
+
 

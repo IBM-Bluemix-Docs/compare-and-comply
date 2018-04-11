@@ -177,4 +177,3 @@ To create a PagerDuty notification, perform the following steps.
 
   1. In the **Edit ConfigMap** window, click **Submit**.
   
-An accessible version of this page is available at: [https://www.ibm.com/watson/developercloud/compare-and-comply/doc/alerts.html](https://www.ibm.com/watson/developercloud/compare-and-comply/doc/alerts.html)

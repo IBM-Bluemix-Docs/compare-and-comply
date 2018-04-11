@@ -69,6 +69,5 @@ Similarly, if you scale up a {{site.data.keyword.cnc_short}} deployment, IBM Clo
   
   1. Optionally, click the name of the deployment on the **Deployments** page to view details of the deployment.
   
-An accessible version of this page is available at: [https://www.ibm.com/watson/developercloud/compare-and-comply/doc/config.html](https://www.ibm.com/watson/developercloud/compare-and-comply/doc/config.html)
   
 
