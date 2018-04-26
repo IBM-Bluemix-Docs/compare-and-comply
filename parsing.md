@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-10"
+lastupdated: "2018-04-18"
 
 ---
 
@@ -64,7 +64,7 @@ The `categories` array defines the the subject matter of the sentence. Currently
 |`Assignments`     |Elements that describe the transfer of rights, obligations, or both to a third party.|
 |`Audits`          |This category includes elements referring to record-keeping and the right of parties to inspect the books or records of the other party, and elements referring to either the right of a party to inspect or review compliance, or requirements that a party be available for inspection or compliance review.|
 |`Business Continuity`|A narrow category for elements that reference the effect of a sale, merger, or other substantial change to one of the parties to the agreement.|
-|`Communications`  |Elements referring to requirements to notify or provide notice, details about communication methods (the act or process of exchanging information), contact representatives, and contact information. Additionally, elements referring to acceptable means of exchanging information between parties.|
+|`Communication`  |Elements referring to requirements to notify or provide notice, details about communication methods (the act or process of exchanging information), contact representatives, and contact information. Additionally, elements referring to acceptable means of exchanging information between parties.|
 |`Confidentiality` |This category includes elements describing how the parties can use information that they learn in the course of completing the contract; elements that discuss maintaining trade secrets; and elements describing the nondisclosure of business information.|
 |`Deliverables`    |This category includes elements specifying the item or items one party gives to the other party in exchange for money, and elements describing the preparation of deliverables.|
 |`Delivery`        |Elements that specify the means of transferring the item or items in the `Deliverables` category from one party to another. For example, if one party is selling access or cloud services, the means of getting that access falls into this category.|
@@ -78,6 +78,7 @@ The `categories` array defines the the subject matter of the sentence. Currently
 |`Pricing & Taxes` |This category includes elements that describe what a party pays or gets paid. The category includes elements that refer to taxes and specific amounts associated with individual deliverables that are exchanged, including details about the costs of a particular element, and elements that describe specific figures or methods for calculating prices.|
 |`Privacy`         | Elements that specify the treatment of personal information; that is, private information about a specific individual or individuals that needs to be protected. The category is a very specific subset of the broader `Confidentiality` category.|
 |`Responsibilities`|Tasks ancillary to the agreement, over which only one of the parties has oversight and control. The types of elements that fall into this category differ depending on the nature of the contract.|
+|`Safety and Security`|Elements referring to physical safety or cybersecurity protections for data and systems, as well as elements referring to enhancing safety of the workplace or workplaces.|
 |`Scope of Work`   |This category defines what is in the contract versus what is not in the contract. Typically, elements that tell the parties how a particular order is to be defined fall into this category. Examples include discussions of "statements of work" or descriptions of applicable communications standards.|
 |`Subcontracts`    |Elements referring to the hiring of third parties to perform certain duties under the contract, and the permissions, rights, restrictions, and consequences thereto and arising therefrom.|
 |`Term & Termination`|Elements referring to duration of the contract, the schedule and terms of contract termination, and any consequences of termination, including any obligations that apply at or after termination.|
