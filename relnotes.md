@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-18"
+lastupdated: "2018-04-10"
 
 ---
 
@@ -22,8 +22,6 @@ lastupdated: "2018-04-18"
 
 The release notes provide information about changes to the {{site.data.keyword.cnc_long}} service release on IBM Private Cloud.
 
-**Important:** This documentation set applies only to the {{site.data.keyword.cnc_short}} service on IBM Cloud Private. It does not apply to other Watson services that are available on the public IBM Cloud.
-
 ## Service API Versioning
 {: #api_versioning}
 
@@ -40,13 +38,16 @@ The following new features and changes to the service are available.
 
 **Important**: The version number referred to in the following sections is the version of the {{site.data.keyword.cnc_long}} Helm chart that you have deployed on your IBM Cloud Private instance. 
 
-### 1.0.2, 19 April 2018
+### 1.0.4, 10 April 2018
 
- - Additional supported categories. See the [Categories documentation](parsing.md#contract_categories) for the most recent list of supported categories.
-   - `Asset Use`
-   - `Communication`
-   - `Safety and Security`
- -  Documentation updates, including corrections to the examples in [Getting Started](getting-started.md).
+Additional supported `categories`: `Asset Use` and `Communication`.
+
+See the [Categories documentation](parsing.md#contract_categories) for the most recent list of supported categories.
+
+### 1.0.3, 6 April 2018
+
+ - Updates to the descriptions of supported `categories`. See the [Categories documentation](parsing.md#contract_categories) for the most recent list of supported categories.
+ - Documentation updates, including corrections to the examples in [Getting Started](getting-started.md).
 
 ### 1.0.1 (General Availability release), 23 March 2018
 
