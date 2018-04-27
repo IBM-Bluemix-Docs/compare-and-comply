@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-05"
+lastupdated: "2018-04-27"
 
 ---
 
@@ -71,24 +71,80 @@ Each object in the `elements` array describes an element of the contract that {{
         "nature" : "Obligation",
         "party" : "Supplier"
       },
-      "assurance" : "Low"
+      "assurance" : "Low",
+      "provenance" : [
+        {
+          "id" : "NB6GzkcAJzvuiapx9XWXwXMftOA7RAMQE+oQz3VnHqKk="
+        },
+        {
+          "id" : "PGU1oPFAt3eN/+9/Wtnx0VMK7CJup4j+ud4gfmCZFhbA="
+        }
+      ]
     } ],
     "categories" : [ {
       "label" : "Intellectual Property",
-      "assurance" : "High"
-    } ]
+      "assurance" : "High",
+      "provenance" : [
+        {
+          "id" : "mJP3EHTYzP7zLgoPu7zwL7Rg5BEwyrODY8uW0UnwiCpr="
+        },
+        {
+          "id" : "mo4qJn7EzPF/+3FJ0dSIafirfbtA3vhDXsgMLpq1zyVW="
+        },
+        {
+          "id" : "3GlLNmTaVgtHDLlj2FeBM+zGSkrwPRfLw7fzcy+auleq="
+        }
+      ]
+    } ],
+    "attributes" : [ {
+       {
+        "type" : "Currency",
+        "text" : "$24,000,000",
+        "attribute" : {
+          "begin" : 9775,
+          "end" : 9786
+        }
+       }     
+       {
+        "type" : "Location",
+        "text" : "Canada",
+        "attribute" : {
+          "begin" : 35000,
+          "end" : 35006
+        }
+      },
+      {
+        "type" : "DateTime",
+        "text" : "12 months",
+        "attribute" : {
+          "begin" : 34950,
+          "end" : 34959
+        }
+      },
+      {
+        "type" : "DateTime",
+        "text" : "24 months",
+        "attribute" : {
+          "begin" : 34970,
+          "end" : 34979
+        }
+      },
+   ]
   }
 ```
 
-The element has four important sections:
+The element has five important sections:
  - `sentence_text`: The text that was analyzed.
  - `sentence`: An object that describes where the element was found in the converted HTML. It contains a `start` character value and an `end` character value.
  - `types`: An array that describes what the element is and whom it affects. It consists of one or more sets of `nature` keys (the effect of the sentence on the identified `party`) and `party` keys (whom the sentence affects).
- - `categories` (_optional_): An array that lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
+ - `categories`: An array that lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
+ - `attributes`: An array that lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). 
 
 **Note**: Some sentences do not fall under any type or category, in which case the service returns the `types` and `categories` arrays as empty objects.
 
 **Note:** Some sentences cover multiple topics, in which case the service returns multiple sets of `types` and `categories` objects.
+
+**Note**: Some sentences do not contain any identifiable attributes, in which case the service returns the `attributes` array as empty objects.
 
 Additionally, any identified parties are defined in the `parties` array. The `parties` array is located after the `elements` array in the JSON output.
 
@@ -102,7 +158,7 @@ Additionally, any identified parties are defined in the `parties` array. The `pa
 The `parties` array includes two important sections:
 
  - `party`: The text that was identified as a party within the document.
- - `role`: The role of the identified party. Roles changed based on subdomain; see [the documentation on the specified subdomain for a list of possible roles](parsing.md#contract_parties). Parties that cannot be identified as having a specific role are listed with the `unknown` value.
+ - `role`: The role of the identified party. Roles changed based on subdomain; see [the documentation on the specified subdomain for a list of possible roles](/docs/services/compare-and-comply/parsing.html#contract_parties). Parties that cannot be identified as having a specific role are listed with the `unknown` value.
 
 ## Next steps
 {: #next_steps}
