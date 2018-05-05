@@ -32,6 +32,6 @@ lastupdated: "2018-04-05"
 
 **Important:** This documentation set applies only to the {{site.data.keyword.cnc_short}} service on IBM Cloud Private. It does not apply to other Watson services that are available on the public IBM Cloud.
 
-To get started with the service, see the [Getting started](getting-started.md) page.
+To get started with the service, see the [Getting started](/docs/services/compare-and-comply/getting-started.html) page.
 
 

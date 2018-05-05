@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-18"
+lastupdated: "2018-04-27"
 
 ---
 
@@ -40,13 +40,18 @@ The following new features and changes to the service are available.
 
 **Important**: The version number referred to in the following sections is the version of the {{site.data.keyword.cnc_long}} Helm chart that you have deployed on your IBM Cloud Private instance. 
 
+### 1.0.3, 28 April 2018
+
+ - The output of the `parse` method now includes the `attributes` array. See [Review the analysis](/docs/services/compare-and-comply/getting-started.html#review_analysis) and [Attributes](/docs/services/compare-and-comply/parsing.html#attributes) for information. You can use the information in the `attributes` array to search for document elements that refer to specific locations; times, dates, time range, or date range; and monetary value and units.
+ - Each object in the `types` and `categories` arrays includes a `provenance` object. The `provenance` object has one or more `id` keys. Each `id` key has a hashed value that you can send to IBM to provide feedback or receive support.
+
 ### 1.0.2, 19 April 2018
 
- - Additional supported categories. See the [Categories documentation](parsing.md#contract_categories) for the most recent list of supported categories.
+ - Additional supported categories. See the [Categories documentation](/docs/services/compare-and-comply/parsing.html#contract_categories) for the most recent list of supported categories.
    - `Asset Use`
    - `Communication`
    - `Safety and Security`
- -  Documentation updates, including corrections to the examples in [Getting Started](getting-started.md).
+ -  Documentation updates, including corrections to the examples in [Getting Started](/docs/services/compare-and-comply/getting-started.html).
 
 ### 1.0.1 (General Availability release), 23 March 2018
 

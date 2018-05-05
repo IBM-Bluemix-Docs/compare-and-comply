@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-18"
+lastupdated: "2018-04-27"
 
 ---
 
@@ -84,6 +84,17 @@ The `categories` array defines the the subject matter of the sentence. Currently
 |`Term & Termination`|Elements referring to duration of the contract, the schedule and terms of contract termination, and any consequences of termination, including any obligations that apply at or after termination.|
 |`Warranties`      |Elements that refer specifically to background, underlying assumptions that the parties can rely on. Consequences of breaching warranties also fall under this category.|
 
+## Attributes
+{: #attributes}
+
+The `attributes` array specifies any attributes identified in the sentence. Each object in the array includes three keys: `type` (the type of attribute from the following table), `text` (the applicable text), and `attribute` (the start and end points of the attribute in the document). Currently supported attributes include:
+
+| `attributes`     |Description                                                |
+|:----------------:|-----------------------------------------------------------|
+|`Location`        |A geographical location or region.                         |
+|`DateTime`        |A date, time, date range, or time range.                   |
+|`Currency`        |Monetary value and units.                                  |
+
 # Assurance
 {: #assurance}
 
@@ -93,4 +104,9 @@ The `categories` array defines the the subject matter of the sentence. Currently
 |:----------------:|-----------------------------------------------------------|
 |`High`            |There is significant evidence that the listed classification is representative of the content.|
 |`Low`             |There is some evidence to support the listed classification, but it might need further review to confirm.|
+
+## Provenance
+{: #provenance}
+
+Each object in the `types` and `categories` arrays includes a `provenance` object. The `provenance` object has one or more `id` keys. Each `id` key has a hashed value that you can send to IBM to provide feedback or receive support.
 
