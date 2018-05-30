@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-27"
+lastupdated: "2018-05-25"
 
 ---
 
@@ -40,10 +40,13 @@ The following new features and changes to the service are available.
 
 **Important**: The version number referred to in the following sections is the version of the {{site.data.keyword.cnc_long}} Helm chart that you have deployed on your IBM Cloud Private instance. 
 
-### 1.0.3, 28 April 2018
+### 1.0.3, 25 May 2018
 
  - The output of the `parse` method now includes the `attributes` array. See [Review the analysis](/docs/services/compare-and-comply/getting-started.html#review_analysis) and [Attributes](/docs/services/compare-and-comply/parsing.html#attributes) for information. You can use the information in the `attributes` array to search for document elements that refer to specific locations; times, dates, time range, or date range; and monetary value and units.
  - Each object in the `types` and `categories` arrays includes a `provenance` object. The `provenance` object has one or more `id` keys. Each `id` key has a hashed value that you can send to IBM to provide feedback or receive support.
+ - Improvements to the accuracy of PDF parsing and to the performance of parsing large PDF files.
+ - This release is available on IBM Cloud Private 2.1.0.2, 2.1.0.3, or higher. See the catalog entry for the service for details on IBM Cloud Private requirements.
+ - Possible values for the `assurance` key no longer include `Low`.
 
 ### 1.0.2, 19 April 2018
 
