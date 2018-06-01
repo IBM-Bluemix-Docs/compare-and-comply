@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-27"
+lastupdated: "2018-05-07"
 
 ---
 
@@ -60,85 +60,104 @@ The method returns a JSON object that contains:
 Each object in the `elements` array describes an element of the contract that {{site.data.keyword.cnc_short}} has identified. The following code represents a typical element:
 
 ```
-  {
-    "sentence" : {
-      "begin" : 6185,
-      "end" : 6331
-    },
-    "sentence_text" : "(ii) the parties wish to grant and receive certain other licenses (or options with respect to licenses), in each case as further described herein.",
-    "types" : [ {
-      "label" : {
-        "nature" : "Obligation",
-        "party" : "Supplier"
-      },
-      "assurance" : "Low",
-      "provenance" : [
-        {
-          "id" : "NB6GzkcAJzvuiapx9XWXwXMftOA7RAMQE+oQz3VnHqKk="
-        },
-        {
-          "id" : "PGU1oPFAt3eN/+9/Wtnx0VMK7CJup4j+ud4gfmCZFhbA="
-        }
-      ]
-    } ],
-    "categories" : [ {
-      "label" : "Intellectual Property",
-      "assurance" : "High",
-      "provenance" : [
-        {
-          "id" : "mJP3EHTYzP7zLgoPu7zwL7Rg5BEwyrODY8uW0UnwiCpr="
-        },
-        {
-          "id" : "mo4qJn7EzPF/+3FJ0dSIafirfbtA3vhDXsgMLpq1zyVW="
-        },
-        {
-          "id" : "3GlLNmTaVgtHDLlj2FeBM+zGSkrwPRfLw7fzcy+auleq="
-        }
-      ]
-    } ],
-    "attributes" : [ {
-       {
-        "type" : "Currency",
-        "text" : "$24,000,000",
-        "attribute" : {
-          "begin" : 9775,
-          "end" : 9786
-        }
-       }     
-       {
-        "type" : "Location",
-        "text" : "Canada",
-        "attribute" : {
-          "begin" : 35000,
-          "end" : 35006
-        }
-      },
-      {
-        "type" : "DateTime",
-        "text" : "12 months",
-        "attribute" : {
-          "begin" : 34950,
-          "end" : 34959
-        }
-      },
-      {
-        "type" : "DateTime",
-        "text" : "24 months",
-        "attribute" : {
-          "begin" : 34970,
-          "end" : 34979
-        }
-      },
-   ]
-  }
+{
+  "sentence_text": "If the parties are unable to agree on the License Price within thirty (30) days after Richmond Enterprises provides the written notice of its exercise of the Optional Patent License to Savage Narwhal Studios in Section 2.3(a), such FMV Dispute shall, at either party's request, be resolved solely and exclusively by final, binding and confidential arbitration to be filed and the decision rendered in New York, New York (with hearings at the request of either party to be held in San Francisco, California or other mutually agreeable place convenient for the parties) in accordance with the Commercial Arbitration Rules of the American Arbitration Association (\" AAA \"), including as supplemented by the Procedures for Large, Complex Commercial Disputes.",
+  "attributes": [
+	{
+		"type": "Location",
+		"text": "New York",
+		"attribute": {
+			"begin": 58372,
+			"end": 58380
+		}
+	},
+	{
+		"type": "Location",
+		"text": "New York",
+		"attribute": {
+			"begin": 58382,
+			"end": 58390
+		}
+	},
+	{
+		"type": "Location",
+		"text": "San Francisco",
+		"attribute": {
+			"begin": 58451,
+			"end": 58464
+		}
+	},
+	{
+		"type": "Location",
+		"text": "California",
+		"attribute": {
+			"begin": 58466,
+			"end": 58476
+		}
+	}
+],
+"categories": [
+	{
+		"label": "Communication",
+		"assurance": "High",
+		"provenance": [
+			{
+				"id": "C7xhbsepUodh09zmJdUXSvYZCdixx00wFyCZuAnTujok="
+			}
+		]
+	},
+	{
+		"label": "Dispute Resolution",
+		"assurance": "High",
+		"provenance": [
+			{
+				"id": "Ck8vgUWOj41OutOOLJ38b2Q7jOj3F30ABGaGLKKxppFA="
+			},
+			{
+				"id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA="
+			}
+		]
+	},
+	{
+		"label": "Intellectual Property",
+		"assurance": "High",
+		"provenance": [
+			{
+				"id": "Cor/mgcf1UE/zmsKm68M6+a9LSRCpcKe8EWCUdwsjrgs="
+			}
+		]
+	}
+],
+"types": [
+	{
+		"label": {
+			"nature": "Obligation",
+			"party": "All Parties"
+		},
+		"assurance": "High",
+		"provenance": [
+			{
+				"id": "NNpSqaNkY2zHtxI6Zh78NaZccVNtutrQxISkzdnaVjx0="
+			},
+			{
+				"id": "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
+			}
+		]
+	}
+],
+"sentence": {
+	"begin": 57998,
+	"end": 58952
+	}
+}
 ```
 
 The element has five important sections:
  - `sentence_text`: The text that was analyzed.
- - `sentence`: An object that describes where the element was found in the converted HTML. It contains a `start` character value and an `end` character value.
- - `types`: An array that describes what the element is and whom it affects. It consists of one or more sets of `nature` keys (the effect of the sentence on the identified `party`) and `party` keys (whom the sentence affects).
- - `categories`: An array that lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
  - `attributes`: An array that lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). 
+ - `categories`: An array that lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
+  - `types`: An array that describes what the element is and whom it affects. It consists of one or more sets of `nature` keys (the effect of the sentence on the identified `party`) and `party` keys (whom the sentence affects).
+ - `sentence`: An object that describes where the element was found in the converted HTML. It contains a `start` character value and an `end` character value.
 
 **Note**: Some sentences do not fall under any type or category, in which case the service returns the `types` and `categories` arrays as empty objects.
 

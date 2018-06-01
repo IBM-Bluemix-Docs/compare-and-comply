@@ -98,12 +98,7 @@ The `attributes` array specifies any attributes identified in the sentence. Each
 # Assurance
 {: #assurance}
 
-{{site.data.keyword.cnc_short}} gives an assurance rating to each `type` or `category` element it identifies. Assurance values include the following:
-
-| `assurance`      |Description                                                |
-|:----------------:|-----------------------------------------------------------|
-|`High`            |There is significant evidence that the listed classification is representative of the content.|
-|`Low`             |There is some evidence to support the listed classification, but it might need further review to confirm.|
+{{site.data.keyword.cnc_short}} gives an assurance rating to each `type` or `category` element it identifies. There is currently one assurance value, `High`, which indicates there is significant evidence that the listed classification is representative of the content.
 
 ## Provenance
 {: #provenance}
