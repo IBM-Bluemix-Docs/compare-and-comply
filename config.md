@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-06-28"
 
 ---
 
@@ -27,7 +27,7 @@ The default deployment configuration for {{site.data.keyword.cnc_short}} is `2Co
  - _Vertical_ scaling increases the throughput at which a document is parsed.
  - _Horizontal_ scaling increases the number of concurrent documents parsed.
 
-Both scaling options require increasing the number of Virtual Processor Cores (VPCs) used by {{site.data.keyword.cnc_short}}. For information about VPCs, see the IBM Cloud Private [licensing documentation](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_cluster/licensing.html){: new_window}.
+Both scaling options require increasing the number of Virtual Processor Cores (VPCs) used by {{site.data.keyword.cnc_short}}. For information about VPCs, see the IBM Cloud Private [licensing documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_cluster/licensing.html){: new_window}.
 
 Vertical scaling options include the following:
 
@@ -45,15 +45,15 @@ Horizontal scaling options include the following:
 |`4Cores 20G 2 concurrent documents (8 VPC)`  |5000 pages per hour             |
 |`8Cores 40G 2 concurrent documents (16 VPC)` |6000 pages per hour             |
 
-\***Note**: Throughput estimates are based on internal testing. Throughput in a production environment depends on multiple factors including other workloads on the same IBM Cloud Private instance, latencies between the client application and the IBM Cloud Private instance, and other environmental conditions.
+\***Note**: Throughput estimates are based on internal testing. Throughput in a production environment depends on multiple factors including other workloads on the same IBM Cloud Private cluster, latencies between the client application and the IBM Cloud Private cluster, and other environmental conditions.
 
-To change the deployment configuration by adding or removing {{site.data.keyword.cnc_short}} instances, perform the following steps.
+To change the deployment configuration by adding or removing {{site.data.keyword.cnc_short}} clusters, perform the following steps.
 
 **Note**: If you scale down a {{site.data.keyword.cnc_short}} deployment, IBM Cloud Private immediately reclaims the released resources, thus reducing the processing capacity of the deployment. Do not scale down a deployment that is being used, particularly if the deployment is in a production environment.
 	
 Similarly, if you scale up a {{site.data.keyword.cnc_short}} deployment, IBM Cloud Private immediately applies the requested resources to the deployment, assuming the resources are available. If you need more resources than your IBM Cloud Private installation can provide, talk with your IBM sales representative about increasing the capacity of your IBM Cloud Private installation.
 
-  1. Log in to your IBM Cloud Private instance.
+  1. Log in to your IBM Cloud Private cluster.
 
   1. From the menu icon near the upper left-hand corner, select **Workloads -> Deployments**.
   

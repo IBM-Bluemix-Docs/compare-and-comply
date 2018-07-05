@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-06-28"
 
 ---
 
@@ -22,7 +22,7 @@ lastupdated: "2018-03-23"
 
 You can monitor the status of {{site.data.keyword.cnc_short}} by using IBM Cloud Private's monitoring dashboard. The monitoring dashboard uses Grafana, Prometheus, and Kibana to present detailed information about your {{site.data.keyword.cnc_short}} instance.
 
-For more information about the monitoring dashboard, see [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html){: new_window}.
+For more information about the monitoring dashboard, see [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html){: new_window}.
 
 ## Installing and running the metrics dashboard
 
@@ -93,7 +93,7 @@ from templates.
 
 To import the metrics dashboard for {{site.data.keyword.cnc_short}} into IBM Cloud Private, perform the following steps.
 
-  1. Log in to your IBM Cloud Private instance.
+  1. Log in to your IBM Cloud Private cluster.
 
   1. From the Menu icon in the upper left-hand corner, select **Platform -> Monitoring**. <br />
       ![IBM Cloud Private Menu icon](images/icp-menu.png) <br />

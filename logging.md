@@ -89,7 +89,7 @@ from templates.
 
 To import the logging dashboards for {{site.data.keyword.cnc_short}} into IBM Cloud Private, perform the following steps.
 
-  1. Log in to your IBM Cloud Private instance.
+  1. Log in to your IBM Cloud Private cluster.
 
   1. From the Menu icon in the upper left-hand corner, select **Platform -> Logging**. <br />
     ![IBM Cloud Private Menu icon](images/icp-menu.png) <br />

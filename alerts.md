@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-06-28"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-03-23"
 # Using alerts
 {: #using-alerts}
 
-You can set up alerts for your {{site.data.keyword.cnc_short}} instance.
+You can set up alerts for your {{site.data.keyword.cnc_short}} cluster.
 
 ## Installing the alerts dashboard
 
@@ -91,7 +91,7 @@ from templates.
 
 To add the alert rules to the dashboard, perform the following steps.
 
-  1. Log in to your ICP instance.
+  1. Log in to your ICP cluster.
 
   1. From the Menu icon in the upper left-hand corner, select **Configuration -> ConfigMaps**.
       ![IBM Cloud Private Menu icon](images/icp-menu.png) <br />
@@ -111,7 +111,7 @@ To add the alert rules to the dashboard, perform the following steps.
 
 To view the list of alert rules, perform the following steps.
 
-  1. Navigate to the Prometheus dashboard on your IBM Cloud Private instance. The Prometheus dashboard is located at `https://{ICP_instance_IP_address}:{ICP_instance_port}/prometheus`.
+  1. Navigate to the Prometheus dashboard on your IBM Cloud Private cluster. The Prometheus dashboard is located at `https://{ICP_cluster_IP_address}:{ICP_cluster_port}/prometheus`.
 
   1. Click the **Alerts** tab. The Prometheus dashboard displays a list of all alert rules and the number of active alerts for each. <br />
     ![Prometheus alerts](images/prometheus-dboard.png)
@@ -120,13 +120,13 @@ To view the list of alert rules, perform the following steps.
 
 You can add alert notifications for numerous paging systems, including Slack, PagerDuty, HipChat, email, and others. Prometheus provides support for notifications as documented at the following sites:
 
- - [Prometheus Alerting Configuration documentation](https://prometheus.io/docs/alerting/configuration/){: new_window}
- - [Prometheus Notification Examples documentation](https://prometheus.io/docs/alerting/notification_examples/){: new_window}
+ - [Prometheus Alerting Configuration documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://prometheus.io/docs/alerting/configuration/){: new_window}
+ - [Prometheus Notification Examples documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://prometheus.io/docs/alerting/notification_examples/){: new_window}
 
 To create a notification receiver for {{site.data.keyword.cnc_short}} on IBM Cloud Private, perform the following steps.
 {: #create-notification-receiver}
 
-  1. Log in to your ICP instance.
+  1. Log in to your ICP cluster.
 
   1. From the Menu icon in the upper left-hand corner, select **Configuration -> ConfigMaps**. <br />
       ![IBM Cloud Private Menu icon](images/icp-menu.png) <br />
@@ -143,11 +143,11 @@ To create a notification receiver for {{site.data.keyword.cnc_short}} on IBM Clo
 
 To create a Slack notification, perform the following steps.
 
-  1. Verify that the target Slack channel exists. If it does not, create it. See the [Slack documentation for creating a channel](https://get.slack.help/hc/en-us/articles/201402297-Create-a-channel){: new_window} for details.
+  1. Verify that the target Slack channel exists. If it does not, create it. See the [Slack documentation for creating a channel ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://get.slack.help/hc/en-us/articles/201402297-Create-a-channel){: new_window} for details.
 
-  1. Obtain or create the WebHook for the Slack channel. See the [Slack documentation for WebHooks](https://get.slack.help/hc/en-us/articles/115005265063-Incoming-WebHooks-for-Slack){: new_window} for details.
+  1. Obtain or create the WebHook for the Slack channel. See the [Slack documentation for WebHooks ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://get.slack.help/hc/en-us/articles/115005265063-Incoming-WebHooks-for-Slack){: new_window} for details.
 
-  1. Open the `monitoring-prometheus-alertmanager` ConfigMap in the ConfigMap editor as described in [Adding alert notifications ](#create-notification-receiver).
+  1. Open the `monitoring-prometheus-alertmanager` ConfigMap in the ConfigMap editor as described in [Adding alert notifications](#create-notification-receiver).
 
   1. Update the `data` object in the ConfigMap as follows:
     ```
@@ -161,11 +161,11 @@ To create a Slack notification, perform the following steps.
 
 To create a PagerDuty notification, perform the following steps.
 
-  1. Verify that the PagerDuty service exists. If it does not, create it. See the [PagerDuty documentation](https://v2.developer.pagerduty.com/docs) for details.
+  1. Verify that the PagerDuty service exists. If it does not, create it. See the [PagerDuty documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://v2.developer.pagerduty.com/docs){: new_window} for details.
 
-  1. Get the PagerDuty integration key by adding the Prometheus integration. See the [PagerDuty API documentation](https://v2.developer.pagerduty.com/docs/events-api) for details.
+  1. Get the PagerDuty integration key by adding the Prometheus integration. See the [PagerDuty API documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://v2.developer.pagerduty.com/docs/events-api){: new_window} for details.
 
-  1. Open the `monitoring-prometheus-alertmanager` ConfigMap in the ConfigMap editor as described in [Adding alert notifications ](#create-notification-receiver).
+  1. Open the `monitoring-prometheus-alertmanager` ConfigMap in the ConfigMap editor as described in [Adding alert notifications](#create-notification-receiver).
 
   1. Update the `data` object in the ConfigMap as follows:
     ```
