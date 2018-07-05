@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-07"
+lastupdated: "2018-06-22"
 
 ---
 
@@ -22,6 +22,11 @@ lastupdated: "2018-05-07"
 
 In this short tutorial, we introduce {{site.data.keyword.cnc_long}} on IBM Cloud Private and go through the process of parsing a contract to identify component pieces, their nature, the parties affected, and any identified categories.
 
+## Before you begin
+{: #before-you-begin}
+
+Before you can use the {{site.data.keyword.cnc_short}} service, you must install the IBM Cloud Private CLI and log in to your IBM Cloud Private cluster as described in [Installing the IBM Cloud Private CLI](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/manage_cluster/install_cli.html).
+ 
 ## Step 1: Identify content
 {: #identify_content}
 
@@ -30,7 +35,7 @@ Identify appropriate documents to analyze. {{site.data.keyword.cnc_short}} has b
 - Files to be analyzed are in PDF format.
 - The PDF contents are in text form. Documents that have been scanned cannot be parsed, even if they have been OCRed.
 
-  **Note:** You can identify a PDF that is in text by opening the document in a PDF viewer and using the  **Text select**  tool to select a single word. If you cannot select a single word in the document, the file cannot be parsed.
+  **Note:** You can identify a PDF that is in text by opening the document in a PDF viewer and using the **Text select** tool to select a single word. If you cannot select a single word in the document, the file cannot be parsed.
 
 - Files are no larger than 50Mb in size.
 - Secure PDFs (with a password to open) and editing restricted PDFs (with a password to edit) cannot be parsed.
@@ -38,12 +43,28 @@ Identify appropriate documents to analyze. {{site.data.keyword.cnc_short}} has b
 ## Step 2: Parse a contract
 {: #parse_contract}
 
-In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/parse` method to parse your contract. Replace `{IP_address}:{port_number}` with the IP address and port number for your IBM Cloud Private installation. Replace `{PDF_file}` with the path to the PDF to parse.
+In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/parse` method to parse your contract. Replace `{ICP_IP_address}` with the IP address for your IBM Cloud Private cluster. Replace `{PDF_file}` with the path to the PDF to parse.
 
+```bash
+curl -k -X POST -F 'file=@{PDF_file};type=application/pdf' https://{ICP_IP_address}/api/v1/parse?version=2018-03-23
 ```
-curl -k -X POST -F 'file=@{PDF_file};type=application/pdf' https://{IP_address}:{port_number}/api/v1/parse?version=2018-03-23
+{: pre}
+
+**Important:** If you are running a version of {{site.data.keyword.cnc_short}} earlier than 1.0.4, you must include the `:{port_number}` specifier with the IP address of the IBM Cloud Private cluster when making calls to the service, as follows:
+
+```bash
+curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://{ICP_IP_address}:{port_number}/api/v1/parse?version=2018-03-23
 ```
-{: codeblock}
+{: pre}
+
+For example:
+
+```bash
+curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:8443/api/v1/parse?version=2018-03-23
+```
+{: pre}
+
+See the [release note on **ingress**](/docs/services/compare-and-comply/relnotes.html#ingress) for details.
 
 The method returns a JSON object that contains:
 
@@ -156,7 +177,7 @@ The element has five important sections:
  - `sentence_text`: The text that was analyzed.
  - `attributes`: An array that lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). 
  - `categories`: An array that lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
-  - `types`: An array that describes what the element is and whom it affects. It consists of one or more sets of `nature` keys (the effect of the sentence on the identified `party`) and `party` keys (whom the sentence affects).
+ - `types`: An array that describes what the element is and whom it affects. It consists of one or more sets of `nature` keys (the effect of the sentence on the identified `party`) and `party` keys (whom the sentence affects).
  - `sentence`: An object that describes where the element was found in the converted HTML. It contains a `start` character value and an `end` character value.
 
 **Note**: Some sentences do not fall under any type or category, in which case the service returns the `types` and `categories` arrays as empty objects.
