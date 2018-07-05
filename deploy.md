@@ -275,7 +275,7 @@ where:
 ### Step 6: Upload the package file to the IBM Cloud Private internal image registry
 {: #step6}
 
-In the terminal you prepared in [Step 3](#step3), run the following command to upload the Passport Advantage package file:
+In the terminal you prepared in [Step 4](#step4), run the following command to upload the Passport Advantage package file:
 
 ```bash
 bx pr load-ppa-archive --archive {path_to}/IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz --clustername mycluster.icp --namespace default 

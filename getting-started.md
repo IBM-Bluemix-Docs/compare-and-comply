@@ -33,7 +33,7 @@ Before you can use the {{site.data.keyword.cnc_short}} service, you must install
 Identify appropriate documents to analyze. {{site.data.keyword.cnc_short}} has been designed to analyze contract <!-- and regulatory -->documents that meet the following criteria:
 
 - Files to be analyzed are in PDF format.
-- The PDF contents are in text form. Documents that have been scanned cannot be parsed, even if they have been OCRed.
+- The PDF contents are in text form. Documents that have been scanned cannot be parsed, even if the scans have been processed by an optical character reader (OCR).
 
   **Note:** You can identify a PDF that is in text by opening the document in a PDF viewer and using the **Text select** tool to select a single word. If you cannot select a single word in the document, the file cannot be parsed.
 

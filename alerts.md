@@ -147,7 +147,7 @@ To create a Slack notification, perform the following steps.
 
   1. Obtain or create the WebHook for the Slack channel. See the [Slack documentation for WebHooks ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://get.slack.help/hc/en-us/articles/115005265063-Incoming-WebHooks-for-Slack){: new_window} for details.
 
-  1. Open the `monitoring-prometheus-alertmanager` ConfigMap in the ConfigMap editor as described in [Adding alert notifications ](#create-notification-receiver).
+  1. Open the `monitoring-prometheus-alertmanager` ConfigMap in the ConfigMap editor as described in [Adding alert notifications](#create-notification-receiver).
 
   1. Update the `data` object in the ConfigMap as follows:
     ```
@@ -165,7 +165,7 @@ To create a PagerDuty notification, perform the following steps.
 
   1. Get the PagerDuty integration key by adding the Prometheus integration. See the [PagerDuty API documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://v2.developer.pagerduty.com/docs/events-api){: new_window} for details.
 
-  1. Open the `monitoring-prometheus-alertmanager` ConfigMap in the ConfigMap editor as described in [Adding alert notifications  ](#create-notification-receiver).
+  1. Open the `monitoring-prometheus-alertmanager` ConfigMap in the ConfigMap editor as described in [Adding alert notifications](#create-notification-receiver).
 
   1. Update the `data` object in the ConfigMap as follows:
     ```

@@ -75,7 +75,7 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
     ```
     {: pre}
 
-  The equivalent call in 1.0.4 or later is:
+  The equivalent call in version 1.0.4 or later is:
 
     ```bash
     curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45/api/v1/parse?version=2018-03-23
@@ -96,7 +96,7 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 - The output of the `parse` method now includes the `attributes` array. See [Review the analysis](/docs/services/compare-and-comply/getting-started.html#review_analysis) and [Attributes](/docs/services/compare-and-comply/parsing.html#attributes) for information. You can use the information in the `attributes` array to search for document elements that refer to specific locations; times, dates, time range, or date range; and monetary value and units.
 - Each object in the `types` and `categories` arrays includes a `provenance` object. The `provenance` object has one or more `id` keys. Each `id` key has a hashed value that you can send to IBM to provide feedback or receive support.
 - Improvements to the accuracy of PDF parsing and to the performance of parsing large PDF files.
-- This release is available on {{site.data.keyword.BluOpenStackDed}} 2.1.0.2, 2.1.0.3, or higher. See the catalog entry for the service for details on {{site.data.keyword.BluOpenStackDed}} requirements.
+- This release is available on {{site.data.keyword.BluOpenStackDed}} 2.1.0.2 or higher. See the catalog entry for the service for details on {{site.data.keyword.BluOpenStackDed}} requirements.
 - Possible values for the `assurance` key no longer include `Low`.
 
 ### 1.0.2, 19 April 2018
@@ -117,11 +117,11 @@ The following notes apply to the General Availability (GA) release of the {{site
 {: #general_notes}
 
 - The {{site.data.keyword.cnc_short}} API on {{site.data.keyword.BluOpenStackDed}} does not require authorization as APIs on the public IBM Cloud do.
- - PDFs must be in text format to be parsed. Scanned documents, even if they have been OCRed, cannot be parsed.
+ - PDFs must be in text format to be parsed. Documents that have been scanned cannot be parsed, even if the scans have been processed by an optical character reader (OCR).
 
 ## Known issues
 {: #known_issues}
 
-- The maximum size of PDF that can be uploaded is 50Mb.
+- The maximum size of a PDF file that can be uploaded is 50Mb.
 - PDFs with security enabled cannot be parsed.
 - Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
