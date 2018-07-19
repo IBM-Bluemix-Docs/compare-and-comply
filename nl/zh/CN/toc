@@ -1,0 +1,30 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="compare-and-comply" audience="service" href="/docs/services/compare-and-comply/index.html"}
+Compare and Comply: Element Classification
+
+    {: .navgroup id="learn"}
+    getting-started.md
+    index.md
+    parsing.md
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    config.md
+
+    {: topicgroup}
+    使用监视
+    	metrics.md
+    	logging.md
+    	alerts.md
+    {: .navgroup-end}
+    
+    {: .navgroup id="reference"}
+    [API 参考](https://www.ibm.com/watson/developercloud/compare-and-comply/)
+
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    relnotes.md
+    {: .navgroup-end}
