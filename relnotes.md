@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -25,6 +25,8 @@ The release notes provide information about changes to the {{site.data.keyword.c
 
 **Important:** This documentation set applies only to the {{site.data.keyword.cnc_short}} service on {{site.data.keyword.BluOpenStackDed}}. It does not apply to other Watson services that are available on the public IBM Cloud.
 
+**Note:** For release note information that affects all {{site.data.keyword.BluOpenStackDed}} services, see [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv){: new_window}.
+
 ## Service API Versioning
 {: #api_versioning}
 
@@ -40,6 +42,12 @@ The current version is `2018-03-23`.
 The following new features and changes to the service are available.
 
 **Important**: The version number referred to in the following sections is the version of the {{site.data.keyword.cnc_long}} Helm chart that you have deployed on your {{site.data.keyword.BluOpenStackDed}} cluster.
+
+### 1.0.5, 2 August 2018
+{: #105}
+
+  - The addition of table parsing as described at [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) and [Understanding table parsing](/docs/services/compare-and-comply/tables.html#understanding_tables).
+
 
 ### 1.0.4, 5 July 2018
 {: #ingress}

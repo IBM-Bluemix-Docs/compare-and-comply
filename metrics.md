@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-25"
 
 ---
 
@@ -18,80 +18,15 @@ lastupdated: "2018-06-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Using metrics
-{: #using-metrics}
+{: #metrics}
 
-You can monitor the status of {{site.data.keyword.cnc_short}} by using IBM Cloud Private's monitoring dashboard. The monitoring dashboard uses Grafana, Prometheus, and Kibana to present detailed information about your {{site.data.keyword.cnc_short}} instance.
-
-For more information about the monitoring dashboard, see [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html){: new_window}.
-
-## Installing and running the metrics dashboard
-
-To install the metrics dashboard for {{site.data.keyword.cnc_short}}, perform the following steps.
-
- 1. Download the Passport Advantage (PPA) file for {{site.data.keyword.cnc_short}}. The file is a zipped tar file with a name similar to `ibm-watson-compare-comply-prod-1.0.0.tar.gz`. The file includes the metrics dashboard template and a `bash` script to render the dashboard from the template.
-
- 1. Uncompress and expand the PPA file:
-  ```bash
-  $ mkdir ibm-watson-compare-comply-prod-1.0.0 && tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tar.gz -C ibm-watson-compare-comply-prod-1.0.0
-  ```
-  {: codeblock}
-
- 1. Change to the `charts` directory in the extracted directory:
-   ```bash
-   $ cd ibm-watson-compare-comply-prod-1.0.0/charts    
-   ```
-
- 1. Uncompress and expand the zipped tar file in the `charts` directory:
-   ```bash
-   $ tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tgz
-   ```
-
- 1. Change to the `dashboard` directory. It includes templates for metrics and logging, and a bash script to generate dashboards
-from templates.
-
-   ```bash
-   $ cd ibm-watson-compare-comply-prod/dashboard
-
-   $ tree
-   .
-   ├── alerts.json.tpl
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json.tpl
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 5 files
-   ```
-
-  1. Run the `render-dashboards.sh` script to render the templates. Options for the script include:
-  
-    -  `-v, --version {chart_version}`: The chart version; for example, `1.0.0`.
-    -  `-h, --help`: Print command help and exit.
-    -  `-r, --release {release_name}`: The Helm release name.
-    -  `-n, --namespace {namespace}`: The namespace of the deployment. The default namespace is `default`.
-
-   ```bash
-   $ ./render-dashboards.sh -v 1.0.0 -r my-test-release -n default
-   The dashboard JSON files are generated under /Users/{user}/Downloads/ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard.
-
-   $ tree
-   .
-   ├── alerts.json
-   ├── alerts.json.tpl
-   ├── external-process-logging.json
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json
-   ├── frontend-logging.json.tpl
-   ├── metrics.json
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 9 files
-   ```
+You can monitor the status of {{site.data.keyword.cnc_short}} by using IBM Cloud Private's monitoring dashboard. The monitoring dashboard uses Grafana for metrics, Prometheus for alerts, and Kibana for logging to present detailed information about your {{site.data.keyword.cnc_short}} instance.
 
 ## Importing the metrics dashboard
 
 To import the metrics dashboard for {{site.data.keyword.cnc_short}} into IBM Cloud Private, perform the following steps.
+
+  1. Ensure that you have extracted and generated the metrics dashboards as described in [Step 1: Download, extract, and render the dashboard templates](monitor.html#monitor).
 
   1. Log in to your IBM Cloud Private cluster.
 
@@ -112,6 +47,7 @@ To import the metrics dashboard for {{site.data.keyword.cnc_short}} into IBM Clo
        ![Select Prometheus](images/prometheus.png)
 
 ## Viewing the metrics dashboard
+{: #view}
 
 The metrics dashboard resembles the following:
 ![The metrics dashboard](images/metrics-dboard.png)
