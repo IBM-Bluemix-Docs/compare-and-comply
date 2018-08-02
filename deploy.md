@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018
-lastupdated: "2018-07-25"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -64,17 +64,19 @@ Perform the following steps to complete the {{site.data.keyword.cnc_short}} depl
          "insecure-registries": ["mycluster.icp:8500"]
       }
       ```
-      {: codeblock}
+      {: pre}
       
       1. Run the following commands:
       
       ```bash
       systemctl daemon reload
       ```
+      {: codeblock}
       
       ```bash
       systemctl restart docker
-      ``` 
+      ```
+      {: codeblock} 
 
 ### Step 2: Download the IBM Cloud Private and IBM Cloud CLIs
 {: #step2}
@@ -84,10 +86,10 @@ Perform the following steps to complete the {{site.data.keyword.cnc_short}} depl
   1. Download and install the IBM Cloud CLI. See the [IBM Cloud documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/download_cli.html#download_install){: new_window} for details.
   
   1. Download and install the IBM Cloud CLI `bx` plug-in. See the [IBM Cloud documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/extend_cli.html#plug-ins){: new_window} for details.
- 	
+
 ### Step 3: Download the package file
 {: #step3}
- 	
+
 Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passport Advantage ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www-01.ibm.com/software/passportadvantage/){: new_window} to your local workstation. This file contains the entire {{site.data.keyword.cnc_short}} service image.
   
 #### Edit the package file if necessary
@@ -100,16 +102,18 @@ Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passp
  - You need to follow the procedure in this step only if your IBM Cloud Private cluster is not connected to the external internet. If your IBM Cloud Private cluster has network access to the [Passport Advantage ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www-01.ibm.com/software/passportadvantage/){: new_window} site, you can install and deploy {{site.data.keyword.cnc_short}} version 1.0.3 without any modifications to the package file.
 
 **Note**: If you perform the procedure in this step, you can experience problems with upgrades and rollbacks of {{site.data.keyword.cnc_short}} version 1.0.3. 
- 
+
   1. In a `bash` shell or similar environment such as Cygwin, extract the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` file:
   
   ```bash
   cd {path_to_file}
   ```
- 
- ```bash
- tar -xvzf IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz
- ```
+  {: codeblock}
+
+  ```bash
+  tar -xvzf IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz
+  ```
+  {: codeblock}
 
  The extracted file includes a directory named `charts` that contains a file named `ibm-watson-compare-comply-prod-1.0.3.tgz`, which is a compressed version of the Helm chart for {{site.data.keyword.cnc_short}}.
 
@@ -118,10 +122,12 @@ Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passp
   ```bash
   cd charts
   ```
+  {: codeblock}
  
   ```bash
   tar -xvzf ibm-watson-compare-comply-prod-1.0.3.tgz
   ```
+  {: codeblock}
  
   The extracted file includes a number of directories and files, including a top-level directory named `ibm-watson-compare-comply-prod` that contains a directory named `templates`.
 
@@ -130,6 +136,7 @@ Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passp
   ```bash
   cd ibm-watson-compare-comply-prod/templates
   ```
+  {: codeblock}
  
   1. Locate the `deployment.yaml` file in the `ibm-watson-compare-comply-prod/templates` directory and open it in a text editor.
  
@@ -151,36 +158,41 @@ Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passp
         image: "mycluster.icp:8500/default/cnc-frontend:v2.3.12"
         imagePullPolicy: Always
   ```
-  {: codeblock}
+  {: pre}
   
   Save and close the `deployment.yaml` file.
 
   1. Return to the `charts` directory and repackage the `ibm-watson-compare-comply-prod-1.0.3.tgz` file:
   
-  ```bash
-  cd ../..
-  ```
-
-  ```bash
-  tar -cvzf ibm-watson-compare-comply-prod-1.0.3.tgz ibm-watson-compare-comply-prod
-  ```
- 
+    ```bash
+    cd ../..
+    ```
+    {: codeblock}
+  
+    ```bash
+    tar -cvzf ibm-watson-compare-comply-prod-1.0.3.tgz ibm-watson-compare-comply-prod
+    ```
+    {: codeblock}
+   
   1. Return to the top-level directory and repackage the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` file:
   
-   ```bash
-   cd ..
-   ```
+    ```bash
+    cd ..
+    ```
+    {: codeblock}
  
    ```bash
    tar -cvzf IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz charts images manifest.json manifest.yaml
   ```
-
+  {: codeblock}
+  
   For reference, the `tree` view of the contents of the uncompressed `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` file is as follows. Files involved in this procedure are called out with `<-----` in the right-hand column.
  
   ```bash
   cd {path_to_archive_file}
   ```
- 
+  {: codeblock}
+   
   ```
   $ tree 
      .
@@ -226,7 +238,7 @@ Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passp
      ├── manifest.json
      └── manifest.yaml 
   ```
-  {: codeblock}
+  {: pre}
    
 ### Step 4: Prepare a terminal
 {: #step4}
@@ -236,14 +248,17 @@ Prepare a `bash` shell or equivalent to use with your IBM Cloud Private installa
   ```bash
   bx pr login -a https://mycluster.icp:8443 --skip-ssl-validation
   ```
-  
+  {: codeblock}
+    
   ```bash
   bx pr cluster-config mycluster
   ```
+  {: codeblock}
   
   ```bash
   docker login mycluster.icp:8500
   ```
+  {: codeblock}
 
   **Note**: In the first command in the preceding list, the port number `8443` in the URL `https://mycluster.icp:8443` represents the default value for communicating with the {{site.data.keyword.cnc_short}} service on IBM Cloud Private.
 
@@ -255,10 +270,12 @@ Run the following commands to enable all required components to access IBM Cloud
 ```bash
 kubectl create secret docker-registry $secret_name --docker-server=mycluster.icp:8500 --docker-username=$username --docker-password=$password --docker-email=admin@admin.com --namespace=default
 ```
+{: codeblock}
 
 ```bash
 kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "$secret_name"}]}' --namespace=default
 ```
+{: codeblock}
 
 where:
   - `$username` and `$password` vary by cluster. Ask your administrator.
@@ -272,7 +289,7 @@ In the terminal you prepared in [Step 4](#step4), run the following command to u
 ```bash
 bx pr load-ppa-archive --archive {path_to}/IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz --clustername mycluster.icp --namespace default 
 ```
-
+{: codeblock}
 ### Step 7: Complete the installation
 
 Return to the **Catalog** page on your IBM Cloud Private cluster, locate and select the `ibm-watson-compare-comply-prod` entry, and click **Configure** to proceed with the installation.

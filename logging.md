@@ -24,7 +24,7 @@ lastupdated: "2018-07-25"
 
 To import the logging dashboards for {{site.data.keyword.cnc_short}} into IBM Cloud Private, perform the following steps.
 
-  1. Ensure that you have extracted and generated the logging dashboards as described in [Step 1: Download, extract, and render the dashboard templates](monitor.html#monitor).
+  1. Ensure that you have extracted and generated the logging dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/services/compare-and-comply/monitor.html#monitor).
 
   1. Log in to your IBM Cloud Private cluster.
 

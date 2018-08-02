@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-22"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -204,9 +204,9 @@ The `parties` array includes two important sections:
 ## Next steps
 {: #next_steps}
 
-You have successfully parsed a contract to identify the nature, parties, and categories of the component parts of the document. You can use the analysis to quickly understand and enforce the parsed contract. The next steps are to:
+You have successfully parsed a contract to identify the nature, parties, and categories of the component parts of the document. You can use the analysis to quickly understand and enforce the parsed contract. The next steps are:
 
- - Understand types and categories.
- - Review parsing options.
+ - [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing)
+ - [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) and [table parsing](/docs/services/compare-and-comply/tables.html#understanding_tables).
 
 
