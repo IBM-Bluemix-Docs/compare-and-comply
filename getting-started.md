@@ -84,101 +84,101 @@ Each object in the `elements` array describes an element of the contract that {{
 {
   "sentence_text": "If the parties are unable to agree on the License Price within thirty (30) days after Richmond Enterprises provides the written notice of its exercise of the Optional Patent License to Savage Narwhal Studios in Section 2.3(a), such FMV Dispute shall, at either party's request, be resolved solely and exclusively by final, binding and confidential arbitration to be filed and the decision rendered in New York, New York (with hearings at the request of either party to be held in San Francisco, California or other mutually agreeable place convenient for the parties) in accordance with the Commercial Arbitration Rules of the American Arbitration Association (\" AAA \"), including as supplemented by the Procedures for Large, Complex Commercial Disputes.",
   "attributes": [
-	{
-		"type": "Location",
-		"text": "New York",
-		"attribute": {
-			"begin": 58372,
-			"end": 58380
-		}
-	},
-	{
-		"type": "Location",
-		"text": "New York",
-		"attribute": {
-			"begin": 58382,
-			"end": 58390
-		}
-	},
-	{
-		"type": "Location",
-		"text": "San Francisco",
-		"attribute": {
-			"begin": 58451,
-			"end": 58464
-		}
-	},
-	{
-		"type": "Location",
-		"text": "California",
-		"attribute": {
-			"begin": 58466,
-			"end": 58476
-		}
-	}
-],
-"categories": [
-	{
-		"label": "Communication",
-		"assurance": "High",
-		"provenance": [
-			{
-				"id": "C7xhbsepUodh09zmJdUXSvYZCdixx00wFyCZuAnTujok="
-			}
-		]
-	},
-	{
-		"label": "Dispute Resolution",
-		"assurance": "High",
-		"provenance": [
-			{
-				"id": "Ck8vgUWOj41OutOOLJ38b2Q7jOj3F30ABGaGLKKxppFA="
-			},
-			{
-				"id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA="
-			}
-		]
-	},
-	{
-		"label": "Intellectual Property",
-		"assurance": "High",
-		"provenance": [
-			{
-				"id": "Cor/mgcf1UE/zmsKm68M6+a9LSRCpcKe8EWCUdwsjrgs="
-			}
-		]
-	}
-],
-"types": [
-	{
-		"label": {
-			"nature": "Obligation",
-			"party": "All Parties"
-		},
-		"assurance": "High",
-		"provenance": [
-			{
-				"id": "NNpSqaNkY2zHtxI6Zh78NaZccVNtutrQxISkzdnaVjx0="
-			},
-			{
-				"id": "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
-			}
-		]
-	}
-],
-"sentence": {
-	"begin": 57998,
-	"end": 58952
-	}
+    {
+      "type": "Location",
+      "text": "New York",
+      "attribute": {
+        "begin": 58372,
+        "end": 58380
+      }
+    },
+    {
+      "type": "Location",
+      "text": "New York",
+      "attribute": {
+        "begin": 58382,
+        "end": 58390
+      }
+    },
+    {
+      "type": "Location",
+      "text": "San Francisco",
+      "attribute": {
+        "begin": 58451,
+        "end": 58464
+      }
+    },
+    {
+      "type": "Location",
+      "text": "California",
+      "attribute": {
+        "begin": 58466,
+        "end": 58476
+      }
+    }
+  ],
+  "categories": [
+    {
+      "label": "Communication",
+      "assurance": "High",
+      "provenance": [
+        {
+          "id": "C7xhbsepUodh09zmJdUXSvYZCdixx00wFyCZuAnTujok="
+        }
+      ]
+    },
+    {
+      "label": "Dispute Resolution",
+      "assurance": "High",
+      "provenance": [
+        {
+          "id": "Ck8vgUWOj41OutOOLJ38b2Q7jOj3F30ABGaGLKKxppFA="
+        },
+        {
+          "id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA="
+        }
+      ]
+    },
+    {
+      "label": "Intellectual Property",
+      "assurance": "High",
+      "provenance": [
+        {
+          "id": "Cor/mgcf1UE/zmsKm68M6+a9LSRCpcKe8EWCUdwsjrgs="
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "label": {
+        "nature": "Obligation",
+        "party": "All Parties"
+      },
+      "assurance": "High",
+      "provenance": [
+        {
+          "id": "NNpSqaNkY2zHtxI6Zh78NaZccVNtutrQxISkzdnaVjx0="
+        },
+        {
+          "id": "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
+        }
+      ]
+    }
+  ],
+  "sentence": {
+    "begin": 57998,
+    "end": 58952
+  }
 }
 ```
 
 The element has five important sections:
- - `sentence_text`: The text that was analyzed.
- - `attributes`: An array that lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). 
- - `categories`: An array that lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
- - `types`: An array that describes what the element is and whom it affects. It consists of one or more sets of `nature` keys (the effect of the sentence on the identified `party`) and `party` keys (whom the sentence affects).
- - `sentence`: An object that describes where the element was found in the converted HTML. It contains a `start` character value and an `end` character value.
+  - `sentence_text`: The text that was analyzed.
+  - `attributes`: An array that lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). 
+  - `categories`: An array that lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
+  - `types`: An array that describes what the element is and whom it affects. It consists of one or more sets of `nature` keys (the effect of the sentence on the identified `party`) and `party` keys (whom the sentence affects).
+  - `sentence`: An object that describes where the element was found in the converted HTML. It contains a `start` character value and an `end` character value.
 
 **Note**: Some sentences do not fall under any type or category, in which case the service returns the `types` and `categories` arrays as empty objects.
 
@@ -188,17 +188,18 @@ The element has five important sections:
 
 Additionally, any identified parties are defined in the `parties` array. The `parties` array is located after the `elements` array in the JSON output.
 
-```
+```json
   "parties" : [ {
     "party" : "Customer",
     "role" : "Buyer"
   } ]
 ```
+{: codeblock}
 
 The `parties` array includes two important sections:
 
- - `party`: The text that was identified as a party within the document.
- - `role`: The role of the identified party. Roles changed based on subdomain; see [the documentation on the specified subdomain for a list of possible roles](/docs/services/compare-and-comply/parsing.html#contract_parties). Parties that cannot be identified as having a specific role are listed with the `unknown` value.
+  - `party`: The text that was identified as a party within the document.
+  - `role`: The role of the identified party. Roles changed based on subdomain; see [the documentation on the specified subdomain for a list of possible roles](/docs/services/compare-and-comply/parsing.html#contract_parties). Parties that cannot be identified as having a specific role are listed with the `unknown` value.
 
 ## Next steps
 {: #next_steps}

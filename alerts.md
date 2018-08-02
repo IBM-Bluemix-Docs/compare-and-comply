@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-25"
 
 ---
 
@@ -17,79 +17,17 @@ lastupdated: "2018-06-28"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Using alerts
-{: #using-alerts}
+# Using monitoring alerts
+{: #alerts}
 
-You can set up alerts for your {{site.data.keyword.cnc_short}} cluster.
+You can set up Prometheus alerts for your {{site.data.keyword.cnc_short}} instance after you import the alerts dashboard, as described in the following sections.
 
-## Installing the alerts dashboard
+## Importing the alerts dashboard and adding alert rules
+{: #import}
 
-To install the alerts dashboard for {{site.data.keyword.cnc_short}}, perform the following steps.
+To import the alerts dashboard and add alert rules to the dashboard, perform the following steps.
 
- 1. Download the Passport Advantage (PPA) file for {{site.data.keyword.cnc_short}}. The file is a zipped tar file with a name similar to `ibm-watson-compare-comply-prod-1.0.0.tar.gz`. The file includes the alerts dashboard template and a `bash` script to render the dashboard from the template.
-
- 1. Uncompress and expand the PPA file:
-  ```bash
-  $ mkdir ibm-watson-compare-comply-prod-1.0.0 && tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tar.gz -C ibm-watson-compare-comply-prod-1.0.0
-  ```
-  {: codeblock}
-
- 1. Change to the `charts` directory in the extracted directory:
-   ```bash
-   $ cd ibm-watson-compare-comply-prod-1.0.0/charts    
-   ```
-
- 1. Uncompress and expand the zipped tar file in the `charts` directory:
-   ```bash
-   $ tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tgz
-   ```
-
- 1. Change to the `dashboard` directory. It includes templates for metrics and logging, and a bash script to generate dashboards
-from templates.
-
-   ```bash
-   $ cd ibm-watson-compare-comply-prod/dashboard
-
-   $ tree
-   .
-   ├── alerts.json.tpl
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json.tpl
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 5 files
-   ```
-
-  1. Run the `render-dashboards.sh` script to render the templates. Options for the script include:
-  
-    -  `-v, --version {chart_version}`: The chart version; for example, `1.0.0`.
-    -  `-h, --help`: Print command help and exit.
-    -  `-r, --release {release_name}`: The Helm release name.
-    -  `-n, --namespace {namespace}`: The namespace of the deployment. The default namespace is `default`.
-
-   ```bash
-   $ ./render-dashboards.sh -v 1.0.0 -r my-test-release -n default
-   The dashboard JSON files are generated under /Users/{user}/Downloads/ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard.
-
-   $ tree
-   .
-   ├── alerts.json
-   ├── alerts.json.tpl
-   ├── external-process-logging.json
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json
-   ├── frontend-logging.json.tpl
-   ├── metrics.json
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 9 files
-   ```
-
-## Adding the alert rules
-
-To add the alert rules to the dashboard, perform the following steps.
+  1. Ensure that you have extracted and generated the alerts dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/services/compare-and-comply/monitor.html#monitor).
 
   1. Log in to your ICP cluster.
 
