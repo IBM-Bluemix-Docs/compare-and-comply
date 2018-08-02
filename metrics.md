@@ -26,7 +26,7 @@ You can monitor the status of {{site.data.keyword.cnc_short}} by using IBM Cloud
 
 To import the metrics dashboard for {{site.data.keyword.cnc_short}} into IBM Cloud Private, perform the following steps.
 
-  1. Ensure that you have extracted and generated the metrics dashboards as described in [Step 1: Download, extract, and render the dashboard templates](monitor.html#monitor).
+  1. Ensure that you have extracted and generated the metrics dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/services/compare-and-comply/monitor.html#monitor).
 
   1. Log in to your IBM Cloud Private cluster.
 
@@ -71,9 +71,9 @@ You can edit the metrics dashboard or create a new dashboard by performing the f
 
   1. Use the **Metrics** tab to create queries that display data from Prometheus.
 
-        1. You can write the query directly if you are familiar with the query language, or you can use the **Metric lookup** field to choose from the metrics currently being reported to Prometheus.
+    1. You can write the query directly if you are familiar with the query language, or you can use the **Metric lookup** field to choose from the metrics currently being reported to Prometheus.
 
-        1. The results of the queries are displayed in real time in the new dashboard panel.
+    1. The results of the queries are displayed in real time in the new dashboard panel.
 
-        1. Multiple queries can be added to a single panel. For example, you can display read and write operations on the same graph, or total visits and total visitors in the same table.
+    1. Multiple queries can be added to a single panel. For example, you can display read and write operations on the same graph, or total visits and total visitors in the same table.
         
