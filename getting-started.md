@@ -194,7 +194,6 @@ Additionally, any identified parties are defined in the `parties` array. The `pa
     "role" : "Buyer"
   } ]
 ```
-{: codeblock}
 
 The `parties` array includes two important sections:
 
