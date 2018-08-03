@@ -29,32 +29,30 @@ Before using the dashboards, you must generate and install them as described in 
 ## Step 1: Download, extract, and render the dashboard templates
 {: #render}
 
-  1. Download the {{site.data.keyword.cnc_short}} image from Passport Advantage (PPA). The file is a zipped tar file with a name similar to `ibm-watson-compare-comply-prod-1.0.5.tar.gz`. The file includes the dashboard templates and a `bash` script to render the dashboards from the templates.
+Perform the following steps to prepare the dashboard templates for installation.
 
-  1. Uncompress and expand the tar file:
-  
+1. Download the {{site.data.keyword.cnc_short}} image from Passport Advantage (PPA). The file is a zipped tar file with a name similar to `ibm-watson-compare-comply-prod-1.0.5.tar.gz`. The file includes the dashboard templates and a `bash` script to render the dashboards from the templates.
+
+1. Uncompress and expand the tar file:
   ```bash
   mkdir ibm-watson-compare-comply-prod-1.0.5 && tar -xvzf ibm-watson-compare-comply-prod-1.0.5.tar.gz -C ibm-watson-compare-comply-prod-1.0.5
-  ```
-  {: pre}  
+  ``` 
+  {: pre}
 
-  1. Change to the `charts` directory in the extracted directory:
-  
+1. Change to the `charts` directory in the extracted directory:
   ```bash
   cd ibm-watson-compare-comply-prod-1.0.5/charts
   ```
   {: pre}
 
-  1. Uncompress and expand the zipped tar file in the `charts` directory:
-  
+1. Uncompress and expand the zipped tar file in the `charts` directory:
   ```bash
   tar -xvzf ibm-watson-compare-comply-prod-1.0.5.tgz
   ```
   {: pre}
 
-  1. Change to the `dashboard` directory. It includes templates for alerts, logging, and metrics, as well as a `bash` script to generate dashboards
+1. Change to the `dashboard` directory. It includes templates for alerts, logging, and metrics, as well as a `bash` script to generate dashboards
 from templates.
-
   ```
   $ cd ibm-watson-compare-comply-prod/dashboard
   
@@ -68,9 +66,8 @@ from templates.
 
   0 directories, 5 files
   ```
-  {: codeblock}
 
-  1. Run the `render-dashboards.sh` script to render the templates. Options for the script include:
+1. Run the `render-dashboards.sh` script to render the templates. Options for the script include:
   
     - `-v`, `--version {chart_version}`: The chart version; for example, `1.0.5`.
     - `-h`, `--help`: Print command help and exit.
@@ -82,7 +79,7 @@ from templates.
   ```
   {: pre}
 
-  The dashboard JSON files are generated under `ibm-watson-compare-comply-prod-1.0.5/charts/ibm-watson-compare-comply-prod/dashboard`.
+The dashboard JSON files are generated under `ibm-watson-compare-comply-prod-1.0.5/charts/ibm-watson-compare-comply-prod/dashboard`.
 
   ```
   $ tree
@@ -99,7 +96,6 @@ from templates.
 
   0 directories, 9 files
   ```
-  {: codeblock}
 
 ## Step 2: Import the templates
 {: #import-tpls}
