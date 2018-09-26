@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-07-25"
 
 ---
 
@@ -18,76 +18,13 @@ lastupdated: "2018-03-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Uso de los registros
-{: #using-logging}
-
-## Instalación y ejecución de los paneles de control de registro
-
-Para instalar el panel de control de registro para {{site.data.keyword.cnc_short}}, efectúe los pasos siguientes.
-
-  1. Descargue el archivo PPA (Passport Advantage) para {{site.data.keyword.cnc_short}}. El archivo es un archivo tar comprimido con un nombre similar a `ibm-watson-compare-comply-prod-1.0.0.tar.gz`. El archivo incluye las plantillas del panel de control de registro y un script `bash` para representar los paneles de control desde las plantillas.
-
-  1. Descomprima y expanda el archivo PPA:
-    ```bash
-    $ mkdir ibm-watson-compare-comply-prod-1.0.0 && tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tar.gz -C ibm-watson-compare-comply-prod-1.0.0
-    ```
-    {: codeblock}
-
-  1. Cambie al directorio `charts` en el directorio extraído:
-    ```bash
-    $ cd ibm-watson-compare-comply-prod-1.0.0/charts
-    ```
-
-  1. Descomprima y expanda el archivo tar comprimido en el directorio `charts`:
-    ```bash
-    $ tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tgz
-    ```
-
-  1. Cambie al directorio `panel de control`. Incluye plantillas para métricas y registro, y un script bash para generar paneles de control
-a partir de plantillas.
-
-    ```bash
-    $ cd ibm-watson-compare-comply-prod/dashboard
-
-    $ tree
-    .
-    ├── alerts.json.tpl
-    ├── external-process-logging.json.tpl
-    ├── frontend-logging.json.tpl
-    ├── metrics.json.tpl
-    └── render-dashboards.sh
-
-    0 directorios, 5 archivos
-    ```
-
-  1. Ejecute el script `render-dashboards.sh` para representar las plantillas. Las opciones para el script incluyen:
-  
-    -  `-v, --version {chart_version}`: La versión del gráfico; por ejemplo, `1.0.0`.
-    -  `-h, --help`: Ayuda y salida del mandato print.
-    -  `-r, --release {release_name}`: El nombre de release de Helm.
-    -  `-n, --namespace {namespace}`: El espacio de nombres del despliegue. El espacio de nombres predeterminado es `default`.
-
-    ```bash
-    $ ./render-dashboards.sh -v 1.0.0 -r my-test-release -n default
-    The dashboard JSON files are generated under /Users/{user}/Downloads/ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard.
-
-    $ tree
-    .
-    ├── alerts.json
-    ├── alerts.json.tpl
-    ├── external-process-logging.json
-    ├── external-process-logging.json.tpl
-    ├── frontend-logging.json
-    ├── frontend-logging.json.tpl
-    ├── metrics.json
-    ├── metrics.json.tpl
-    └── render-dashboards.sh
-
-    0 directorios, 9 archivos
-    ```
+{: #logging}
 
 ## Importación de los paneles de control de registro
 
 Para importar los paneles de control de registro para {{site.data.keyword.cnc_short}} en IBM Cloud Private, efectúe los pasos siguientes.
+
+  1. Asegúrese de que ha extraído y generado los paneles de control de registro como se describe en [Paso 1: Descargar, extraer y representar las plantillas de panel de control](/docs/services/compare-and-comply/monitor.html#monitor).
 
   1. Inicie sesión en el clúster de IBM Cloud Private.
 
@@ -111,6 +48,7 @@ Para importar los paneles de control de registro para {{site.data.keyword.cnc_sh
      ![Separador Paneles de control en las Búsquedas](images/searches-tab.png)
 
 ## Visualización de los paneles de control de registro
+{: #view}
 
 Para ver los paneles de control de registro, efectúe los pasos siguientes.
 

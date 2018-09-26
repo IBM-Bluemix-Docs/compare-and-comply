@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-06-28"
 # Distribuzione del servizio
 {: #install}
 
-Prima di installare il grafico Helm {{site.data.keyword.cnc_long}} come descritto nel relativo file `README.md`, potresti dover eseguire ulteriori passi di distribuzione.
+Prima di installare il grafico Helm {{site.data.keyword.cnc_long}} come descritto nel relativo file `README.md`, potresti dover eseguire ulteriori passi di distribuzione. Devi completare questa procedura solo se stai distribuendo {{site.data.keyword.cnc_long}} versione 1.0.3 o precedente. Questa procedura non si applica se stai distribuendo {{site.data.keyword.cnc_long}} versione 1.0.4 o successiva.
 
 ## Valori di sistema predefiniti
 {: #sys_vals}
@@ -29,7 +29,7 @@ Queste istruzioni utilizzano i seguenti valori di sistema predefiniti. I valori 
 
  - Nome cluster e numero di porta di IBM Cloud Private:
  	`mycluster.icp:8500`
- 	
+
  - Spazio dei nomi di IBM Cloud Private:
  	`default`
 
@@ -43,35 +43,40 @@ Effettua la seguente procedura per completare la distribuzione di {{site.data.ke
 
   1. Concedi l'accesso Docker al registro IBM Cloud Private.
   
-  	Se utilizzi Microsoft Windows, Apple macOS o OS X, completa la seguente procedura:
+    - Se utilizzi Microsoft Windows, Apple macOS o OS X, completa la seguente procedura:
 
- 	 1. Fai clic sull'icona **Docker**.
- 	 1. Apri il menu **Preferences** di Docker.
- 	 1. Fai clic sulla scheda **Daemon**.
- 	 1. Nel campo **Insecure registries**, aggiungi il valore `mycluster.icp:8500` o il valore per la tua installazione di IBM Cloud Private.
- 	 
- 	 ![Configura Docker](images/docker.png)
- 	 
- 	Se utilizzi Linux, completa la seguente procedura:
- 	
- 	1. Individua il file `daemon.json`. Per impostazione predefinita, questo file si trova in `/etc/docker/daemon.json`. Se il file non esiste, crealo nella posizione predefinita. Apri il file in un editor di testo e verifica o aggiungi il seguente JSON.
- 	
- 	  ```json
- 	  {
- 	    "insecure-registries": ["mycluster.icp:8500"]
+      1. Fai clic sull'icona **Docker**.
+      
+      1. Apri il menu **Preferences** di Docker.
+    
+      1. Fai clic sulla scheda **Daemon**.
+    
+      1. Nel campo **Insecure registries**, aggiungi il valore `mycluster.icp:8500` o il valore per la tua installazione di IBM Cloud Private.
+
+      ![Configura Docker](images/docker.png)
+
+    - Se utilizzi Linux, completa la seguente procedura:
+
+      1. Individua il file `daemon.json`. Per impostazione predefinita, questo file si trova in `/etc/docker/daemon.json`. Se il file non esiste, crealo nella posizione predefinita. Apri il file in un editor di testo e verifica o aggiungi il seguente JSON.
+
+      ```
+      {
+         "insecure-registries": ["mycluster.icp:8500"]
  	  }
- 	  ```
- 	  
- 	1. Immetti i seguenti comandi:
- 	  ```bash
- 	  systemctl daemon reload
- 	  ```
- 	  {: pre}
- 	  
- 	  ```bash
- 	  systemctl restart docker
- 	  ``` 
- 	  {: pre}
+      ```
+      {: pre}
+      
+      1. Immetti i seguenti comandi:
+      
+      ```bash
+      systemctl daemon reload
+      ```
+      {: codeblock}
+      
+      ```bash
+      systemctl restart docker
+      ```
+      {: codeblock} 
 
 ### Passo 2: scarica le CLI di IBM Cloud Private e IBM Cloud
 {: #step2}
@@ -81,10 +86,10 @@ Effettua la seguente procedura per completare la distribuzione di {{site.data.ke
   1. Scarica e installa la CLI di IBM Cloud. Per i dettagli, consulta la [documentazione di IBM Cloud ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/download_cli.html#download_install){: new_window}.
   
   1. Scarica e installa il plug-in `bx` della CLI IBM Cloud. Per i dettagli, consulta la [documentazione di IBM Cloud ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/extend_cli.html#plug-ins){: new_window}.
- 	
+
 ### Passo 3: scarica il file di pacchetto
 {: #step3}
- 	
+
 Scarica il file di pacchetto `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` da [Passport Advantage ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www-01.ibm.com/software/passportadvantage/){: new_window} nella tua workstation locale. Questo file contiene l'intera immagine del servizio {{site.data.keyword.cnc_short}}.
   
 #### Modifica il file di pacchetto secondo necessità
@@ -97,97 +102,101 @@ Scarica il file di pacchetto `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` da [Pass
  - Devi seguire la procedura in questo passo solo se il tuo cluster IBM Cloud Private non è connesso all'Internet esterno. Se il tuo cluster IBM Cloud Private dispone dell'accesso di rete al sito [Passport Advantage ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www-01.ibm.com/software/passportadvantage/){: new_window}, puoi installare e distribuire {{site.data.keyword.cnc_short}} versione 1.0.3 senza alcuna modifica al file di pacchetto.
 
 **Nota**: se esegui la procedura in questo passo, potresti riscontrare dei problemi con gli aggiornamenti e i rollback di {{site.data.keyword.cnc_short}} versione 1.0.3. 
- 
+
   1. In una shell `bash` o in un ambiente simile come Cygwin, estrai il file `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz`:
   
- 	```bash
- 	cd {path_to_file}
- 	```
- 	{: pre}
- 	
- 	```bash
- 	tar -xvzf IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz
- 	```
- 	{: pre}
- 	
- 	Il file estratto include una directory denominata `charts` che contiene un file denominato `ibm-watson-compare-comply-prod-1.0.3.tgz`, che è una versione compressa del grafico Helm per {{site.data.keyword.cnc_short}}.
- 	
+  ```bash
+  cd {path_to_file}
+  ```
+  {: codeblock}
+
+  ```bash
+  tar -xvzf IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz
+  ```
+  {: codeblock}
+
+ Il file estratto include una directory denominata `charts` che contiene un file denominato `ibm-watson-compare-comply-prod-1.0.3.tgz`, che è una versione compressa del grafico Helm per {{site.data.keyword.cnc_short}}.
+
   1. Passa alla directory `charts` ed estrai il file `ibm-watson-compare-comply-prod-1.0.3.tgz`:
   
- 	```bash
- 	cd charts
- 	```
- 	{: pre}
- 	
- 	```
- 	tar -xvzf ibm-watson-compare-comply-prod-1.0.3.tgz
- 	```
- 	{: pre}
- 	
- 	Il file estratto include una serie di directory e file, inclusa una directory di livello superiore denominata `ibm-watson-compare-comply-prod` che contiene una directory denominata `templates`.
- 	
+  ```bash
+  cd charts
+  ```
+  {: codeblock}
+ 
+  ```bash
+  tar -xvzf ibm-watson-compare-comply-prod-1.0.3.tgz
+  ```
+  {: codeblock}
+ 
+  Il file estratto include una serie di directory e file, inclusa una directory di livello superiore denominata `ibm-watson-compare-comply-prod` che contiene una directory denominata `templates`.
+
   1. Passa alla directory `ibm-watson-compare-comply-prod/templates`:
   
- 	```bash
- 	cd ibm-watson-compare-comply-prod/templates
- 	```
- 	{: pre}
-
+  ```bash
+  cd ibm-watson-compare-comply-prod/templates
+  ```
+  {: codeblock}
+ 
   1. Individua il file `deployment.yaml` nella directory `ibm-watson-compare-comply-prod/templates` e aprilo in un editor di testo.
  
   1. Modifica il file `deployment.yaml` nel seguente modo:
   
- 	**Originale**
- 	```
- 	- name: {{ .Chart.Name }}
- 		image: "hyc-icpcontent-docker-local.artifactory.swg-devops.com/cncdev/cnc-frontend:v2.3.12"
- 		imagePullPolicy: Always
- 	```
- 	
- 	**Aggiornato**
- 	```
- 	- name: {{ .Chart.Name }}
- 		image: "mycluster.icp:8500/default/cnc-frontend:v2.3.12"
- 		imagePullPolicy: Always
- 	```
- 	Salva e chiudi il file `deployment.yaml`.
- 	
+  **Originale**
+  
+  ```
+    – name: {{ .Chart.Name }}
+        image: "hyc-icpcontent-docker-local.artifactory.swg-devops.com/cncdev/cnc-frontend:v2.3.12"
+        imagePullPolicy: Always
+  ```
+  {: codeblock}
+ 
+  **Aggiornato**
+  
+  ```
+    – name: {{ .Chart.Name }}
+        image: "mycluster.icp:8500/default/cnc-frontend:v2.3.12"
+        imagePullPolicy: Always
+  ```
+  {: pre}
+  
+  Salva e chiudi il file `deployment.yaml`.
+
   1. Ritorna alla directory `charts` e riassembla il file `ibm-watson-compare-comply-prod-1.0.3.tgz`:
   
- 	```bash
- 	cd ../..
- 	```
- 	{: pre}
- 	
- 	```bash
- 	tar -cvzf ibm-watson-compare-comply-prod-1.0.3.tgz ibm-watson-compare-comply-prod
- 	```
- 	{: pre}
- 	
+    ```bash
+    cd ../..
+    ```
+    {: codeblock}
+  
+    ```bash
+    tar -cvzf ibm-watson-compare-comply-prod-1.0.3.tgz ibm-watson-compare-comply-prod
+    ```
+    {: codeblock}
+   
   1. Ritorna alla directory di livello superiore e riassembla il file `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz`:
   
- 	```bash
- 	cd ..
- 	```
- 	{: pre}
- 	
- 	```bash
- 	tar -cvzf IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz charts images manifest.json manifest.yaml
- 	```
- 	{: pre}
- 	
- 	 Per riferimento, la vista ad `albero` dei contenuti del file `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` non compresso è la seguente. I file coinvolti in questa procedura sono richiamati con `<-----` nella colonna a destra.
- 	 
- 	 ```bash
- 	 cd {path_to_archive_file}
- 	 ```
- 	 {: pre}
- 	 
- 	 ```bash
- 	 tree
- 	 
-	 .
-	 ├── IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz          <-----
+    ```bash
+    cd ..
+    ```
+    {: codeblock}
+ 
+   ```bash
+   tar -cvzf IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz charts images manifest.json manifest.yaml
+  ```
+  {: codeblock}
+  
+  Per riferimento, la vista ad `albero` dei contenuti del file `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` non compresso è la seguente. I file coinvolti in questa procedura sono richiamati con `<-----` nella colonna di destra.
+
+  ```bash
+  cd {path_to_archive_file}
+  ```
+  {: codeblock}
+   
+  ```
+  $ tree
+    .
+     ├── IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz          <-----
      ├── charts                                            <-----
      │   ├── ibm-watson-compare-comply-prod
      │   │   ├── Chart.yaml
@@ -228,28 +237,28 @@ Scarica il file di pacchetto `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` da [Pass
      │   └── ccec10461710cd625cbbacc0f5d5d837a0cc5baf132e0fc39ed42d8264d25062.tar.gz
      ├── manifest.json
      └── manifest.yaml 
- 	 ```
- 	 {: pre}
+  ```
+  {: pre}
    
 ### Passo 4: prepara un terminale
 {: #step4}
- 	
+
 Prepara una shell `bash` o un equivalente da utilizzare con la tua installazione di IBM Cloud Private immettendo i seguenti comandi nella shell:
-  
+
   ```bash
   bx pr login -a https://mycluster.icp:8443 --skip-ssl-validation
   ```
-  {: pre}
-  
+  {: codeblock}
+    
   ```bash
   bx pr cluster-config mycluster
   ```
-  {: pre}
+  {: codeblock}
   
   ```bash
   docker login mycluster.icp:8500
   ```
-  {: pre}
+  {: codeblock}
 
   **Nota**: nel primo comando dell'elenco precedente, il numero di porta `8443` nell'URL `https://mycluster.icp:8443` rappresenta il valore predefinito per la comunicazione con il servizio {{site.data.keyword.cnc_short}} su IBM Cloud Private.
 
@@ -261,15 +270,15 @@ Immetti i seguenti comandi per consentire a tutti i componenti richiesti di acce
 ```bash
 kubectl create secret docker-registry $secret_name --docker-server=mycluster.icp:8500 --docker-username=$username --docker-password=$password --docker-email=admin@admin.com --namespace=default
 ```
-{: pre}
+{: codeblock}
 
 ```bash
 kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "$secret_name"}]}' --namespace=default
 ```
-{: pre}
+{: codeblock}
 
 dove:
-  - `$username` e `$password` variano in base al cluster. Rivolgiti al tuo amministratore.
+  - `$username` e `$password` ariano in base al cluster. Rivolgiti al tuo amministratore.
   - `$secret_name` è una stringa che specifichi [per consentire ai contenitori Docker di comunicare in modo sicuro ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://docs.docker.com/engine/swarm/secrets/){: new_window}.
 
 ### Passo 6: carica il file di pacchetto nel registro di immagini interno di IBM Cloud Private
@@ -280,8 +289,7 @@ Nel terminale che hai preparato nel [Passo 4](#step4), immetti il seguente coman
 ```bash
 bx pr load-ppa-archive --archive {path_to}/IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz --clustername mycluster.icp --namespace default 
 ```
-{: pre}
-
+{: codeblock}
 ### Passo 7: completa l'installazione
 
 Ritorna alla pagina **Catalog** nel tuo cluster IBM Cloud Private, individua e seleziona la voce `ibm-watson-compare-comply-prod` e fai clic su **Configure** per procedere con l'installazione.

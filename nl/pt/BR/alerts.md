@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-25"
 
 ---
 
@@ -17,84 +17,26 @@ lastupdated: "2018-06-28"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Usando alertas
-{: #using-alerts}
+# Usando alertas de monitoramento
+{: #alerts}
 
-É possível configurar alertas para seu cluster do {{site.data.keyword.cnc_short}}.
+É possível configurar os alertas do Prometheus para a instância do {{site.data.keyword.cnc_short}} depois de importar
+o painel de alertas, conforme descrito nas seções a seguir.
 
-## Instalando o painel de alertas
+## Importando o painel de alertas e incluindo as regras de alerta
+{: #import}
 
-Para instalar o painel de alertas para o {{site.data.keyword.cnc_short}}, execute as etapas a
-seguir.
+Para importar o painel de alertas e incluir as regras de alerta no painel, execute as etapas a seguir.
 
- 1. Faça download do arquivo do Passport Advantage (PPA) para o {{site.data.keyword.cnc_short}}. O arquivo é um arquivo tar compactado com um nome semelhante a `ibm-watson-compare-comply-prod-1.0.0.tar.gz`. O arquivo inclui o modelo de painel de alertas e um script `bash` para renderizar o
-painel por meio do modelo.
-
- 1. Descompacte e expanda o arquivo PPA:
-  ```bash
-  $ mkdir ibm-watson-compare-comply-prod-1.0.0 &&  tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tar.gz -C ibm-watson-compare-comply-prod-1.0.0
-  ```
-  {: codeblock}
-
- 1. Mude para o diretório `charts` no diretório extraído:
-   ```bash
-   $cd ibm-watson-compare-compley-prod-1.0.0/charts    
-   ```
-
- 1. Descompacte e expanda o arquivo tar compactado no diretório `charts`:
-   ```bash
-   $ tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tgz
-   ```
-
- 1. Mude para o diretório  ` dashboard ` . Inclui modelos para métricas e criação de log e um script de bash para gerar painéis dos modelos.
-
-   ```bash
-   $cd ibm-watson-compare-UNK-prod/dashboard
-
-   $árvore.
-   UNK -- alerts.json.tpl
-   UNK -- external-process-logging.json.tpl
-   UNK -- frontend-logging.json.tpl
-   UNK -- metrics.json.tpl
-   UNK -- render-dashboards.sh
-
-   0 diretórios, 5 arquivos
-   ```
-
-  1. Executar o script `render-dashboards.sh` para renderizar os modelos. As opções
-para o script incluem:
-  
-    -  `-v, --version {chart_version}`: a versão do diagrama, por exemplo, `1.0.0`.
-    -  `-h, --help`: imprimir a ajuda do comando e sair.
-    -  `-r, --release {release_name}`: o nome da liberação do Helm.
-    -  `-n, --namespace {namespace}`: o espaço de nomes da implementação. O namespace padrão é `default`.
-
-   ```bash
-   $./render-dashboards.sh -v 1.0.0 -r my-test-release -n default The dashboard JSON files are generated under /Users/{user}/Downloads/ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard.
-
-   $árvore.
-   UNK -- alerts.json
-   UNK -- alerts.json.tpl
-   ├── external-process-logging.json
-   UNK -- external-process-logging.json.tpl
-   UNK -- frontend-logging.json
-   UNK -- frontend-logging.json.tpl
-   UNK -- metrics.json
-   UNK -- metrics.json.tpl
-   UNK -- render-dashboards.sh
-
-   0 diretórios, 9 arquivos
-   ```
-
-## Incluindo as regras de alerta
-
-Para incluir as regras de alerta no painel, execute as etapas a seguir.
+  1. Assegure-se de que tenha extraído e gerado os painéis de alertas, conforme descrito na
+[Etapa 1: Fazer download, extrair e renderizar os modelos de
+painel](/docs/services/compare-and-comply/monitor.html#monitor).
 
   1. Efetue login em seu cluster do ICP.
 
   1. No ícone Menu no canto superior esquerdo, selecione **Configuração -> ConfigMaps**.
 ![Ícone de Menu do IBM Cloud Private](images/icp-menu.png) <br />
-      ![Menu Configuração -> ConfigMaps](images/configmaps.png)
+      ![Configuration -> ConfigMaps menu](images/configmaps.png)
 
   1. A página **ConfigMaps** é aberta para exibir uma tabela de configmaps. Na tabela, localize a linha rotulada `alert-rules`. Na coluna **Ação** da linha `alert-rules`, clique no ícone de menu e selecione **Editar**. ![Editar alert-rules](images/configmaps-page.png)
 

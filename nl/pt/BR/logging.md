@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-07-25"
 
 ---
 
@@ -18,76 +18,14 @@ lastupdated: "2018-03-23"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Usando a criação de
-{: #using-logging}
-
-## Instalando e executando os painéis de criação de log
-
-Para instalar o painel de criação de log para o {{site.data.keyword.cnc_short}}, execute as
-etapas a seguir.
-
-  1. Faça download do arquivo do Passport Advantage (PPA) para o {{site.data.keyword.cnc_short}}. O arquivo é um arquivo tar compactado com um nome semelhante a `ibm-watson-compare-comply-prod-1.0.0.tar.gz`. O arquivo inclui os modelos de painel de criação de log e um script `bash` para renderizar os
-painéis por meio dos modelos.
-
-  1. Descompacte e expanda o arquivo PPA:
-    ```bash
-    $ mkdir ibm-watson-compare-comply-prod-1.0.0 && tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tar.gz -C ibm-watson-compare-comply-prod-1.0.0
-    ```
-    {: codeblock}
-
-  1. Mude para o diretório `charts` no diretório extraído:
-    ```bash
-    $ cd ibm-watson-compare-comply-prod-1.0.0/charts
-    ```
-
-  1. Descompacte e expanda o arquivo tar compactado no diretório `charts`:
-    ```bash
-    $ tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tgz
-    ```
-
-  1. Mude para o diretório  ` dashboard ` . Inclui modelos para métricas e criação de log e um script de bash para gerar painéis dos modelos.
-
-    ```bash
-    $ cd ibm-watson-compare-comply-prod/dashboard
-
-    $árvore.
-    UNK -- alerts.json.tpl
-    UNK -- external-process-logging.json.tpl
-    UNK -- frontend-logging.json.tpl
-    UNK -- metrics.json.tpl
-    UNK -- render-dashboards.sh
-
-    0 diretórios, 5 arquivos
-    ```
-
-  1. Executar o script `render-dashboards.sh` para renderizar os modelos. As opções para o script incluem:
-  
-    -  `-v, --version {chart_version}`: a versão do diagrama, por exemplo, `1.0.0`.
-    -  `-h, --help`: imprimir a ajuda do comando e sair.
-    -  `-r, --release {release_name}`: o nome da liberação do Helm.
-    -  `-n, --namespace {namespace}`: o espaço de nomes da implementação. O namespace padrão é `default`.
-
-    ```bash
-    $ ./render-dashboards.sh -v 1.0.0 -r my-test-release -n default
-    The dashboard JSON files are generated under /Users/{user}/Downloads/ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard.
-
-    $árvore.
-    UNK -- alerts.json
-    UNK -- alerts.json.tpl
-    ├── external-process-logging.json
-    UNK -- external-process-logging.json.tpl
-    UNK -- frontend-logging.json
-    UNK -- frontend-logging.json.tpl
-    UNK -- metrics.json
-    UNK -- metrics.json.tpl
-    UNK -- render-dashboards.sh
-
-    0 diretórios, 9 arquivos
-    ```
+{: #logging}
 
 ## Importando os painéis de criação de log
 
 Para importar os painéis de criação de log para o {{site.data.keyword.cnc_short}} no IBM
 Cloud Private, execute as etapas a seguir.
+
+  1. Assegure-se de que tenha extraído e gerado os painéis de criação de log, conforme descrito na [Etapa 1: Fazer download, extrair e renderizar os modelos de painel](/docs/services/compare-and-comply/monitor.html#monitor).
 
   1. Efetue login em seu cluster do IBM Cloud Private.
 
@@ -105,14 +43,14 @@ Cloud Private, execute as etapas a seguir.
 ![Guia Importar das procuras](images/searches-import.png)
 
   1. Importe individualmente os arquivos `frontend-logging.json` e
-`external-process-logging.json` que foram gerados na Etapa 6 do procedimento anterior.
-Quando solicitado, clique em **Sim, sobrescrever tudo**.
+`external-process-logging.json` que foram gerados na Etapa 6 do procedimento anterior. Quando solicitado, clique em **Sim, sobrescrever tudo**.
 ![Prompt Sim, sobrescrever tudo](images/overwrite-all.png)
 
   1. Os painéis aparecem na guia **Procuras**.
 ![Guia Painéis nas procuras](images/searches-tab.png)
 
 ## Visualizando os Painéis de criação de log
+{: #view}
 
 Para visualizar os painéis de criação de log, execute as etapas a seguir.
 

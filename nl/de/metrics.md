@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-25"
 
 ---
 
@@ -18,79 +18,15 @@ lastupdated: "2018-06-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Metriken verwenden
-{: #using-metrics}
+{: #metrics}
 
-Mithilfe des Überwachungsdashboards von IBM Cloud Private können Sie den Status von {{site.data.keyword.cnc_short}} überwachen. Das Überwachungsdashboard verwendet Grafana, Prometheus und Kibana, um detaillierte Informationen zu Ihrer Instanz von {{site.data.keyword.cnc_short}} darzustellen.
-
-Weitere Informationen zum Überwachungsdashboard finden Sie im Knowledge Center unter [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html){: new_window}.
-
-## Metrikdashboard installieren und ausführen
-
-Führen Sie zum Installieren des Metrikdashboards für {{site.data.keyword.cnc_short}} die folgenden Schritte aus.
-
- 1. Laden Sie die Passport Advantage-Datei (PPA-Datei) für {{site.data.keyword.cnc_short}} herunter. Diese Datei liegt als komprimierte TAR-Datei vor, deren Benennung dem Muster `ibm-watson-compare-comply-prod-1.0.0.tar.gz` entspricht. Die Datei enthält die Vorlage für das Metrikdashboard sowie ein `Bash`-Script für die Wiedergabe des Dashboards aus der Vorlage.
-
- 1. Dekomprimieren und erweitern Sie die PPA-Datei:
-  ```bash
-  $ mkdir ibm-watson-compare-comply-prod-1.0.0 && tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tar.gz -C ibm-watson-compare-comply-prod-1.0.0
-  ```
-  {: codeblock}
-
- 1. Wechseln Sie im extrahierten Verzeichnis in das Verzeichnis `charts`:
-   ```bash
-   $ cd ibm-watson-compare-comply-prod-1.0.0/charts    
-   ```
-
- 1. Dekomprimieren und erweitern Sie die komprimierte TAR-Datei im Verzeichnis `charts`:
-   ```bash
-   $ tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tgz
-   ```
-
- 1. Wechseln Sie in das Verzeichnis `dashboard`. Dieses Verzeichnis enthält Vorlagen für Metriken und für die Protokollierung sowie ein Bash-Script zum Generieren von Dashboards aus Vorlagen.
-
-   ```bash
-   $ cd ibm-watson-compare-comply-prod/dashboard
-
-   $ tree
-   .
-   ├── alerts.json.tpl
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json.tpl
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 5 files
-   ```
-
-  1. Führen Sie das Script `render-dashboards.sh` aus, damit die Vorlagen wiedergegeben werden. Für das Script gibt es die folgenden Ausführungsoptionen:
-  
-    -  `-v, --version {diagrammversion}`: Gibt die Diagrammversion an, zum Beispiel `1.0.0`.
-    -  `-h, --help`: Gibt Hilfe für Befehle aus und wird dann beendet.
-    -  `-r, --release {releasename}`: Der Name des Helm-Release.
-    -  `-n, --namespace {namensbereich}`: Der Namensbereich der Bereitstellung. Der Standardnamensbereich lautet `default`.
-
-   ```bash
-   $ ./render-dashboards.sh -v 1.0.0 -r my-test-release -n default
-   Die JSON-Dashboarddateien werden unter dem folgenden Verzeichnis generiert: /Users/{benutzer}/Downloads/ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard.
-
-   $ tree
-   .
-   ├── alerts.json
-   ├── alerts.json.tpl
-   ├── external-process-logging.json
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json
-   ├── frontend-logging.json.tpl
-   ├── metrics.json
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 9 files
-   ```
+Mithilfe des Überwachungsdashboards von IBM Cloud Private können Sie den Status von {{site.data.keyword.cnc_short}} überwachen. Das Überwachungsdashboard verwendet Grafana für Metriken, Prometheus für Alerts und Kibana für die Protokollierung, um detaillierte Informationen zu Ihrer Instanz von {{site.data.keyword.cnc_short}} darzustellen.
 
 ## Metrikdashboard importieren
 
 Führen Sie zum Importieren des Metrikdashboards für {{site.data.keyword.cnc_short}} in IBM Cloud Private die folgenden Schritte aus.
+
+  1. Stellen Sie sicher, dass Sie die Metrikdashboards extrahiert und generiert haben, wie im Abschnitt [Schritt 1: Dashboardvorlagen herunterladen, extrahieren und wiedergeben](/docs/services/compare-and-comply/monitor.html#monitor) beschrieben.
 
   1. Melden Sie sich bei Ihrem IBM Cloud Private-Cluster an.
 
@@ -111,6 +47,7 @@ Führen Sie zum Importieren des Metrikdashboards für {{site.data.keyword.cnc_sh
        ![Prometheus auswählen](images/prometheus.png)
 
 ## Metrikdashboard anzeigen
+{: #view}
 
 Das Metrikdashboard ähnelt der folgenden Darstellung:
 ![Metrikdashboard](images/metrics-dboard.png)
@@ -134,9 +71,9 @@ Sie können das Metrikdashboard bearbeiten oder durch Ausführen der folgenden S
 
   1. Verwenden Sie die Registerkarte **Metriken**, um Abfragen zu erstellen, die Daten aus Prometheus darstellen.
 
-        1. Wenn Sie mit der Abfragesprache vertraut sind, können Sie die Abfrage direkt formulieren. Andernfalls verwenden Sie das Feld **Metriksuche**, um eine Auswahl bei den Metriken zu treffen, die gegenwärtig bei Prometheus gemeldet werden.
+    1. Wenn Sie mit der Abfragesprache vertraut sind, können Sie die Abfrage direkt formulieren. Andernfalls verwenden Sie das Feld **Metriksuche**, um eine Auswahl bei den Metriken zu treffen, die gegenwärtig bei Prometheus gemeldet werden.
 
-        1. Die Ergebnisse der Abfragen werden in Echtzeit in der neuen Dashboardanzeige angezeigt.
+    1. Die Ergebnisse der Abfragen werden in Echtzeit in der neuen Dashboardanzeige angezeigt.
 
-        1. Zu einer einzigen Anzeige können mehrere Abfragen hinzugefügt werden. Sie können beispielsweise Lese- und Schreiboperationen in demselben Diagramm oder die Gesamtzahl der Besuche wie auch der Besucher in derselben Tabelle anzeigen lassen.
+    1. Zu einer einzigen Anzeige können mehrere Abfragen hinzugefügt werden. Sie können beispielsweise Lese- und Schreiboperationen in demselben Diagramm oder die Gesamtzahl der Besuche wie auch der Besucher in derselben Tabelle anzeigen lassen.
         

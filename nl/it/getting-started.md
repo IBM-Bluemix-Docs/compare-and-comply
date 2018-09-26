@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-22"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -85,100 +85,100 @@ Ogni oggetto nell'array `elements` descrive un elemento del contratto identifica
   "sentence_text": "If the parties are unable to agree on the License Price within thirty (30) days after Richmond Enterprises provides the written notice of its exercise of the Optional Patent License to Savage Narwhal Studios in Section 2.3(a), such FMV Dispute shall, at either party's request, be resolved solely and exclusively by final, binding and confidential arbitration to be filed and the decision rendered in New York, New York (with hearings at the request of either party to be held in San Francisco, California or other mutually agreeable place convenient for the parties) in accordance with the Commercial Arbitration Rules of the American Arbitration Association (\" AAA \"), including as supplemented by the Procedures for Large, Complex Commercial Disputes.",
   "attributes": [
 	{
-		"type": "Location",
+      "type": "Location",
 		"text": "New York",
 		"attribute": {
-			"begin": 58372,
+        "begin": 58372,
 			"end": 58380
 		}
-	},
-	{
-		"type": "Location",
+    },
+    {
+      "type": "Location",
 		"text": "New York",
 		"attribute": {
-			"begin": 58382,
+        "begin": 58382,
 			"end": 58390
 		}
-	},
-	{
-		"type": "Location",
+    },
+    {
+      "type": "Location",
 		"text": "San Francisco",
 		"attribute": {
-			"begin": 58451,
+        "begin": 58451,
 			"end": 58464
 		}
-	},
-	{
-		"type": "Location",
+    },
+    {
+      "type": "Location",
 		"text": "California",
 		"attribute": {
-			"begin": 58466,
+        "begin": 58466,
 			"end": 58476
 		}
-	}
-],
+    }
+  ],
 "categories": [
 	{
-		"label": "Communication",
+      "label": "Communication",
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": "C7xhbsepUodh09zmJdUXSvYZCdixx00wFyCZuAnTujok="
+          "id": "C7xhbsepUodh09zmJdUXSvYZCdixx00wFyCZuAnTujok="
 			}
-		]
-	},
-	{
-		"label": "Dispute Resolution",
+      ]
+    },
+    {
+      "label": "Dispute Resolution",
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": "Ck8vgUWOj41OutOOLJ38b2Q7jOj3F30ABGaGLKKxppFA="
-			},
-			{
-				"id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA="
+          "id": "Ck8vgUWOj41OutOOLJ38b2Q7jOj3F30ABGaGLKKxppFA="
+        },
+        {
+          "id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA="
 			}
-		]
-	},
-	{
-		"label": "Intellectual Property",
+      ]
+    },
+    {
+      "label": "Intellectual Property",
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": "Cor/mgcf1UE/zmsKm68M6+a9LSRCpcKe8EWCUdwsjrgs="
+          "id": "Cor/mgcf1UE/zmsKm68M6+a9LSRCpcKe8EWCUdwsjrgs="
 			}
-		]
-	}
-],
+      ]
+    }
+  ],
 "types": [
 	{
-		"label": {
-			"nature": "Obligation",
+      "label": {
+        "nature": "Obligation",
 			"party": "All Parties"
-		},
+      },
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": "NNpSqaNkY2zHtxI6Zh78NaZccVNtutrQxISkzdnaVjx0="
-			},
-			{
-				"id": "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
+          "id": "NNpSqaNkY2zHtxI6Zh78NaZccVNtutrQxISkzdnaVjx0="
+        },
+        {
+          "id": "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
 			}
-		]
-	}
-],
+      ]
+    }
+  ],
 "sentence": {
-	"begin": 57998,
+    "begin": 57998,
 	"end": 58952
-	}
+  }
 }
 ```
 
 L'elemento ha cinque sezioni importanti:
- - `sentence_text`: il testo che è stato analizzato.
- - `attributes`: un array che elenca uno o più attributi dell'elemento. Gli oggetti attualmente supportati nell'array `attributes` includono `Location` (posizione geografica o regione a cui fa riferimento l'elemento), `DateTime` (data, ora, intervallo di date o intervallo di ore specificati dall'elemento) e `Currency` (valori monetari e unità). 
- - `categories`: un array che elenca le categorie funzionali in cui rientra la frase identificata; in altre parole, l'oggetto della frase.
- - `types`: un array che descrive cos'è l'elemento e a chi interessa. È costituito da una o più serie di chiavi `nature` (l'effetto della frase sulla `parte` identificata) e chiavi `party` (a chi interessa la frase).
- - `sentence`: un oggetto che descrive dove è stato trovato l'elemento nell'HTML convertito. Contiene un valore di carattere `start` e un valore di carattere `end`.
+  - `sentence_text`: il testo che è stato analizzato.
+  - `attributes`: un array che elenca uno o più attributi dell'elemento. Gli oggetti attualmente supportati nell'array `attributes` includono `Location` (posizione geografica o regione a cui fa riferimento l'elemento), `DateTime` (data, ora, intervallo di date o intervallo di ore specificati dall'elemento) e `Currency` (valori monetari e unità). 
+  - `categories`: un array che elenca le categorie funzionali in cui rientra la frase identificata; in altre parole, l'oggetto della frase.
+  - `types`: un array che descrive cos'è l'elemento e a chi interessa. È costituito da una o più serie di chiavi `nature` (l'effetto della frase sulla `parte` identificata) e chiavi `party` (a chi interessa la frase).
+  - `sentence`: un oggetto che descrive dove è stato trovato l'elemento nell'HTML convertito. Contiene un valore di carattere `start` e un valore di carattere `end`.
 
 **Nota**: alcune frasi non rientrano in alcun tipo o categoria, nel qual caso il servizio restituisce gli array `types` e `categories` come oggetti vuoti.
 
@@ -188,7 +188,7 @@ L'elemento ha cinque sezioni importanti:
 
 In aggiunta, tutte le parti identificate sono definite nell'array `parties`. L'array `parties` si trova dopo l'array `elements` nell'output JSON.
 
-```
+```json
   "parties" : [ {
     "party" : "Customer",
     "role" : "Buyer"
@@ -197,15 +197,15 @@ In aggiunta, tutte le parti identificate sono definite nell'array `parties`. L'a
 
 L'array `parties` include due sezioni importanti:
 
- - `party`: il testo che è stato identificato come parte all'interno del documento.
- - `role`: il ruolo della parte identificata. I ruoli cambiano in base al sottodominio; consulta la [documentazione sul sottodominio specificato per un elenco di possibili ruoli](/docs/services/compare-and-comply/parsing.html#contract_parties). Le parti che non possono essere identificate come aventi un ruolo specifico sono elencate con il valore `unknown`.
+  - `party`: il testo che è stato identificato come parte all'interno del documento.
+  - `role`: il ruolo della parte identificata. I ruoli cambiano in base al sottodominio; consulta la [documentazione sul sottodominio specificato per un elenco di possibili ruoli](/docs/services/compare-and-comply/parsing.html#contract_parties). Le parti che non possono essere identificate come aventi un ruolo specifico sono elencate con il valore `unknown`.
 
 ## Passi successivi
 {: #next_steps}
 
-Hai analizzato correttamente un contratto per identificare la natura, le parti e le categorie delle parti componenti del documento. Puoi utilizzare l'analisi per comprendere e applicare rapidamente il contratto analizzato. I passi successivi consentono di:
+Hai analizzato correttamente un contratto per identificare la natura, le parti e le categorie delle parti componenti del documento. Puoi utilizzare l'analisi per comprendere e applicare rapidamente il contratto analizzato. I passi successivi sono: 
 
- - Comprendere i tipi e le categorie.
- - Esaminare le opzioni di analisi.
+ - [Descrizione dell'analisi del contratto](/docs/services/compare-and-comply/parsing.html#contract_parsing)
+ - [Comprensione dello schema di output](/docs/services/compare-and-comply/schema.html#output_schema) e [analisi della tabella](/docs/services/compare-and-comply/tables.html#understanding_tables).
 
 

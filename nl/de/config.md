@@ -31,7 +31,7 @@ Für beide Skalierungsoptionen muss die Zahl der von {{site.data.keyword.cnc_sho
 
 Für die vertikale Skalierung gibt es die folgenden Optionen:
 
-| Konfiguration                             |Ungefährer Durchsatz*           |
+| Konfiguration                             |Ungefährer Durchsatz*         |
 |:-----------------------------------------:|--------------------------------|
 |`2 Kerne, 10 G, 1 parallel verarbeitetes Dokument (2 VPCs)` |1.500 Seiten pro Stunde (Standard)   |
 |`4 Kerne, 20 G, 1 parallel verarbeitetes Dokument (4 VPCs)` |2.500 Seiten pro Stunde             |
@@ -39,7 +39,7 @@ Für die vertikale Skalierung gibt es die folgenden Optionen:
 
 Für die horizontale Skalierung gibt es die folgenden Optionen:
 
-| Konfiguration                               |Ungefährer Durchsatz*           |
+| Konfiguration                               |Ungefährer Durchsatz*         |
 |:-------------------------------------------:|--------------------------------|
 |`2 Kerne, 10 G, 2 parallel verarbeitete Dokumente (4 VPCs)`  |3.000 Seiten pro Stunde             |
 |`4 Kerne, 20 G, 2 parallel verarbeitete Dokumente (8 VPCs)`  |5.000 Seiten pro Stunde             |

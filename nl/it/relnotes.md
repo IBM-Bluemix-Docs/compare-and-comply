@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -25,10 +25,12 @@ Le note sulla release forniscono informazioni sulle modifiche apportate alla rel
 
 **Importante:** questa serie di documentazioni si applica solo al servizio {{site.data.keyword.cnc_short}} su {{site.data.keyword.BluOpenStackDed}}. Non si applica ad altri servizi Watson disponibili su IBM Cloud pubblico.
 
+**Nota:** per informazioni sulle note della release che riguardano tutti i servizi {{site.data.keyword.BluOpenStackDed}}, consulta [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv ![Icona link esterno](../../icons/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv){: new_window}.
+
 ## Controllo delle versioni dell'API del servizio
 {: #api_versioning}
 
-Le richieste API richiedono un parametro di versione che utilizza una data nel formato `version=YYYY-MM-DD`. Ogni volta che modifichiamo l'API in modo incompatibile con le versioni precedenti, rilasciamo una nuova versione secondaria dell'API. 
+Le richieste API richiedono un parametro di versione che utilizza una data nel formato `version=YYYY-MM-DD`. Ogni volta che modifichiamo l'API in modo incompatibile con le versioni precedenti, rilasciamo una nuova versione secondaria dell'API.
 
 Invia il parametro di versione con ogni richiesta API. Il servizio utilizza la versione API per la data da te specificata o la versione più recente prima di tale data. Non impostare come valore predefinito la data corrente. Specifica invece una data che corrisponde a una versione compatibile con la tua applicazione e non modificarla finché l'applicazione non è pronta per una versione successiva.
 
@@ -40,6 +42,12 @@ La versione corrente è `2018-03-23`.
 Sono disponibili le seguenti nuove funzioni e modifiche per il servizio.
 
 **Importante**: il numero di versione a cui si fa riferimento nelle seguenti sezioni è la versione del grafico Helm {{site.data.keyword.cnc_long}} che hai distribuito sul tuo cluster {{site.data.keyword.BluOpenStackDed}}.
+
+### 1.0.5, 2 agosto 2018
+{: #105}
+
+  - L'aggiunta di una analisi della tabella come descritto in [Comprensione dello schema di output](/docs/services/compare-and-comply/schema.html#output_schema) e [Comprensione dell'analisi della tabella](/docs/services/compare-and-comply/tables.html#understanding_tables).
+
 
 ### 1.0.4, 5 luglio 2018
 {: #ingress}

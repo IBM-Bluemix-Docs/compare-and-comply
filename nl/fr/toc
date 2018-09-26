@@ -5,16 +5,20 @@
 Compare and Comply: Element Classification
 
     {: .navgroup id="learn"}
-    getting-started.md
     index.md
+    getting-started.md
     parsing.md
+    schema.md
+    tables.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
+    deploy.md
     config.md
 
     {: topicgroup}
     Utilisation de la surveillance
+    	monitor.md
     	metrics.md
     	logging.md
     	alerts.md

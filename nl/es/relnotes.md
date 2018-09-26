@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -25,6 +25,8 @@ Las notas del release proporcionan información sobre los cambios en el release 
 
 **Importante:** Este conjunto de documentación se aplica únicamente al servicio de {{site.data.keyword.cnc_short}} en {{site.data.keyword.BluOpenStackDed}}. No se aplica a otros servicios de Watson que estén disponibles en IBM Cloud público.
 
+**Nota:** Para obtener más información sobre la nota que afecta a todos los servicios de {{site.data.keyword.BluOpenStackDed}}, consulte [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv){: new_window}.
+
 ## Versiones de la API del servicio
 {: #api_versioning}
 
@@ -40,6 +42,12 @@ La versión actual es `2018-03-23`.
 Están disponibles las siguientes nuevas características y cambios en el servicio.
 
 **Importante**: El número de versión al que se hace referencia en las secciones siguientes es la versión del diagrama Helm {{site.data.keyword.cnc_long}} que ha desplegado en el clúster de {{site.data.keyword.BluOpenStackDed}}.
+
+### 1.0.5, 2 de agosto de 2018
+{: #105}
+
+  - La adición del análisis de tablas como se describe en [Comprensión del esquema de salida](/docs/services/compare-and-comply/schema.html#output_schema) y [Comprensión del análisis de tablas](/docs/services/compare-and-comply/tables.html#understanding_tables).
+
 
 ### 1.0.4, 5 de julio de 2018
 {: #ingress}

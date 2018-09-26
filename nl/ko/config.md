@@ -31,19 +31,19 @@ lastupdated: "2018-06-28"
 
 수직적 확장 옵션은 다음과 같습니다.
 
-| 구성                                      |대략적 처리량*                  |
+| 구성                             |대략적 처리량*         |
 |:-----------------------------------------:|--------------------------------|
-|`2Cores 10G 1 concurrent document (2 VPC)` |시간당 1500페이지(기본값)       |
-|`4Cores 20G 1 concurrent document (4 VPC)` |시간당 2500페이지              |
-|`8Cores 40G 1 concurrent document (8 VPC)` |시간당 3000페이지              |
+|`2Cores 10G 1 concurrent document (2 VPC)` |시간당 1500페이지(기본값)   |
+|`4Cores 20G 1 concurrent document (4 VPC)` |시간당 2500페이지             |
+|`8Cores 40G 1 concurrent document (8 VPC)` |시간당 3000페이지             |
 
 수평적 확장 옵션은 다음과 같습니다.
 
-| 구성                                        |대략적 처리량*                  |
+| 구성                               |대략적 처리량*         |
 |:-------------------------------------------:|--------------------------------|
-|`2Cores 10G 2 concurrent documents (4 VPC)`  |시간당 3000페이지               |
-|`4Cores 20G 2 concurrent documents (8 VPC)`  |시간당 5000페이지               |
-|`8Cores 40G 2 concurrent documents (16 VPC)` |시간당 6000페이지               |
+|`2Cores 10G 2 concurrent documents (4 VPC)`  |시간당 3000페이지             |
+|`4Cores 20G 2 concurrent documents (8 VPC)`  |시간당 5000페이지             |
+|`8Cores 40G 2 concurrent documents (16 VPC)` |시간당 6000페이지             |
 
 \***참고**: 처리량 추정은 내부 테스트를 기반으로 합니다. 프로덕션 환경의 처리량은 동일한 IBM Cloud Private 클러스터의 다른 워크로드, 클라이언트 애플리케이션과 IBM Cloud Private 클라이언트 간 대기 시간 및 다른 환경 조건이 포함된 여러 요인에 따라 다릅니다.
 

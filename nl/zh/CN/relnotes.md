@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -25,6 +25,8 @@ lastupdated: "2018-07-03"
 
 **重要信息：**此文档集仅适用于 {{site.data.keyword.BluOpenStackDed}} 上的 {{site.data.keyword.cnc_short}} 服务。不适用于公共 IBM Cloud 上可用的其他 Watson 服务。
 
+**注：**有关影响所有 {{site.data.keyword.BluOpenStackDed}} 服务的发行说明信息，请参阅 [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv){: new_window}。
+
 ## 服务 API 版本控制
 {: #api_versioning}
 
@@ -40,6 +42,12 @@ API 请求需要采用 `version=YYYY-MM-DD` 格式的日期的 version 参数。
 为服务提供了以下新功能和更改。
 
 **重要信息**：以下各部分中引用的版本号是您已在 {{site.data.keyword.BluOpenStackDed}} 集群上部署的 {{site.data.keyword.cnc_long}} Helm 图表的版本。
+
+### 1.0.5，2018 年 8 月 2 日
+{: #105}
+
+  - 有关添加表解析的说明，请参阅[了解输出模式](/docs/services/compare-and-comply/schema.html#output_schema)和[了解表解析](/docs/services/compare-and-comply/tables.html#understanding_tables)。
+
 
 ### 1.0.4（2018 年 7 月 5 日）
 {: #ingress}
@@ -71,8 +79,8 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 -   现在，{{site.data.keyword.cnc_short}} 服务与 {{site.data.keyword.BluOpenStackDed}} 的 [Ingress 控制器 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/components.html){: new_window} 相集成。此更改支持在调用 URL 中不指定端口号的情况下调用服务的 API 方法。下面是 **Ingress** 集成之前的典型 API 调用：
 
     ```bash
-    curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:8443/api/v1/parse?version=2018-03-23
-    ```
+curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:8443/api/v1/parse?version=2018-03-23
+```
     {: pre}
 
   在 V1.0.4 或更高版本中，等效调用为：
@@ -85,7 +93,7 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 - 部署 1.0.4 发行版时，可能会看到类似于以下内容的错误：
 
     ```
-    Unexpected response code 500 from request: GET https://icp-management-ingress:8443/helm-api/api/v1/releases/weblib?locale=en-US HTTP/1.1 Accept: application/json Content-Type: application/json Content-Type: application/json Cookie: *** {} HTTP/1.1 500 Server: openresty/1.11.2.4 Date: Thu, 21 Jun 2018 23:09:05 GMT Content-Type: application/json; charset=utf-8 Content-Length: 93 Connection: close X-Powered-By: Express Cache-Control: private, max-age=0, no-cache Etag: W/"5d-6htOwRqeFWIdvat6vK/kTg" {"statusCode":500,"message":"Internal service error : Cannot read property '0' of undefined"}
+Unexpected response code 500 from request: GET https://icp-management-ingress:8443/helm-api/api/v1/releases/weblib?locale=en-US HTTP/1.1 Accept: application/json Content-Type: application/json Content-Type: application/json Cookie: *** {} HTTP/1.1 500 Server: openresty/1.11.2.4 Date: Thu, 21 Jun 2018 23:09:05 GMT Content-Type: application/json; charset=utf-8 Content-Length: 93 Connection: close X-Powered-By: Express Cache-Control: private, max-age=0, no-cache Etag: W/"5d-6htOwRqeFWIdvat6vK/kTg" {"statusCode":500,"message":"Internal service error : Cannot read property '0' of undefined"}
     ```
     {: codeblock}
 

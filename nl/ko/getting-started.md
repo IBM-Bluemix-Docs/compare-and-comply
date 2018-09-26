@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-22"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -85,100 +85,100 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
   "sentence_text": "If the parties are unable to agree on the License Price within thirty (30) days after Richmond Enterprises provides the written notice of its exercise of the Optional Patent License to Savage Narwhal Studios in Section 2.3(a), such FMV Dispute shall, at either party's request, be resolved solely and exclusively by final, binding and confidential arbitration to be filed and the decision rendered in New York, New York (with hearings at the request of either party to be held in San Francisco, California or other mutually agreeable place convenient for the parties) in accordance with the Commercial Arbitration Rules of the American Arbitration Association (\" AAA \"), including as supplemented by the Procedures for Large, Complex Commercial Disputes.",
   "attributes": [
 	{
-		"type": "Location",
+      "type": "Location",
 		"text": "New York",
 		"attribute": {
-			"begin": 58372,
+        "begin": 58372,
 			"end": 58380
 		}
-	},
-	{
-		"type": "Location",
+    },
+    {
+      "type": "Location",
 		"text": "New York",
 		"attribute": {
-			"begin": 58382,
+        "begin": 58382,
 			"end": 58390
 		}
-	},
-	{
-		"type": "Location",
+    },
+    {
+      "type": "Location",
 		"text": "San Francisco",
 		"attribute": {
-			"begin": 58451,
+        "begin": 58451,
 			"end": 58464
 		}
-	},
-	{
-		"type": "Location",
+    },
+    {
+      "type": "Location",
 		"text": "California",
 		"attribute": {
-			"begin": 58466,
+        "begin": 58466,
 			"end": 58476
 		}
-	}
-],
+    }
+  ],
 "categories": [
 	{
-		"label": "Communication",
+      "label": "Communication",
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": "C7xhbsepUodh09zmJdUXSvYZCdixx00wFyCZuAnTujok="
+          "id": "C7xhbsepUodh09zmJdUXSvYZCdixx00wFyCZuAnTujok="
 			}
-		]
-	},
-	{
-		"label": "Dispute Resolution",
+      ]
+    },
+    {
+      "label": "Dispute Resolution",
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": "Ck8vgUWOj41OutOOLJ38b2Q7jOj3F30ABGaGLKKxppFA="
-			},
-			{
-				"id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA="
+          "id": "Ck8vgUWOj41OutOOLJ38b2Q7jOj3F30ABGaGLKKxppFA="
+        },
+        {
+          "id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA="
 			}
-		]
-	},
-	{
-		"label": "Intellectual Property",
+      ]
+    },
+    {
+      "label": "Intellectual Property",
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": "Cor/mgcf1UE/zmsKm68M6+a9LSRCpcKe8EWCUdwsjrgs="
+          "id": "Cor/mgcf1UE/zmsKm68M6+a9LSRCpcKe8EWCUdwsjrgs="
 			}
-		]
-	}
-],
+      ]
+    }
+  ],
 "types": [
 	{
-		"label": {
-			"nature": "Obligation",
+      "label": {
+        "nature": "Obligation",
 			"party": "All Parties"
-		},
+      },
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": "NNpSqaNkY2zHtxI6Zh78NaZccVNtutrQxISkzdnaVjx0="
-			},
-			{
-				"id": "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
+          "id": "NNpSqaNkY2zHtxI6Zh78NaZccVNtutrQxISkzdnaVjx0="
+        },
+        {
+          "id": "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
 			}
-		]
-	}
-],
+      ]
+    }
+  ],
 "sentence": {
-	"begin": 57998,
+    "begin": 57998,
 	"end": 58952
-	}
+  }
 }
 ```
 
 요소에는 다음과 같은 다섯 가지 중요한 섹션이 있습니다.
- - `sentence_text`: 분석된 텍스트.
- - `attributes`: 요소의 속성을 하나 이상 나열하는 배열. `attributes` 배열에 현재 지원되는 오브젝트에는 `Location`(요소에서 참조되는 지리적 위치 또는 지역), `DateTime`(요소에서 지정된 날짜, 시간, 날짜 범위 또는 시간 범위) 및 `Currency`(화폐 가치 및 단위)가 포함됩니다. 
- - `categories`: 식별된 문장이 속하는 기능 카테고리(즉, 문장의 주제)가 나열된 배열.
- - `types`: 요소의 개념 및 이 요소의 영향을 받는 사용자를 설명하는 배열. 이는 하나 이상의 `nature` 키 세트(식별된 `party`에 대한 문자의 영향) 및 `party` 키(문장의 영향을 받는 사용자)로 구성됩니다.
- - `sentence`: 변환된 HTML에서 요소가 있는 위치를 설명하는 오브젝트. 여기에는 `start` 문자 값과 `end` 문자 값이 포함됩니다.
+  - `sentence_text`: 분석된 텍스트.
+  - `attributes`: 요소의 속성을 하나 이상 나열하는 배열. `attributes` 배열에 현재 지원되는 오브젝트에는 `Location`(요소에서 참조되는 지리적 위치 또는 지역), `DateTime`(요소에서 지정된 날짜, 시간, 날짜 범위 또는 시간 범위) 및 `Currency`(화폐 가치 및 단위)가 포함됩니다. 
+  - `categories`: 식별된 문장이 속하는 기능 카테고리(즉, 문장의 주제)가 나열된 배열.
+  - `types`: 요소의 개념 및 이 요소의 영향을 받는 사용자를 설명하는 배열. 이는 하나 이상의 `nature` 키 세트(식별된 `party`에 대한 문자의 영향) 및 `party` 키(문장의 영향을 받는 사용자)로 구성됩니다.
+  - `sentence`: 변환된 HTML에서 요소가 있는 위치를 설명하는 오브젝트. 여기에는 `start` 문자 값과 `end` 문자 값이 포함됩니다.
 
 **참고**: 일부 문장은 어떤 유형이나 카테고리에도 속하지 않으며, 이 경우 서비스는 `types` 및 `categories` 배열을 빈 오브젝트로 리턴합니다.
 
@@ -188,7 +188,7 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 
 또한 식별된 당사자는 `parties` 배열에 정의됩니다. JSON 출력에서 `parties` 배열은 `elements` 배열 뒤에 위치합니다.
 
-```
+```json
   "parties" : [ {
     "party" : "Customer",
     "role" : "Buyer"
@@ -197,15 +197,15 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 
 `parties` 배열에는 다음과 같은 두 가지 중요한 섹션이 있습니다.
 
- - `party`: 문서 내에서 당사자로 식별된 텍스트.
- - `role`: 식별된 당사자의 역할. 하위 도메인에 따라 역할이 변경됩니다. [가능한 역할 목록에 지정된 하위 도메인에 대한 문서](/docs/services/compare-and-comply/parsing.html#contract_parties)를 참조하십시오. 특정 역할을 가진 것으로 식별할 수 없는 당사자는 `unknown` 값으로 나열됩니다.
+  - `party`: 문서 내에서 당사자로 식별된 텍스트.
+  - `role`: 식별된 당사자의 역할. 하위 도메인에 따라 역할이 변경됩니다. [가능한 역할 목록에 지정된 하위 도메인에 대한 문서](/docs/services/compare-and-comply/parsing.html#contract_parties)를 참조하십시오. 특정 역할을 가진 것으로 식별할 수 없는 당사자는 `unknown` 값으로 나열됩니다.
 
 ## 다음 단계
 {: #next_steps}
 
 계약을 구문 분석하여 문서의 컴포넌트 파트에 대한 네이처, 당사자 및 카테고리를 식별했습니다. 분석을 사용하여 구문 분석된 계약을 빠르게 이해하고 적용할 수 있습니다. 다음 단계는 다음과 같습니다.
 
- - 유형 및 카테고리를 이해합니다.
- - 구문 분석 옵션을 검토합니다.
+ - [계약 구문 분석 이해](/docs/services/compare-and-comply/parsing.html#contract_parsing)
+ - [출력 스키마](/docs/services/compare-and-comply/schema.html#output_schema) 및 [테이블 구문 분석 이해](/docs/services/compare-and-comply/tables.html#understanding_tables).
 
 

@@ -53,8 +53,7 @@ altamente aconselhada a cumprir os termos especificados pelo elemento.|
 
 A matriz `parties` especifica os participantes listados no contrato. Cada objeto
 `party` identificado lista a parte identificada por nome e é correspondido com um objeto
-`role` que classifica a função do objeto `party`.
-Os valores de `role` que podem ser retornados para os contratos incluem:
+`role` que classifica a função do objeto `party`. Os valores de `role` que podem ser retornados para os contratos incluem:
 
 | `role`           |Descrição                                                |
 |:----------------:|-----------------------------------------------------------|
@@ -168,7 +167,7 @@ término do atributo no documento). Os atributos atualmente suportados incluem:
 | `attributes`     |Descrição                                                |
 |:----------------:|-----------------------------------------------------------|
 |`Location`        |Uma localização geográfica ou região.                         |
-|`DateTime`        |Uma data, hora, intervalo de data ou intervalo de tempo.      |
+|`DateTime`        |Uma data, hora, intervalo de data ou intervalo de tempo.                   |
 |`Currency`        |Valor monetário e unidades.                                  |
 
 # Garantia
