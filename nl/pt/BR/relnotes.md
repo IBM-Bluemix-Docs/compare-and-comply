@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -27,6 +27,11 @@ As notas sobre a liberação fornecem informações sobre as mudanças na libera
 **Importante:** este conjunto de documentação se aplica somente ao serviço do
 {{site.data.keyword.cnc_short}} no {{site.data.keyword.BluOpenStackDed}}. Isso não é aplicável aos outros serviços Watson que estão disponíveis no IBM Cloud público.
 
+**Nota:** para obter as informações da nota sobre a liberação que afeta todos os serviços do
+{{site.data.keyword.BluOpenStackDed}}, consulte
+[https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv
+![Ícone de link externo](../../icons/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv){: new_window}.
+
 ## Versão da API de Serviço
 {: #api_versioning}
 
@@ -45,6 +50,14 @@ Os novos recursos e mudanças a seguir para o serviço estão disponíveis.
 **Importante**: o número da versão referido nas seções a seguir é a versão do
 gráfico Helm do {{site.data.keyword.cnc_long}} que você implementou em seu cluster do
 {{site.data.keyword.BluOpenStackDed}}.
+
+### 1.0.5, 2 de agosto de 2018
+{: #105}
+
+  - A inclusão da análise sintática da tabela conforme descrito em
+[Entendendo o esquema de saída](/docs/services/compare-and-comply/schema.html#output_schema) e
+[Entendendo a análise sintática da tabela](/docs/services/compare-and-comply/tables.html#understanding_tables).
+
 
 ### 1.0.4, 5 de julho de 2018
 {: #ingress}
@@ -118,8 +131,7 @@ integração do **ingresso**:
 
 ### 1.0.3, 25 de maio de 2018
 
-- A saída do método `parse` agora inclui a matriz `attributes`.
-Consulte [Revisar a
+- A saída do método `parse` agora inclui a matriz `attributes`. Consulte [Revisar a
 análise](/docs/services/compare-and-comply/getting-started.html#review_analysis) e [Atributos](/docs/services/compare-and-comply/parsing.html#attributes)
 para obter informações. É possível usar as informações na matriz `attributes` para procurar
 por elementos de documento que se referem a locais, horários, datas, intervalo de horário ou

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-25"
 
 ---
 
@@ -17,78 +17,17 @@ lastupdated: "2018-06-28"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# 경보 사용
-{: #using-alerts}
+# 모니터링 경보 사용
+{: #alerts}
 
-{{site.data.keyword.cnc_short}} 클러스터의 경보를 설정할 수 있습니다.
+다음 절에서 설명하는 대로 경보 대시보드를 가져온 후에 {{site.data.keyword.cnc_short}} 인스턴스에 대한 Prometheus 경보를 설정할 수 있습니다. 
 
-## 경보 대시보드 설치
+## 경보 대시보드 가져오기 및 경보 규칙 추가
+{: #import}
 
-{{site.data.keyword.cnc_short}}의 경보 대시보드를 설치하려면 다음 단계를 수행하십시오.
+경보 대시보드를 가져오고 대시보드에 경보 규칙을 추가하려면 다음 단계를 수행하십시오. 
 
- 1. {{site.data.keyword.cnc_short}}의 PPA(Passport Advantage) 파일을 다운로드하십시오. 파일은 이름이 `ibm-watson-compare-comply-prod-1.0.0.tar.gz`와 유사한 압축된 tar 파일입니다. 파일에는 템플리트에서 대시보드를 렌더링하기 위한 `bash` 스크립트 및 경보 대시보드 템플리트가 포함됩니다.
-
- 1. PPA 파일의 압축을 풀고 이를 펼치십시오.
-  ```bash
-  $ mkdir ibm-watson-compare-comply-prod-1.0.0 && tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tar.gz -C ibm-watson-compare-comply-prod-1.0.0
-  ```
-  {: codeblock}
-
- 1. 압축을 푼 디렉토리에서 `charts` 디렉토리로 변경하십시오.
-   ```bash
-   $ cd ibm-watson-compare-comply-prod-1.0.0/charts    
-   ```
-
- 1. 압축된 tar 파일의 압축을 풀고 이를 `charts` 디렉토리에 펼치십시오.
-   ```bash
-   $ tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tgz
-   ```
-
- 1. `dashboard` 디렉토리로 변경하십시오. 이 파일에는 메트릭 및 로깅을 위한 템플리트와 템플리트에서 대시보드를 생성하기 위한 bash 스크립트가 포함됩니다.
-
-   ```bash
-   $ cd ibm-watson-compare-comply-prod/dashboard
-
-   $ tree
-   .
-   ├── alerts.json.tpl
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json.tpl
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 5 files
-   ```
-
-  1. `render-dashboards.sh` 스크립트를 실행하여 템플리트를 렌더링하십시오. 스크립트에 대한 옵션은 다음과 같습니다.
-  
-    -  `-v, --version {chart_version}`: 차트 버전입니다(예: `1.0.0`).
-    -  `-h, --help`: 명령 도움말을 인쇄하고 종료합니다.
-    -  `-r, --release {release_name}`: Helm 릴리스 이름입니다.
-    -  `-n, --namespace {namespace}`: 배치의 네임스페이스입니다. 기본 네임스페이스는 `default`입니다.
-
-   ```bash
-   $ ./render-dashboards.sh -v 1.0.0 -r my-test-release -n default
-   The dashboard JSON files are generated under /Users/{user}/Downloads/ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard.
-
-   $ tree
-   .
-   ├── alerts.json
-   ├── alerts.json.tpl
-   ├── external-process-logging.json
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json
-   ├── frontend-logging.json.tpl
-   ├── metrics.json
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 9 files
-   ```
-
-## 경보 규칙 추가
-
-대시보드에 경보 규칙을 추가하려면 다음 단계를 수행하십시오.
+  1. [1단계: 대시보드 템플리트의 다운로드, 추출 및 렌더링](/docs/services/compare-and-comply/monitor.html#monitor)에서 설명한 대로 경보 대시보드를 추출하고 생성했는지 확인하십시오.   
 
   1. ICP 클러스터에 로그인하십시오.
 
@@ -101,7 +40,7 @@ lastupdated: "2018-06-28"
 
   1. 텍스트 편집기에서 `.../ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard/alerts.json` 파일을 열고 `cnc.rules`로 시작되는 행을 복사하십시오.
 
-  1. **ConfigMap 편집** 창이 열립니다. `data` 오브젝트에서 오브젝트의 마지막 행의 끝에 쉼표를 추가한 다음 이전 단계에서 복사한 `cnc.rules` 행에 붙여넣으십시오.<br />
+  1. **ConfigMap 편집** 창이 열립니다. `data` 오브젝트에서 오브젝트의 마지막 행의 끝에 쉼표를 추가한 다음 이전 단계에서 복사한 `cnc.rules` 행에 붙여넣으십시오. <br />
      ![ConfigMap 편집](images/edit-configmap.png)
 
   1. **ConfigMap 편집** 창에서 **제출**을 클릭하십시오.
@@ -112,7 +51,7 @@ lastupdated: "2018-06-28"
 
   1. IBM Cloud Private 클러스터의 Prometheus 대시보드로 이동하십시오. Prometheus 대시보드는 `https://{ICP_cluster_IP_address}:{ICP_cluster_port}/prometheus`에 있습니다.
 
-  1. **경보** 탭을 클릭하십시오. Prometheus 대시보드에 모든 경보 규칙 목록 및 각각에 대한 활성 경보 수가 표시됩니다.<br />
+  1. **경보** 탭을 클릭하십시오. Prometheus 대시보드에 모든 경보 규칙 목록 및 각각에 대한 활성 경보 수가 표시됩니다. <br />
     ![Prometheus 경보](images/prometheus-dboard.png)
 
 ## 경보 알림 추가
@@ -127,7 +66,7 @@ IBM Cloud Private의 {{site.data.keyword.cnc_short}}에 대한 알림 수신기�
 
   1. ICP 클러스터에 로그인하십시오.
 
-  1. 왼쪽 상단 모서리에 있는 메뉴 아이콘에서 **구성 -> ConfigMaps**를 선택하십시오.<br />
+  1. 왼쪽 상단 모서리에 있는 메뉴 아이콘에서 **구성 -> ConfigMaps**를 선택하십시오. <br />
       ![IBM Cloud Private 메뉴 아이콘](images/icp-menu.png) <br />
       ![구성 -> ConfigMaps 메뉴](images/configmaps.png)
 

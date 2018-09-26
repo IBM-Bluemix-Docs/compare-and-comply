@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-25"
 
 ---
 
@@ -18,80 +18,15 @@ lastupdated: "2018-06-28"
 {:swift: .ph data-hd-programlang='swift'}
 
 # Utilización de métricas
-{: #using-metrics}
+{: #metrics}
 
-Puede supervisar el estado de {{site.data.keyword.cnc_short}} utilizando el panel de control de supervisión de IBM Cloud Private. El panel de control de supervisión utiliza Grafana, Prometheus y Kibana para presentar información detallada sobre la instancia de {{site.data.keyword.cnc_short}}.
-
-Para obtener más información sobre el panel de control de supervisión, consulte [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html){: new_window}.
-
-## Instalación y ejecución del panel de control de métricas
-
-Para instalar el panel de control de métricas para {{site.data.keyword.cnc_short}}, efectúe los pasos siguientes.
-
- 1. Descargue el archivo PPA (Passport Advantage) para {{site.data.keyword.cnc_short}}. El archivo es un archivo tar comprimido con un nombre similar a `ibm-watson-compare-comply-prod-1.0.0.tar.gz`. El archivo incluye la plantilla del panel de control de métricas y un script `bash` para representar el panel de control desde la plantilla.
-
- 1. Descomprima y expanda el archivo PPA:
-  ```bash
-  $ mkdir ibm-watson-compare-comply-prod-1.0.0 && tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tar.gz -C ibm-watson-compare-comply-prod-1.0.0
-  ```
-  {: codeblock}
-
- 1. Cambie al directorio `charts` en el directorio extraído:
-   ```bash
-   $ cd ibm-watson-compare-comply-prod-1.0.0/charts    
-   ```
-
- 1. Descomprima y expanda el archivo tar comprimido en el directorio `charts`:
-   ```bash
-   $ tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tgz
-   ```
-
- 1. Cambie al directorio `panel de control`. Incluye plantillas para métricas y registro, y un script bash para generar paneles de control
-a partir de plantillas.
-
-   ```bash
-   $ cd ibm-watson-compare-comply-prod/dashboard
-
-   $ tree
-   .
-   ├── alerts.json.tpl
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json.tpl
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directorios, 5 archivos
-   ```
-
-  1. Ejecute el script `render-dashboards.sh` para representar las plantillas. Las opciones para el script incluyen:
-  
-    -  `-v, --version {chart_version}`: La versión del gráfico; por ejemplo, `1.0.0`.
-    -  `-h, --help`: Ayuda y salida del mandato print.
-    -  `-r, --release {release_name}`: El nombre de release de Helm.
-    -  `-n, --namespace {namespace}`: El espacio de nombres del despliegue. El espacio de nombres predeterminado es `default`.
-
-   ```bash
-   $ ./render-dashboards.sh -v 1.0.0 -r my-test-release -n default
-   The dashboard JSON files are generated under /Users/{user}/Downloads/ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard.
-
-   $ tree
-   .
-   ├── alerts.json
-   ├── alerts.json.tpl
-   ├── external-process-logging.json
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json
-   ├── frontend-logging.json.tpl
-   ├── metrics.json
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directorios, 9 archivos
-   ```
+Puede supervisar el estado de {{site.data.keyword.cnc_short}} utilizando el panel de control de supervisión de IBM Cloud Private. El panel de control de supervisión utiliza Grafana para métricas, Prometheus para alertas y Kibana para registros para presentar información detallada sobre la instancia de {{site.data.keyword.cnc_short}}.
 
 ## Importación del panel de control de métricas
 
 Para importar el panel de control de métricas para {{site.data.keyword.cnc_short}} en IBM Cloud Private, efectúe los pasos siguientes.
+
+  1. Asegúrese de que ha extraído y generado los paneles de control de métricas como se describe en [Paso 1: Descargar, extraer y representar las plantillas de panel de control](/docs/services/compare-and-comply/monitor.html#monitor).
 
   1. Inicie sesión en el clúster de IBM Cloud Private.
 
@@ -112,6 +47,7 @@ Para importar el panel de control de métricas para {{site.data.keyword.cnc_shor
        ![Seleccionar Prometheus](images/prometheus.png)
 
 ## Visualización del panel de control de métricas
+{: #view}
 
 El panel de control de métricas se parece a lo siguiente:
 ![El panel de control de métricas](images/metrics-dboard.png)
@@ -135,9 +71,9 @@ Puede editar el panel de control de métricas o crear un panel de control nuevo 
 
   1. Utilice el separador **Métricas** para crear consultas que muestren datos de Prometheus.
 
-        1. Puede escribir la consulta directamente si está familiarizado con el lenguaje de consulta, o puede utilizar el campo **Búsqueda de métrica** para elegir entre las métricas que se están notificando actualmente a Prometheus.
+    1. Puede escribir la consulta directamente si está familiarizado con el lenguaje de consulta, o puede utilizar el campo **Búsqueda de métrica** para elegir entre las métricas que se están notificando actualmente a Prometheus.
 
-        1. Los resultados de las consultas se muestran en tiempo real en el panel de control nuevo.
+    1. Los resultados de las consultas se muestran en tiempo real en el panel de control nuevo.
 
-        1. Se pueden añadir varias consultas a un único panel. Por ejemplo, puede visualizar operaciones de lectura y de escritura en el mismo gráfico, o las visitas y los visitantes totales en la misma tabla.
+    1. Se pueden añadir varias consultas a un único panel. Por ejemplo, puede visualizar operaciones de lectura y de escritura en el mismo gráfico, o las visitas y los visitantes totales en la misma tabla.
         

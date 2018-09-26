@@ -39,7 +39,7 @@ Le opzioni di ridimensionamento verticale includono quanto segue:
 
 Le opzioni di ridimensionamento orizzontale includono quanto segue:
 
-| Configurazione                             |Velocità approssimativa*         |
+| Configurazione                               |Velocità approssimativa*         |
 |:-------------------------------------------:|--------------------------------|
 |`2Cores 10G 2 concurrent documents (4 VPC)`  |3000 pagine all'ora             |
 |`4Cores 20G 2 concurrent documents (8 VPC)`  |5000 pagine all'ora             |

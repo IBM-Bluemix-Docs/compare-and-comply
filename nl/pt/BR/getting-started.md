@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-22"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -103,92 +103,92 @@ Cada objeto na matriz de `elements` descreve um elemento do contrato que o
 ```
 {
   "sentence_text": "If the parties are unable to agree on the License Price within thirty (30) days after Richmond Enterprises provides the written notice of its exercise of the Optional Patent License to Savage Narwhal Studios in Section 2.3(a), such FMV Dispute shall, at either party's request, be resolved solely and exclusively by final, binding and confidential arbitration to be filed and the decision rendered in New York, New York (with hearings at the request of either party to be held in San Francisco, California or other mutually agreeable place convenient for the parties) in accordance with the Commercial Arbitration Rules of the American Arbitration Association (\" AAA \"), including as supplemented by the Procedures for Large, Complex Commercial Disputes.", "attributes": [ {
-		"type": "Location", 		"text": "New York", 		"attribute": {
-			"begin": 58372,
+      "type": "Location", 		"text": "New York", 		"attribute": {
+        "begin": 58372,
 			"end": 58380
 		}
-	},
-	{
-		"type": "Location", 		"text": "New York", 		"attribute": {
-			"begin": 58382,
+    },
+    {
+      "type": "Location", 		"text": "New York", 		"attribute": {
+        "begin": 58382,
 			"end": 58390
 		}
-	},
-	{
-		"type": "Location",
+    },
+    {
+      "type": "Location",
 		"text": "San Francisco",
 		"attribute": {
-			"begin": 58451,
+        "begin": 58451,
 			"end": 58464
 		}
-	},
-	{
-		"type": "Location",
+    },
+    {
+      "type": "Location",
 		"text": "California",
 		"attribute": {
-			"begin": 58466,
+        "begin": 58466,
 			"end": 58476
 		}
-	}
-], "categorias": [ {
-		"label": "Communication",
+    }
+  ], "categorias": [ {
+      "label": "Communication",
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": " C7xhbsepUodh0 9zmJdUXSvYZCdixx00wFyCZuAnTujok=" }
-		]
-	},
-	{
-		"label": "Dispute Resolution",
+          "id": " C7xhbsepUodh0 9zmJdUXSvYZCdixx00wFyCZuAnTujok=" }
+      ]
+    },
+    {
+      "label": "Dispute Resolution",
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": "Ck8vgUWOj41OutOOLJ38b2Q7jOj3F30ABGaGLKKxppFA="
-			},
-			{
-				"id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA=" }
-		]
-	},
-	{
-		"label": "Intellectual Property",
+          "id": "Ck8vgUWOj41OutOOLJ38b2Q7jOj3F30ABGaGLKKxppFA="
+        },
+        {
+          "id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA=" }
+      ]
+    },
+    {
+      "label": "Intellectual Property",
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": " Cor/mgcf1UE/zmsKm68M6 + a9LSRCpcKe8EWCUdwsjrgs=" }
-		]
-	}
-], "types": [ {
-		"label": {
-			"nature": "Obligation",
+          "id": " Cor/mgcf1UE/zmsKm68M6 + a9LSRCpcKe8EWCUdwsjrgs=" }
+      ]
+    }
+  ], "types": [ {
+      "label": {
+        "nature": "Obligation",
 			"party": "All Parties"
-		},
+      },
 		"assurance": "High",
 		"provenance": [
 			{
-				"id": "NNpSqaNkY2zHtxI6Zh78NaZccVNtutrQxISkzdnaVjx0 ="
-			},
-			{
-				"id": " PlyERkjg5is36RpFjFFjVUFXp69eDmGmCxLCXRs1sDMDUCo=" }
-		]
-	}
-], "sentença": {
-	"begin": 57998, "end": 58952
-	}
+          "id": "NNpSqaNkY2zHtxI6Zh78NaZccVNtutrQxISkzdnaVjx0 ="
+        },
+        {
+          "id": " PlyERkjg5is36RpFjFFjVUFXp69eDmGmCxLCXRs1sDMDUCo=" }
+      ]
+    }
+  ], "sentença": {
+    "begin": 57998, "end": 58952
+  }
 }
 ```
 
 O elemento possui cinco seções importantes:
- - `sentence_text`: o texto que foi analisado.
- - `attributes`: uma matriz que lista um ou mais atributos do elemento. Atualmente, os
+  - `sentence_text`: o texto que foi analisado.
+  - `attributes`: uma matriz que lista um ou mais atributos do elemento. Atualmente, os
 objetos suportados na matriz `attributes` incluem `Location` (local ou
 região geográfica referenciada pelo elemento), `DateTime` (data, hora, intervalo de data ou
 intervalo de tempo especificado pelo elemento) e `Currency` (valores e unidades monetários). 
- - `categories`: uma matriz que lista as categorias funcionais nas quais a sentença
+  - `categories`: uma matriz que lista as categorias funcionais nas quais a sentença
 identificada se enquadra; em outras palavras, o assunto da sentença.
- - `types`: uma matriz que descreve qual é o elemento e quem ele afeta. Ela consiste
+  - `types`: uma matriz que descreve qual é o elemento e quem ele afeta. Ela consiste
 em um ou mais conjuntos de chaves `nature` (o efeito da sentença na `party`
 identificada) e de chaves `party` (quem a sentença afeta).
- - `sentence`: um objeto que descreve onde o elemento foi localizado no HTML
+  - `sentence`: um objeto que descreve onde o elemento foi localizado no HTML
 convertido. Ele contém um valor de caractere `start` e um valor de caractere
 `end`.
 
@@ -201,10 +201,9 @@ múltiplos conjuntos de objetos `types` e `categories`.
 **Nota**: algumas sentenças não contêm nenhum atributo identificável, caso em que o
 serviço retorna a matriz `attributes` como objetos vazios.
 
-Além disso, quaisquer partes identificadas são definidas na matriz `parties`.
-A matriz `parties` está localizada após a matriz `elements` na saída do JSON.
+Além disso, quaisquer partes identificadas são definidas na matriz `parties`. A matriz `parties` está localizada após a matriz `elements` na saída do JSON.
 
-```
+```json
   "parties" : [ {
     "party" : "Customer",
     "role" : "Buyer"
@@ -213,8 +212,8 @@ A matriz `parties` está localizada após a matriz `elements` na saída do JSON.
 
 A matriz `parties` inclui duas seções importantes:
 
- - `party`: o texto que foi identificado como uma parte no documento.
- - `role`: a função da parte identificada. As funções mudam com base no subdomínio;
+  - `party`: o texto que foi identificado como uma parte no documento.
+  - `role`: a função da parte identificada. As funções mudam com base no subdomínio;
 consulte [a documentação sobre o
 subdomínio especificado para obter uma lista de possíveis funções](/docs/services/compare-and-comply/parsing.html#contract_parties). As partes que não podem ser
 identificadas como tendo uma função específica são listadas com o valor `unknown`.
@@ -224,10 +223,9 @@ identificadas como tendo uma função específica são listadas com o valor `unk
 
 Você analisou com sucesso um contrato para identificar a natureza, as partes e as categorias das partes
 do componente do documento. É possível usar a análise para entender e cumprir rapidamente o contrato
-analisado.
-As próximas etapas são:
+analisado. As próximas etapas são:
 
- - Understand types and categories.
- - Revise as opções de análise.
+ - [Entendo a análise sintática do contrato](/docs/services/compare-and-comply/parsing.html#contract_parsing)
+ - [Entendendo o esquema de saída](/docs/services/compare-and-comply/schema.html#output_schema) e a [análise sintática da tabela](/docs/services/compare-and-comply/tables.html#understanding_tables).
 
 

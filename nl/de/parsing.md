@@ -31,7 +31,7 @@ Das Array `types` umfasst eine Reihe von Objekten, von denen jedes Schlüssel vo
 
 Der Wert für `nature` listet die Arten von Maßnahmen auf, die der Satz erfordert.
 
-| `nature`         |Beschreibung                                               |
+| `nature`         |Beschreibung                                                |
 |:----------------:|-----------------------------------------------------------|
 |`Definition`      |Dieses Element sorgt bei einem Begriff, einer Beziehung oder Ähnlichem für mehr Klarheit. Es sind keine Maßnahmen erforderlich, um das Element zu erfüllen, und es ist auch keine der Parteien betroffen.|
 |`Disclaimer`      |Die im Element mit `party` genannte Partei ist nicht verpflichtet, die durch das Element angegebenen Bedingungen zu erfüllen, doch ist es ihr auch nicht untersagt.|
@@ -45,7 +45,7 @@ Der Wert für `nature` listet die Arten von Maßnahmen auf, die der Satz erforde
 
 Das Array `parties` gibt die im Vertrag aufgeführten Teilnehmer an. Jedes erkannte Objekt vom Typ `party` listet die erkannte Partei namentlich auf und wird mit einem Objekt vom Typ `role` abgeglichen, das die Rolle des Objekts `party` klassifiziert. Bei Verträgen können für Objekte vom Typ `role` die folgenden Werte zurückgegeben werden:
 
-| `role`           |Beschreibung                                               |
+| `role`           |Beschreibung                                                |
 |:----------------:|-----------------------------------------------------------|
 |`Buyer`           |Die Partei, die für die Bezahlung der im Vertrag aufgeführten Waren oder Services verantwortlich ist.|
 |`End User`        |Die Partei, die mit den gelieferten Waren oder Services interagieren wird und sich explizit von der Rolle `Buyer` unterscheidet.|
@@ -57,7 +57,7 @@ Das Array `parties` gibt die im Vertrag aufgeführten Teilnehmer an. Jedes erkan
 
 Das Array `categories` definiert das Thema bzw. den Gegenstand des Satzes. Gegenwärtig werden die folgenden Kategorien unterstützt:
 
-| `categories`     |Beschreibung                                               |
+| `categories`     |Beschreibung                                                |
 |:----------------:|-----------------------------------------------------------|
 |`Amendments`      |Elemente, die Änderungen am Vertrag nach seiner Unterzeichnung oder Änderungen an einem Standardvertrag angeben. Elemente, die sich auf Änderungen eines Vertrags und Änderungen von Vereinbarungen beziehen, gehören ebenfalls zu dieser Kategorie.|
 |`Asset Use`       |Elemente, die sich auf Situationen beziehen, in denen eine Partei bei der Erfüllung ihrer Pflichten im Rahmen der Vereinbarung die Assets (Lizenzen oder Geräte) der anderen Partei einschließlich diesbezüglicher Genehmigungen und Einschränkungen verwenden muss.|
@@ -76,7 +76,7 @@ Das Array `categories` definiert das Thema bzw. den Gegenstand des Satzes. Gegen
 |`Liability`       |Elemente, die beschreiben, mit welcher Methode festgestellt wird, wann und wie eine Partei ein Verschulden trifft.|
 |`Payment Terms & Billing`|Eine breit gefasste Kategorie, die Elemente enthält, die beschreiben, wie eine Partei Zahlungen leistet oder erhält, einschließlich Folgendem: Elemente, die sich auf die endgültige Zahlungsart im Rahmen des Vertrags beziehen oder darauf, wie eine Partei zahlt, Elemente, die im Detail angeben, wann und wie die Partei Zahlungen zu erhalten hat oder welche Arten von Gegenständen die Parteien bezahlen oder in Rechnung stellen werden, Elemente, die sich auf jegliche Art der Zahlung von Gebühren beziehen, doch mit Ausnahme solcher, die sich auf spezifische Preise oder Zahlen beziehen, und Elemente, die sich auf die Partei beziehen, die die Zahlungen gemäß dem Vertrag erhält.|
 |`Pricing & Taxes` |Diese Kategorie enthält Elemente, die beschreiben, welche Bezahlung eine Partei erhält oder zu leisten hat. Die Kategorie umfasst Elemente, die sich auf Steuern und spezifische Beträge beziehen, die mit einzelnen erbrachten Liefergegenständen verbunden sind, die ausgetauscht werden, und schließt Detailangaben zu den Kosten eines bestimmten Elements sowie Elemente ein, die spezifische Zahlen oder Methoden zur Berechnung von Preisen beschreiben.|
-|`Privacy`         |Elemente, die die Behandlung von personenbezogenen Informationen angeben, d. h. von vertraulichen Daten zu einer oder mehreren Einzelpersonen, die geschützt werden müssen. Diese Kategorie ist eine sehr spezifische Untergruppe der breiter gefassten Kategorie `Confidentiality`.|
+|`Privacy`         | Elemente, die die Behandlung von personenbezogenen Informationen angeben, d. h. von vertraulichen Daten zu einer oder mehreren Einzelpersonen, die geschützt werden müssen. Diese Kategorie ist eine sehr spezifische Untergruppe der breiter gefassten Kategorie `Confidentiality`.|
 |`Responsibilities`|Die Vertragsvereinbarung ergänzende Tasks, über die nur eine der Parteien die Aufsicht und die Kontrolle hat. Welche Arten von Elementen diese Kategorie umfasst, hängt jeweils von der Art des Vertrags ab.|
 |`Safety and Security`|Elemente, die sich auf physische Sicherheitsmaßnahmen oder auf Schutzeinrichtungen zur Wahrung der Cybersicherheit von Daten und Systemen beziehen, sowie Elemente, die sich auf die Verbesserung der Sicherheit am Arbeitsplatz oder an den Arbeitsplätzen beziehen.|
 |`Scope of Work`   |Diese Kategorie definiert, was im Vertrag steht und was nicht im Vertrag behandelt wird. Normalerweise gehören Elemente, die den Parteien mitteilen, wie ein bestimmter Auftrag definiert werden soll, in diese Kategorie. Beispiele hierfür umfassen Erörterungen von Leistungsbeschreibungen oder Beschreibungen der anzuwendenden Kommunikationsstandards.|
@@ -89,11 +89,11 @@ Das Array `categories` definiert das Thema bzw. den Gegenstand des Satzes. Gegen
 
 Das Array `attributes` gibt alle im Satz erkannten Attribute an. Jedes Objekt im Array enthält drei Schlüssel: `type` (der Typ des Attributs aus der folgenden Tabelle), `text` (der zutreffende Text) und `attribute` (Anfangs- und Endpunkt des Attributs im Dokument). Gegenwärtig werden die folgenden Attribute unterstützt:
 
-| `attributes`     |Beschreibung                                               |
+| `attributes`     |Beschreibung                                                |
 |:----------------:|-----------------------------------------------------------|
-|`Location`        |Ein Standort oder eine Region.                             |
-|`DateTime`        |Ein Datum, eine Zeit, ein Datumsbereich oder ein Zeitraum. |
-|`Currency`        |Geldwert und Einheiten.                                    |
+|`Location`        |Ein Standort oder eine Region.                         |
+|`DateTime`        |Ein Datum, eine Zeit, ein Datumsbereich oder ein Zeitraum.                   |
+|`Currency`        |Geldwert und Einheiten.                                  |
 
 # Assurance
 {: #assurance}

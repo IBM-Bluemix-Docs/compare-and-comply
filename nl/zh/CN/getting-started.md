@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-22"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -93,31 +93,31 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 			"end": 58380
 		}
 	},
-	{
-		"type": "Location",
+    {
+      "type": "Location",
 		"text": "New York",
 		"attribute": {
 			"begin": 58382,
 			"end": 58390
 		}
 	},
-	{
-		"type": "Location",
+    {
+      "type": "Location",
 		"text": "San Francisco",
 		"attribute": {
 			"begin": 58451,
 			"end": 58464
 		}
 	},
-	{
-		"type": "Location",
+    {
+      "type": "Location",
 		"text": "California",
 		"attribute": {
 			"begin": 58466,
 			"end": 58476
 		}
 	}
-],
+  ],
 "categories": [
 	{
 		"label": "Communication",
@@ -127,29 +127,29 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 				"id": "C7xhbsepUodh09zmJdUXSvYZCdixx00wFyCZuAnTujok="
 			}
 		]
-	},
-	{
-		"label": "Dispute Resolution",
+    },
+    {
+      "label": "Dispute Resolution",
 		"assurance": "High",
 		"provenance": [
 			{
 				"id": "Ck8vgUWOj41OutOOLJ38b2Q7jOj3F30ABGaGLKKxppFA="
 			},
-			{
-				"id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA="
+        {
+          "id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA="
 			}
 		]
-	},
-	{
-		"label": "Intellectual Property",
+    },
+    {
+      "label": "Intellectual Property",
 		"assurance": "High",
 		"provenance": [
 			{
 				"id": "Cor/mgcf1UE/zmsKm68M6+a9LSRCpcKe8EWCUdwsjrgs="
 			}
 		]
-	}
-],
+    }
+  ],
 "types": [
 	{
 		"label": {
@@ -161,12 +161,12 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 			{
 				"id": "NNpSqaNkY2zHtxI6Zh78NaZccVNtutrQxISkzdnaVjx0="
 			},
-			{
-				"id": "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
+        {
+          "id": "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
 			}
 		]
-	}
-],
+    }
+  ],
 "sentence": {
 	"begin": 57998,
 	"end": 58952
@@ -175,11 +175,11 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 ```
 
 该元素具有五个重要部分：
- - `sentence_text`：分析的文本。
- - `attributes`：一个数组，用于列出元素的一个或多个属性。`attributes` 数组中当前支持的对象包括 `Location`（元素引用的地理位置或区域）、`DateTime`（元素指定的日期、时间、日期范围或时间范围）和 `Currency`（货币值和单位）。 
- - `categories`：一个数组，用于列出识别到的语句所属的功能类别；换言之，这是语句的主题。
- - `types`：一个数组，用于描述元素的定义及元素影响的对象。它由一组或多组 `nature` 键（语句对识别到的 `party` 的影响）和 `party` 键（语句影响的对象）组成。
- - `sentence`：一个对象，用于描述在已转换 HTML 中找到元素的位置。它包含 `start` 字符值和 `end` 字符值。
+  - `sentence_text`：分析的文本。
+  - `attributes`：一个数组，用于列出元素的一个或多个属性。`attributes` 数组中当前支持的对象包括 `Location`（元素引用的地理位置或区域）、`DateTime`（元素指定的日期、时间、日期范围或时间范围）和 `Currency`（货币值和单位）。 
+  - `categories`：一个数组，用于列出识别到的语句所属的功能类别；换言之，这是语句的主题。
+  - `types`：一个数组，用于描述元素的定义及元素影响的对象。它由一组或多组 `nature` 键（语句对识别到的 `party` 的影响）和 `party` 键（语句影响的对象）组成。
+  - `sentence`：一个对象，用于描述在已转换 HTML 中找到元素的位置。它包含 `start` 字符值和 `end` 字符值。
 
 **注**：某些语句不属于任何类型或类别，在这种情况下，服务会将 `types` 和 `categories` 数组作为空对象返回。
 
@@ -189,7 +189,7 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 
 此外，在 `parties` 数组中定义了任何识别到的当事方。在 JSON 输出中，`parties` 数组位于 `elements` 数组后面。
 
-```
+```json
   "parties" : [ {
     "party" : "Customer",
     "role" : "Buyer"
@@ -198,15 +198,15 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 
 `parties` 数组包含两个重要部分：
 
- - `party`：在文档中被识别为当事方的文本。
- - `role`：识别到的当事方的角色。角色已根据子域进行更改；请参阅[有关指定子域的文档，以获取可能角色的列表](/docs/services/compare-and-comply/parsing.html#contract_parties)。无法识别为具有特定角色的当事方在列出时会带有 `unknown` 值。
+  - `party`：在文档中被识别为当事方的文本。
+  - `role`：识别到的当事方的角色。角色已根据子域进行更改；请参阅[有关指定子域的文档，以获取可能角色的列表](/docs/services/compare-and-comply/parsing.html#contract_parties)。无法识别为具有特定角色的当事方在列出时会带有 `unknown` 值。
 
 ## 后续步骤
 {: #next_steps}
 
 您已成功解析合同来识别文档各组成部分的性质、当事方和类别。您可以使用分析来快速了解和强制实施已解析的合同。后续步骤包括：
 
- - 了解类型和类别。
- - 查看解析选项。
+ - [了解合同解析](/docs/services/compare-and-comply/parsing.html#contract_parsing)
+ - [了解输出模式](/docs/services/compare-and-comply/schema.html#output_schema)和[了解表解析](/docs/services/compare-and-comply/tables.html#understanding_tables)。
 
 

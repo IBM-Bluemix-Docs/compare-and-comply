@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-25"
 
 ---
 
@@ -17,79 +17,17 @@ lastupdated: "2018-06-28"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Utilizzo degli avvisi
-{: #using-alerts}
+# Utilizzo degli avvisi di monitoraggio
+{: #alerts}
 
-Puoi configurare gli avvisi per il tuo cluster {{site.data.keyword.cnc_short}}.
+Puoi configurare gli avvisi di Prometheus per la tua istanza di {{site.data.keyword.cnc_short}} dopo aver importato il dashboard degli avvisi, come descritto nelle seguenti sezioni.
 
-## Installazione del dashboard degli avvisi
+## Importazione del dashboard degli avvisi e aggiunta delle regole di avviso
+{: #import}
 
-Per installare il dashboard degli avvisi per {{site.data.keyword.cnc_short}}, completa la seguente procedura.
+Per importare il dashboard degli avvisi e aggiungere le regole di avviso al dashboard, completa la seguente procedura.
 
- 1. Scarica il file PPA (Passport Advantage) per {{site.data.keyword.cnc_short}}. Il file è di tipo tar compresso con un nome simile a `ibm-watson-compare-comply-prod-1.0.0.tar.gz`. Il file include il template del dashboard degli avvisi e uno script `bash` per la rappresentazione del dashboard dal template.
-
- 1. Decomprimi ed espandi il file PPA:
-  ```bash
-  $ mkdir ibm-watson-compare-comply-prod-1.0.0 && tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tar.gz -C ibm-watson-compare-comply-prod-1.0.0
-  ```
-  {: codeblock}
-
- 1. Passa alla directory `charts` nella directory estratta:
-   ```bash
-   $ cd ibm-watson-compare-comply-prod-1.0.0/charts    
-   ```
-
- 1. Decomprimi ed espandi il file tar compresso nella directory `charts`:
-   ```bash
-   $ tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tgz
-   ```
-
- 1. Passa alla directory `dashboard`. Questa include i template per le metriche e la registrazione e uno script bash per generare i dashboard
-dai template.
-
-   ```bash
-   $ cd ibm-watson-compare-comply-prod/dashboard
-
-   $ tree
-   .
-   ├── alerts.json.tpl
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json.tpl
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 5 files
-   ```
-
-  1. Esegui lo script `render-dashboards.sh` per eseguire il rendering dei template. Le opzioni per lo script includono:
-  
-    -  `-v, --version {chart_version}`: la versione del grafico; ad esempio, `1.0.0`.
-    -  `-h, --help`: guida e uscita del comando di stampa.
-    -  `-r, --release {release_name}`: il nome della release Helm.
-    -  `-n, --namespace {namespace}`: lo spazio dei nomi della distribuzione. Lo spazio dei nomi predefinito è `default`.
-
-   ```bash
-   $ ./render-dashboards.sh -v 1.0.0 -r my-test-release -n default
-   The dashboard JSON files are generated under /Users/{user}/Downloads/ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard.
-
-   $ tree
-   .
-   ├── alerts.json
-   ├── alerts.json.tpl
-   ├── external-process-logging.json
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json
-   ├── frontend-logging.json.tpl
-   ├── metrics.json
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 9 files
-   ```
-
-## Aggiunta delle regole di avviso
-
-Per aggiungere le regole di avviso al dashboard, completa la seguente procedura.
+  1. Assicurarti di aver estratto e generato i dashboard degli avvisi come descritto in [Passo 1: scarica, estrai e rendering dei template del dashboard](/docs/services/compare-and-comply/monitor.html#monitor).
 
   1. Accedi al tuo cluster ICP.
 

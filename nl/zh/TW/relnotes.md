@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -25,12 +25,14 @@ lastupdated: "2018-07-03"
 
 **重要事項：**此文件集僅適用於 {{site.data.keyword.BluOpenStackDed}} 上的 {{site.data.keyword.cnc_short}} 服務。不適用於公用 IBM Cloud 上所提供的其他 Watson 服務。
 
+**附註：**如需影響所有 {{site.data.keyword.BluOpenStackDed}} 服務的版本注意事項資訊，請參閱 [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv ![外部鏈結圖示](../../icons/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv){: new_window}。
+
 ## 服務 API 版本化
 {: #api_versioning}
 
 API 要求需要版本參數接受 `version=YYYY-MM-DD` 格式的日期。每當我們以舊版不相容方式變更 API，就會發行 API 的新次要版本。
 
-每個 API 要求都會傳送版本參數。服務會使用所指定日期的 API 版本，或該日期之前的最新版本。不要預設為現行日期。反之，指定一個日期，符合與您應用程式相容的版本，而且不要變更它，直到您的應用程式備妥，可供更新版本使用為止。
+每個 API 要求都會傳送版本參數。服務會使用所指定日期的 API 版本，或該日期之前的最新版本。請勿預設為現行日期。反之，請指定符合與您應用程式相容版本的日期，並且在您的應用程式準備好迎接更新版本之前都不要變更它。
 
 現行版本為 `2018-03-23`。
 
@@ -40,6 +42,12 @@ API 要求需要版本參數接受 `version=YYYY-MM-DD` 格式的日期。每當
 提供服務的下列新特性及變更。
 
 **重要事項**：在下列各節中提到的版本號碼是您已部署在 {{site.data.keyword.BluOpenStackDed}} 叢集上之 {{site.data.keyword.cnc_long}} Helm 圖表的版本。
+
+### 1.0.5，2018 年 8 月 2 日
+{: #105}
+
+  - 新增表格剖析，如[瞭解輸出綱目](/docs/services/compare-and-comply/schema.html#output_schema)及[瞭解表格剖析](/docs/services/compare-and-comply/tables.html#understanding_tables)中所述。
+
 
 ### 1.0.4，2018 年 7 月 5 日
 {: #ingress}
@@ -59,7 +67,7 @@ API 要求需要版本參數接受 `version=YYYY-MM-DD` 格式的日期。每當
   ```
   {: pre}
 
-**重要事項：**如果您執行的是 1.0.4 之前的 {{site.data.keyword.cnc_short}} 版本，則必須在呼叫服務時，包括 `:{port_number}` 指定元與 {{site.data.keyword.BluOpenStackDed}} 叢集的 IP 位址，如下列範例所示：
+**重要事項：**如果您執行 1.0.4 之前的 {{site.data.keyword.cnc_short}} 版本，則必須在呼叫服務時，包括 `:{port_number}` 指定元與 {{site.data.keyword.BluOpenStackDed}} 叢集的 IP 位址，如下列範例所示：
 ```bash
 curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:8443/api/v1/parse?version=2018-03-23
 ```

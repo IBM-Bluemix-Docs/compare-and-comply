@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -25,6 +25,8 @@ Die Releaseinformationen enthalten Informationen zu Änderungen am Release des S
 
 **Wichtig:** Diese Dokumentationsreihe gilt nur für den Service '{{site.data.keyword.cnc_short}}' auf {{site.data.keyword.BluOpenStackDed}}. Sie bezieht sich nicht auf andere Watson-Services, die auf der öffentlichen IBM Cloud verfügbar sind.
 
+**Anmerkung:** Releaseinformationen, die sich auf alle {{site.data.keyword.BluOpenStackDed}}-Services beziehen, finden Sie unter [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv ![Symbol für externen Link](../../icons/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv){: new_window}.
+
 ## Versionierung der Service-API
 {: #api_versioning}
 
@@ -40,6 +42,12 @@ Die aktuelle Version ist `2018-03-23`.
 Die folgenden neuen Features und Änderungen am Service sind verfügbar.
 
 **Wichtig**: Bei der Versionsnummer, auf die in den folgenden Abschnitten Bezug genommen wird, handelt es sich um die Version des Helm-Diagramms für {{site.data.keyword.cnc_long}}, die das Sie in Ihrem {{site.data.keyword.BluOpenStackDed}}-Cluster bereitgestellt haben.
+
+### 1.0.5, 2. August 2018
+{: #105}
+
+  - Die Syntaxanalyse der Tabelle, die unter [Informationen zum Ausgabeschema](/docs/services/compare-and-comply/schema.html#output_schema) und [Informationen zur Syntaxanalyse der Tabelle](/docs/services/compare-and-comply/tables.html#understanding_tables) beschrieben ist.
+
 
 ### 1.0.4, 5. Juli 2018
 {: #ingress}
@@ -93,7 +101,7 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 
 ### 1.0.3, 25. Mai 2018
 
-- Die Ausgabe der `parse`-Methode enthält nun das Array `attributes`. Nähere Informationen finden Sie in [Analyse überprüfen](/docs/services/compare-and-comply/getting-started.html#review_analysis) und [Attribute](/docs/services/compare-and-comply/parsing.html#attributes). Sie können die Informationen im Array `attributes` verwenden, um nach Dokumentelementen zu suchen, die sich auf bestimmte Standorte, auf Zeiten, Daten, Zeiträume oder Datumsbereiche oder auf Geldwerte und Einheiten beziehen. 
+- Die Ausgabe der `parse`-Methode enthält nun das Array `attributes`. Nähere Informationen finden Sie in [Analyse überprüfen](/docs/services/compare-and-comply/getting-started.html#review_analysis) und [Attribute](/docs/services/compare-and-comply/parsing.html#attributes). Sie können die Informationen im Array `attributes` verwenden, um nach Dokumentelementen zu suchen, die sich auf bestimmte Standorte, auf Zeiten, Daten, Zeiträume oder Datumsbereiche oder auf Geldwerte und Einheiten beziehen.
 - Jedes Objekt in den Arrays `types` und `categories` enthält ein Objekt vom Typ `provenance`. Das Objekt `provenance` verfügt über einen oder mehrere Schlüssel vom Typ `id`. Jeder `id`-Schlüssel besitzt einen Hashwert, den Sie an IBM senden können, um Feedback zu liefern oder Unterstützung zu erhalten.
 - Verbesserungen bei der Genauigkeit des PDF-Parsings und der Leistung beim Parsing umfangreicher PDF-Dateien.
 - Dieses Release ist auf {{site.data.keyword.BluOpenStackDed}} Version 2.1.0.2 oder höher verfügbar. Detaillierte Informationen zu den Anforderungen für {{site.data.keyword.BluOpenStackDed}} können Sie dem Katalogeintrag für den Service entnehmen.

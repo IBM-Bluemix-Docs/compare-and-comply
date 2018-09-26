@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-25"
 
 ---
 
@@ -17,78 +17,17 @@ lastupdated: "2018-06-28"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Alerts verwenden
-{: #using-alerts}
+# Überwachungsalerts verwenden
+{: #alerts}
 
-Sie können Alerts für Ihren {{site.data.keyword.cnc_short}}-Cluster einrichten.
+Sie können Prometheus-Alerts für Ihre {{site.data.keyword.cnc_short}}-Instanz einrichten, nachdem Sie das Dashboard für Alerts importiert haben, wie in den folgenden Abschnitten beschrieben.
 
-## Alertdashboard installieren
+## Alertdashboard importieren und Alertregeln hinzufügen
+{: #import}
 
-Führen Sie zum Installieren des Alertdashboards für {{site.data.keyword.cnc_short}} die folgenden Schritte aus.
+Führen Sie die folgenden Schritte aus, um das Alertdashboard zu importieren und Alertregeln zum Dashboard hinzuzufügen.
 
- 1. Laden Sie die Passport Advantage-Datei (PPA-Datei) für {{site.data.keyword.cnc_short}} herunter. Diese Datei liegt als komprimierte TAR-Datei vor, deren Benennung dem Muster `ibm-watson-compare-comply-prod-1.0.0.tar.gz` entspricht. Die Datei enthält die Vorlage für das Alertdashboard sowie ein `Bash`-Script für die Wiedergabe des Dashboards aus der Vorlage.
-
- 1. Dekomprimieren und erweitern Sie die PPA-Datei:
-  ```bash
-  $ mkdir ibm-watson-compare-comply-prod-1.0.0 && tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tar.gz -C ibm-watson-compare-comply-prod-1.0.0
-  ```
-  {: codeblock}
-
- 1. Wechseln Sie im extrahierten Verzeichnis in das Verzeichnis `charts`:
-   ```bash
-   $ cd ibm-watson-compare-comply-prod-1.0.0/charts    
-   ```
-
- 1. Dekomprimieren und erweitern Sie die komprimierte TAR-Datei im Verzeichnis `charts`:
-   ```bash
-   $ tar -xvzf ibm-watson-compare-comply-prod-1.0.0.tgz
-   ```
-
- 1. Wechseln Sie in das Verzeichnis `dashboard`. Dieses Verzeichnis enthält Vorlagen für Metriken und für die Protokollierung sowie ein Bash-Script zum Generieren von Dashboards aus Vorlagen.
-
-   ```bash
-   $ cd ibm-watson-compare-comply-prod/dashboard
-
-   $ tree
-   .
-   ├── alerts.json.tpl
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json.tpl
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 5 files
-   ```
-
-  1. Führen Sie das Script `render-dashboards.sh` aus, damit die Vorlagen wiedergegeben werden. Für das Script gibt es die folgenden Ausführungsoptionen:
-  
-    -  `-v, --version {diagrammversion}`: Gibt die Diagrammversion an, zum Beispiel `1.0.0`.
-    -  `-h, --help`: Gibt Hilfe für Befehle aus und wird dann beendet.
-    -  `-r, --release {releasename}`: Der Name des Helm-Release.
-    -  `-n, --namespace {namensbereich}`: Der Namensbereich der Bereitstellung. Der Standardnamensbereich lautet `default`.
-
-   ```bash
-   $ ./render-dashboards.sh -v 1.0.0 -r my-test-release -n default
-   Die JSON-Dashboarddateien werden unter dem folgenden Verzeichnis generiert: /Users/{benutzer}/Downloads/ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard.
-
-   $ tree
-   .
-   ├── alerts.json
-   ├── alerts.json.tpl
-   ├── external-process-logging.json
-   ├── external-process-logging.json.tpl
-   ├── frontend-logging.json
-   ├── frontend-logging.json.tpl
-   ├── metrics.json
-   ├── metrics.json.tpl
-   └── render-dashboards.sh
-
-   0 directories, 9 files
-   ```
-
-## Alertregeln hinzufügen
-
-Fügen Sie die Alertregeln durch Ausführen der folgenden Schritte zum Dashboard hinzu.
+  1. Stellen Sie sicher, dass Sie die Dashboards für Alerts extrahiert und generiert haben, wie im Abschnitt [Schritt 1: Dashboardvorlagen herunterladen, extrahieren und wiedergeben](/docs/services/compare-and-comply/monitor.html#monitor) beschrieben.
 
   1. Melden Sie sich bei Ihrem ICP-Cluster an.
 
@@ -96,7 +35,7 @@ Fügen Sie die Alertregeln durch Ausführen der folgenden Schritte zum Dashboard
       ![Symbol für das Menü 'IBM Cloud Private'](images/icp-menu.png) <br />
       ![Menü 'Konfiguration -> ConfigMaps'](images/configmaps.png)
 
-  1.  Die Seite **ConfigMaps** wird mit einer Tabelle von ConfigMap-Objekten geöffnet. Suchen Sie in der Tabelle die Zeile mit der Bezeichnung `alert-rules`. Klicken Sie in der Spalte **Action** der Zeile `alert-rules` auf das Menüsymbol und wählen Sie **Bearbeiten** aus.
+  1. Die Seite **ConfigMaps** wird mit einer Tabelle von ConfigMap-Objekten geöffnet. Suchen Sie in der Tabelle die Zeile mit der Bezeichnung `alert-rules`. Klicken Sie in der Spalte **Action** der Zeile `alert-rules` auf das Menüsymbol und wählen Sie **Bearbeiten** aus.
      ![Zeile 'alert-rules' bearbeiten](images/configmaps-page.png)
 
   1. Öffnen Sie die Datei `.../ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard/alerts.json` in einem Texteditor und kopieren Sie die Zeile, die mit `cnc.rules` beginnt.
@@ -131,7 +70,7 @@ Führen Sie zum Erstellen eines Benachrichtigungsempfängers für {{site.data.ke
       ![Symbol für das Menü 'IBM Cloud Private'](images/icp-menu.png) <br />
       ![Menü 'Konfiguration -> ConfigMaps'](images/configmaps.png)
 
-  1.  Die Seite **ConfigMaps** wird mit einer Tabelle von ConfigMap-Objekten geöffnet. Suchen Sie in der Tabelle die Zeile mit der Bezeichnung `monitoring-prometheus-alertmanager`. Klicken Sie in der Spalte **Action** der Zeile `monitoring-prometheus-alertmanager` auf das Menüsymbol und wählen Sie **Bearbeiten** aus.
+  1. Die Seite **ConfigMaps** wird mit einer Tabelle von ConfigMap-Objekten geöffnet. Suchen Sie in der Tabelle die Zeile mit der Bezeichnung `monitoring-prometheus-alertmanager`. Klicken Sie in der Spalte **Action** der Zeile `monitoring-prometheus-alertmanager` auf das Menüsymbol und wählen Sie **Bearbeiten** aus.
 
   1. Das Fenster **ConfigMap bearbeiten** wird geöffnet. Geben Sie im Objekt `data` die neuen Empfängerkonfigurationen ein.
      ![ConfigMap bearbeiten](images/prom-alert-edit.png)

@@ -5,16 +5,20 @@
 Comparar y cumplir: Clasificación de elementos
 
     {: .navgroup id="learn"}
-    getting-started.md
     index.md
+    getting-started.md
     parsing.md
+    schema.md
+    tables.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
+    deploy.md
     config.md
 
     {: topicgroup}
-    Uso de la supervisión
+    Using monitoring
+    	monitor.md
     	metrics.md
     	logging.md
     	alerts.md

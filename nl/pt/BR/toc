@@ -5,16 +5,19 @@
 Comparar e obedecer: Classificação de elemento
 
     {: .navgroup id="learn"}
-    getting-started.md
     index.md
+    getting-started.md
     parsing.md
+    schema.md
+    tables.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    config.md
+    deploy.md config.md
 
     {: topicgroup}
     Usando o monitoramento
+    	monitor.md
     	metrics.md
     	logging.md
     	alerts.md

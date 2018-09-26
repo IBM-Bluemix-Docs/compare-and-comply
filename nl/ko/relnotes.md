@@ -3,7 +3,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-03"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -25,6 +25,8 @@ lastupdated: "2018-07-03"
 
 **중요:** 이 문서 세트는 {{site.data.keyword.BluOpenStackDed}}의 {{site.data.keyword.cnc_short}} 서비스에만 적용됩니다. 공용 IBM Cloud에서 사용 가능한 다른 Watson 서비스에는 적용되지 않습니다.
 
+**참고:** 모든 {{site.data.keyword.BluOpenStackDed}} 서비스에 영향을 주는 릴리스 정보에 대해서는 [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/known_issues.html#issues_nlv){: new_window}를 참조하십시오. 
+
 ## 서비스 API 버전화
 {: #api_versioning}
 
@@ -40,6 +42,12 @@ API 요청에는 `version=YYYY-MM-DD` 형식의 날짜를 사용하는 버전 �
 서비스에 대한 다음 새 기능 및 변경이 사용 가능합니다.
 
 **중요**: 다음 절에서 언급되는 버전 번호는 {{site.data.keyword.BluOpenStackDed}} 클러스터에 배치한 {{site.data.keyword.cnc_long}} Helm 차트의 버전입니다.
+
+### 1.0.5, 2018년 8월 2일
+{: #105}
+
+  - [출력 스키마 이해](/docs/services/compare-and-comply/schema.html#output_schema) 및 [테이블 구문 분석 이해](/docs/services/compare-and-comply/tables.html#understanding_tables)에서 설명한 대로 테이블 구문 분석이 추가되었습니다. 
+
 
 ### 1.0.4, 2018년 7월 5일
 {: #ingress}
@@ -71,7 +79,7 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 -   {{site.data.keyword.cnc_short}} 서비스는 이제 {{site.data.keyword.BluOpenStackDed}}의 [ingress 제어기 ![외부 링크 아이콘](../../icons/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/components.html){: new_window}와 통합됩니다. 이러한 변경을 통해 사용자는 호출의 URL에 포트 번호를 지정하지 않고 서비스의 API 메소드를 호출할 수 있습니다. 다음은 **ingress** 통합 전 일반 API 호출입니다.
 
     ```bash
-    curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:8443/api/v1/parse?version=2018-03-23
+curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:8443/api/v1/parse?version=2018-03-23
     ```
     {: pre}
 
@@ -85,7 +93,7 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 - 1.0.4 릴리스를 배치하면 다음과 유사한 오류가 표시됩니다.
 
     ```
-    Unexpected response code 500 from request: GET https://icp-management-ingress:8443/helm-api/api/v1/releases/weblib?locale=en-US HTTP/1.1 Accept: application/json Content-Type: application/json Content-Type: application/json Cookie: *** {} HTTP/1.1 500 Server: openresty/1.11.2.4 Date: Thu, 21 Jun 2018 23:09:05 GMT Content-Type: application/json; charset=utf-8 Content-Length: 93 Connection: close X-Powered-By: Express Cache-Control: private, max-age=0, no-cache Etag: W/"5d-6htOwRqeFWIdvat6vK/kTg" {"statusCode":500,"message":"Internal service error : Cannot read property '0' of undefined"}
+Unexpected response code 500 from request: GET https://icp-management-ingress:8443/helm-api/api/v1/releases/weblib?locale=en-US HTTP/1.1 Accept: application/json Content-Type: application/json Content-Type: application/json Cookie: *** {} HTTP/1.1 500 Server: openresty/1.11.2.4 Date: Thu, 21 Jun 2018 23:09:05 GMT Content-Type: application/json; charset=utf-8 Content-Length: 93 Connection: close X-Powered-By: Express Cache-Control: private, max-age=0, no-cache Etag: W/"5d-6htOwRqeFWIdvat6vK/kTg" {"statusCode":500,"message":"Internal service error : Cannot read property '0' of undefined"}
     ```
     {: codeblock}
 
