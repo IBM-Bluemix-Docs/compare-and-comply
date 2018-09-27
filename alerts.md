@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-25"
+lastupdated: "2018-09-21"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2018-07-25"
 # Using monitoring alerts
 {: #alerts}
 
-You can set up Prometheus alerts for your {{site.data.keyword.cnc_short}} instance after you import the alerts dashboard, as described in the following sections.
+You can set up Prometheus alerts for your Compare and Comply instance after you import the alerts dashboard, as described in the following sections.
 
 ## Importing the alerts dashboard and adding alert rules
 {: #import}
@@ -38,7 +38,7 @@ To import the alerts dashboard and add alert rules to the dashboard, perform the
   1. The **ConfigMaps** page opens to display a table of configmaps. In the table, locate the row labeled `alert-rules`. In the **Action** column of the `alert-rules` row, click the menu icon and select **Edit**.
      ![alert-rules Edit](images/configmaps-page.png)
 
-  1. Open the `.../ibm-watson-compare-comply-prod-1.0.0/charts/ibm-watson-compare-comply-prod/dashboard/alerts.json` file in a text editor and copy the line that begins with `cnc.rules`.
+  1. Open the `.../ibm-watson-compare-comply-prod-1.1.0/charts/ibm-watson-compare-comply-prod/dashboard/alerts.json` file in a text editor and copy the line that begins with `cnc.rules`.
 
   1. The **Edit ConfigMap** window opens. In the `data` object, add a comma at the end of the last line of the object, then paste in the `cnc.rules` line you copied in the preceding step. <br />
      ![Edit the ConfigMap](images/edit-configmap.png)
@@ -61,7 +61,7 @@ You can add alert notifications for numerous paging systems, including Slack, Pa
  - [Prometheus Alerting Configuration documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://prometheus.io/docs/alerting/configuration/){: new_window}
  - [Prometheus Notification Examples documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://prometheus.io/docs/alerting/notification_examples/){: new_window}
 
-To create a notification receiver for {{site.data.keyword.cnc_short}} on IBM Cloud Private, perform the following steps.
+To create a notification receiver for Compare and Comply on IBM Cloud Private, perform the following steps.
 {: #create-notification-receiver}
 
   1. Log in to your ICP cluster.

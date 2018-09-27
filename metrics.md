@@ -20,11 +20,11 @@ lastupdated: "2018-07-25"
 # Using metrics
 {: #metrics}
 
-You can monitor the status of {{site.data.keyword.cnc_short}} by using IBM Cloud Private's monitoring dashboard. The monitoring dashboard uses Grafana for metrics, Prometheus for alerts, and Kibana for logging to present detailed information about your {{site.data.keyword.cnc_short}} instance.
+You can monitor the status of Compare and Comply by using IBM Cloud Private's monitoring dashboard. The monitoring dashboard uses Grafana for metrics, Prometheus for alerts, and Kibana for logging to present detailed information about your Compare and Comply instance.
 
 ## Importing the metrics dashboard
 
-To import the metrics dashboard for {{site.data.keyword.cnc_short}} into IBM Cloud Private, perform the following steps.
+To import the metrics dashboard for Compare and Comply into IBM Cloud Private, perform the following steps.
 
   1. Ensure that you have extracted and generated the metrics dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/services/compare-and-comply/monitor.html#monitor).
 
