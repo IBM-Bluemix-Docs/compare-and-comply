@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-09-25"
 
 ---
 
@@ -20,51 +20,43 @@ lastupdated: "2018-08-02"
 # Getting started
 {: #getting_started}
 
-In this short tutorial, we introduce {{site.data.keyword.cnc_long}} on IBM Cloud Private and go through the process of parsing a contract to identify component pieces, their nature, the parties affected, and any identified categories.
+In this short tutorial, we introduce IBM Watson&trade; Compare and Comply and go through the process of parsing a contract to identify component pieces, their nature, the parties affected, and any identified categories.
 
 ## Before you begin
 {: #before-you-begin}
 
-Before you can use the {{site.data.keyword.cnc_short}} service, you must install the IBM Cloud Private CLI and log in to your IBM Cloud Private cluster as described in [Installing the IBM Cloud Private CLI](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/manage_cluster/install_cli.html).
- 
+Before you can use the Compare and Comply service, the service must be deployed and configured on your IBM Cloud Private cluster. On your workstation, you must also install the IBM Cloud Private CLI and log in to your IBM Cloud Private cluster as described in [Installing the IBM Cloud Private CLI](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/manage_cluster/install_cli.html).
+
 ## Step 1: Identify content
 {: #identify_content}
 
-Identify appropriate documents to analyze. {{site.data.keyword.cnc_short}} has been designed to analyze contract <!-- and regulatory -->documents that meet the following criteria:
+Identify appropriate documents to analyze. Compare and Comply has been designed to analyze contract <!-- and regulatory -->documents that meet the following criteria:
 
 - Files to be analyzed are in PDF format.
-- The PDF contents are in text form. Documents that have been scanned cannot be parsed, even if the scans have been processed by an optical character reader (OCR).
+- The PDF contents are in text form.
 
   **Note:** You can identify a PDF that is in text by opening the document in a PDF viewer and using the **Text select** tool to select a single word. If you cannot select a single word in the document, the file cannot be parsed.
+  
+  You can now submit PDF files that have been scanned and processed by an optical character reader (OCR).
+  {: tip}
 
-- Files are no larger than 50Mb in size.
+- Files are no larger than 50 MB in size.
 - Secure PDFs (with a password to open) and editing restricted PDFs (with a password to edit) cannot be parsed.
 
 ## Step 2: Parse a contract
 {: #parse_contract}
 
-In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/parse` method to parse your contract. Replace `{ICP_IP_address}` with the IP address for your IBM Cloud Private cluster. Replace `{PDF_file}` with the path to the PDF to parse.
+In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/element_classification` method to classify your contract. The method takes the following input parameters:
+  - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
+  - `file` (**required** `file`): The input file that is to be classified
+  - `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
+
+Replace `{ICP_IP_address}` with the IP address for your IBM Cloud Private cluster. Replace `{PDF_file}` with the path to the PDF to parse.
 
 ```bash
-curl -k -X POST -F 'file=@{PDF_file};type=application/pdf' https://{ICP_IP_address}/api/v1/parse?version=2018-03-23
+curl -k -X POST -F 'file=@{PDF_file};type=application/pdf' https://{ICP_IP_address}/compare-and-comply/api/v1/element_classification?version=2018-09-28
 ```
 {: pre}
-
-**Important:** If you are running a version of {{site.data.keyword.cnc_short}} earlier than 1.0.4, you must include the `:{port_number}` specifier with the IP address of the IBM Cloud Private cluster when making calls to the service, as follows:
-
-```bash
-curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://{ICP_IP_address}:{port_number}/api/v1/parse?version=2018-03-23
-```
-{: pre}
-
-For example:
-
-```bash
-curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:8443/api/v1/parse?version=2018-03-23
-```
-{: pre}
-
-See the [release note on **ingress**](/docs/services/compare-and-comply/relnotes.html#ingress) for details.
 
 The method returns a JSON object that contains:
 
@@ -73,12 +65,12 @@ The method returns a JSON object that contains:
  - An array of `elements` that define the component parts of the contract.
  - An array of `parties` that define entities that have been identified as parties.
  
-**Important**: The {{site.data.keyword.cnc_short}} API on IBM Cloud Private does not require authorization as APIs on the public IBM Cloud do.
+**Important**: The Compare and Comply API on IBM Cloud Private does not require authorization as APIs on the public IBM Cloud do.
 
 ## Step 3: Review the analysis
 {: #review_analysis}
 
-Each object in the `elements` array describes an element of the contract that {{site.data.keyword.cnc_short}} has identified. The following code represents a typical element:
+Each object in the `elements` array describes an element of the contract that Compare and Comply has identified. The following code represents a typical element:
 
 ```
 {

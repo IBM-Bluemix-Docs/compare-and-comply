@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-09-21"
 
 ---
 
@@ -20,9 +20,9 @@ lastupdated: "2018-08-02"
 # Installing, configuring, and using the monitoring dashboards
 {: #monitor}
 
-You can monitor the status of {{site.data.keyword.cnc_short}} by using IBM Cloud Private's monitoring dashboards. The monitoring dashboards use Grafana, Kibana, and Prometheus to display detailed, customizable information about your {{site.data.keyword.cnc_short}} instance.
+You can monitor the status of Compare and Comply by using IBM Cloud Private's monitoring dashboards. The monitoring dashboards use Grafana, Kibana, and Prometheus to display detailed, customizable information about your Compare and Comply instance.
 
-For information about monitoring your {{site.data.keyword.BluOpenStackDed}} cluster, see [https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_metrics/monitoring_service.html){: new_window}.
+For information about monitoring your IBM Cloud Private cluster, see [https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_metrics/monitoring_service.html ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_metrics/monitoring_service.html){: new_window}.
 
 Before using the dashboards, you must generate and install them as described in the following steps.
 
@@ -31,23 +31,23 @@ Before using the dashboards, you must generate and install them as described in 
 
 Perform the following steps to prepare the dashboard templates for installation.
 
-1. Download the {{site.data.keyword.cnc_short}} image from Passport Advantage (PPA). The file is a zipped tar file with a name similar to `ibm-watson-compare-comply-prod-1.0.5.tar.gz`. The file includes the dashboard templates and a `bash` script to render the dashboards from the templates.
+1. Download the Compare and Comply image from Passport Advantage (PPA). The file is a zipped tar file with a name similar to `ibm-watson-compare-comply-prod-1.1.0.tar.gz`. The file includes the dashboard templates and a `bash` script to render the dashboards from the templates.
 
 1. Uncompress and expand the tar file:
   ```bash
-  mkdir ibm-watson-compare-comply-prod-1.0.5 && tar -xvzf ibm-watson-compare-comply-prod-1.0.5.tar.gz -C ibm-watson-compare-comply-prod-1.0.5
+  mkdir ibm-watson-compare-comply-prod-1.1.0 && tar -xvzf ibm-watson-compare-comply-prod-1.1.0.tar.gz -C ibm-watson-compare-comply-prod-1.1.0
   ``` 
   {: pre}
 
 1. Change to the `charts` directory in the extracted directory:
   ```bash
-  cd ibm-watson-compare-comply-prod-1.0.5/charts
+  cd ibm-watson-compare-comply-prod-1.1.0/charts
   ```
   {: pre}
 
 1. Uncompress and expand the zipped tar file in the `charts` directory:
   ```bash
-  tar -xvzf ibm-watson-compare-comply-prod-1.0.5.tgz
+  tar -xvzf ibm-watson-compare-comply-prod-1.1.0.tgz
   ```
   {: pre}
 
@@ -69,17 +69,17 @@ from templates.
 
 1. Run the `render-dashboards.sh` script to render the templates. Options for the script include:
   
-    - `-v`, `--version {chart_version}`: The chart version; for example, `1.0.5`.
+    - `-v`, `--version {chart_version}`: The chart version; for example, `1.1.0`.
     - `-h`, `--help`: Print command help and exit.
     - `-r`, `--release {release_name}`: The Helm release name.
     - `-n`, `--namespace {namespace}`: The namespace of the deployment. The default namespace is `default`.
 
   ```bash
-  ./render-dashboards.sh -v 1.0.5 -r my-test-release -n default
+  ./render-dashboards.sh -v 1.1.0 -r my-test-release -n default
   ```
   {: pre}
 
-The dashboard JSON files are generated under `ibm-watson-compare-comply-prod-1.0.5/charts/ibm-watson-compare-comply-prod/dashboard`.
+The dashboard JSON files are generated under `ibm-watson-compare-comply-prod-1.1.0/charts/ibm-watson-compare-comply-prod/dashboard`.
 
   ```
   $ tree

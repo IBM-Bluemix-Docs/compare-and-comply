@@ -20,7 +20,7 @@ lastupdated: "2018-08-02"
 # Deploying the service
 {: #install}
 
-Before you install the {{site.data.keyword.cnc_long}} Helm chart as described in the Helm chart's `README.md` file, you might need to perform additional deployment steps. You need to perform these steps only if you are deploying {{site.data.keyword.cnc_long}} version 1.0.3 or earlier. These steps do not apply if you are deploying {{site.data.keyword.cnc_long}} version 1.0.4 or later.
+Before you install the IBM Watson Compare and Comply Helm chart as described in the Helm chart's `README.md` file, you might need to perform additional deployment steps. You need to perform these steps only if you are deploying Compare and Comply version 1.0.3 or earlier. These steps do not apply if you are deploying Compare and Comply version 1.0.4 or later.
 
 ## Default system values
 {: #sys_vals}
@@ -36,7 +36,7 @@ These instructions use the following default system values. The values for your 
 ## Completing the deployment
 {: #deploy}
 
-Perform the following steps to complete the {{site.data.keyword.cnc_short}} deployment:
+Perform the following steps to complete the Compare and Comply deployment:
 
 ### Step 1: Grant Docker access
 {: #step1}
@@ -64,19 +64,18 @@ Perform the following steps to complete the {{site.data.keyword.cnc_short}} depl
          "insecure-registries": ["mycluster.icp:8500"]
       }
       ```
-      {: pre}
       
       1. Run the following commands:
       
       ```bash
       systemctl daemon reload
       ```
-      {: codeblock}
+      {: pre}
       
       ```bash
       systemctl restart docker
       ```
-      {: codeblock} 
+      {: pre} 
 
 ### Step 2: Download the IBM Cloud Private and IBM Cloud CLIs
 {: #step2}
@@ -90,44 +89,44 @@ Perform the following steps to complete the {{site.data.keyword.cnc_short}} depl
 ### Step 3: Download the package file
 {: #step3}
 
-Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passport Advantage ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www-01.ibm.com/software/passportadvantage/){: new_window} to your local workstation. This file contains the entire {{site.data.keyword.cnc_short}} service image.
+Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passport Advantage ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www-01.ibm.com/software/passportadvantage/){: new_window} to your local workstation. This file contains the entire Compare and Comply service image.
   
 #### Edit the package file if necessary
 {: edit-pkg-file}
 
 **Important**: Perform the procedure in this step *only* if the following conditions are true. If either or both conditions are false, proceed to [Step 4](#step4).
 
- - This step applies only to {{site.data.keyword.cnc_short}} version 1.0.3 and earlier. If you are installing {{site.data.keyword.cnc_short}} version 1.0.4 or later, do not perform the procedure in this step.
+ - This step applies only to Compare and Comply version 1.0.3 and earlier. If you are installing Compare and Comply version 1.0.4 or later, do not perform the procedure in this step.
 
- - You need to follow the procedure in this step only if your IBM Cloud Private cluster is not connected to the external internet. If your IBM Cloud Private cluster has network access to the [Passport Advantage ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www-01.ibm.com/software/passportadvantage/){: new_window} site, you can install and deploy {{site.data.keyword.cnc_short}} version 1.0.3 without any modifications to the package file.
+ - You need to follow the procedure in this step only if your IBM Cloud Private cluster is not connected to the external internet. If your IBM Cloud Private cluster has network access to the [Passport Advantage ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www-01.ibm.com/software/passportadvantage/){: new_window} site, you can install and deploy Compare and Comply version 1.0.3 without any modifications to the package file.
 
-**Note**: If you perform the procedure in this step, you can experience problems with upgrades and rollbacks of {{site.data.keyword.cnc_short}} version 1.0.3. 
+**Note**: If you perform the procedure in this step, you can experience problems with upgrades and rollbacks of Compare and Comply version 1.0.3. 
 
   1. In a `bash` shell or similar environment such as Cygwin, extract the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` file:
   
   ```bash
   cd {path_to_file}
   ```
-  {: codeblock}
+  {: pre}
 
   ```bash
   tar -xvzf IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz
   ```
-  {: codeblock}
+  {: pre}
 
- The extracted file includes a directory named `charts` that contains a file named `ibm-watson-compare-comply-prod-1.0.3.tgz`, which is a compressed version of the Helm chart for {{site.data.keyword.cnc_short}}.
+ The extracted file includes a directory named `charts` that contains a file named `ibm-watson-compare-comply-prod-1.0.3.tgz`, which is a compressed version of the Helm chart for Compare and Comply.
 
   1. Change to the `charts` directory and extract the `ibm-watson-compare-comply-prod-1.0.3.tgz` file:
   
   ```bash
   cd charts
   ```
-  {: codeblock}
+  {: pre}
  
   ```bash
   tar -xvzf ibm-watson-compare-comply-prod-1.0.3.tgz
   ```
-  {: codeblock}
+  {: pre}
  
   The extracted file includes a number of directories and files, including a top-level directory named `ibm-watson-compare-comply-prod` that contains a directory named `templates`.
 
@@ -136,7 +135,7 @@ Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passp
   ```bash
   cd ibm-watson-compare-comply-prod/templates
   ```
-  {: codeblock}
+  {: pre}
  
   1. Locate the `deployment.yaml` file in the `ibm-watson-compare-comply-prod/templates` directory and open it in a text editor.
  
@@ -149,8 +148,8 @@ Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passp
         image: "hyc-icpcontent-docker-local.artifactory.swg-devops.com/cncdev/cnc-frontend:v2.3.12"
         imagePullPolicy: Always
   ```
-  {: codeblock}
- 
+  {: screen}
+  
   **Updated**
   
   ```
@@ -158,7 +157,7 @@ Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passp
         image: "mycluster.icp:8500/default/cnc-frontend:v2.3.12"
         imagePullPolicy: Always
   ```
-  {: pre}
+  {: screen}
   
   Save and close the `deployment.yaml` file.
 
@@ -167,31 +166,31 @@ Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passp
     ```bash
     cd ../..
     ```
-    {: codeblock}
+    {: pre}
   
     ```bash
     tar -cvzf ibm-watson-compare-comply-prod-1.0.3.tgz ibm-watson-compare-comply-prod
     ```
-    {: codeblock}
+    {: pre}
    
   1. Return to the top-level directory and repackage the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` file:
   
     ```bash
     cd ..
     ```
-    {: codeblock}
+    {: pre}
  
    ```bash
    tar -cvzf IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz charts images manifest.json manifest.yaml
   ```
-  {: codeblock}
+  {: pre}
   
   For reference, the `tree` view of the contents of the uncompressed `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` file is as follows. Files involved in this procedure are called out with `<-----` in the right-hand column.
  
   ```bash
   cd {path_to_archive_file}
   ```
-  {: codeblock}
+  {: pre}
    
   ```
   $ tree 
@@ -238,7 +237,7 @@ Download the `IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz` package file from [Passp
      ├── manifest.json
      └── manifest.yaml 
   ```
-  {: pre}
+  {: screen}
    
 ### Step 4: Prepare a terminal
 {: #step4}
@@ -248,19 +247,19 @@ Prepare a `bash` shell or equivalent to use with your IBM Cloud Private installa
   ```bash
   bx pr login -a https://mycluster.icp:8443 --skip-ssl-validation
   ```
-  {: codeblock}
+  {: pre}
     
   ```bash
   bx pr cluster-config mycluster
   ```
-  {: codeblock}
+  {: pre}
   
   ```bash
   docker login mycluster.icp:8500
   ```
-  {: codeblock}
+  {: pre}
 
-  **Note**: In the first command in the preceding list, the port number `8443` in the URL `https://mycluster.icp:8443` represents the default value for communicating with the {{site.data.keyword.cnc_short}} service on IBM Cloud Private.
+  **Note**: In the first command in the preceding list, the port number `8443` in the URL `https://mycluster.icp:8443` represents the default value for communicating with the Compare and Comply service on IBM Cloud Private.
 
 ### Step 5: Create an image registry secret and patch service account
 {: #step5}
@@ -270,12 +269,12 @@ Run the following commands to enable all required components to access IBM Cloud
 ```bash
 kubectl create secret docker-registry $secret_name --docker-server=mycluster.icp:8500 --docker-username=$username --docker-password=$password --docker-email=admin@admin.com --namespace=default
 ```
-{: codeblock}
+{: pre}
 
 ```bash
 kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "$secret_name"}]}' --namespace=default
 ```
-{: codeblock}
+{: pre}
 
 where:
   - `$username` and `$password` vary by cluster. Ask your administrator.
@@ -289,7 +288,8 @@ In the terminal you prepared in [Step 4](#step4), run the following command to u
 ```bash
 bx pr load-ppa-archive --archive {path_to}/IBM_WTSN_COMPARE_AN_COMPL_ELEM_CL.tar.gz --clustername mycluster.icp --namespace default 
 ```
-{: codeblock}
+{: pre}
+
 ### Step 7: Complete the installation
 
 Return to the **Catalog** page on your IBM Cloud Private cluster, locate and select the `ibm-watson-compare-comply-prod` entry, and click **Configure** to proceed with the installation.

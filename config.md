@@ -20,14 +20,14 @@ lastupdated: "2018-06-28"
 # Understanding deployment configurations
 {: #configs}
 
-The default deployment configuration for {{site.data.keyword.cnc_short}} is `2Cores 10G 1 concurrent document (2 VPC)`. This configuration can process approximately 1500 pages per hour. You can scale up your {{site.data.keyword.cnc_short}} deployment on IBM Cloud Private to different levels depending on your throughput requirements. Contact your IBM sales representative for more information on increasing the capacity of {{site.data.keyword.cnc_short}} on IBM Cloud Private.
+The default deployment configuration for Compare and Comply is `2Cores 10G 1 concurrent document (2 VPC)`. This configuration can process approximately 1500 pages per hour. You can scale up your Compare and Comply deployment on IBM Cloud Private to different levels depending on your throughput requirements. Contact your IBM sales representative for more information on increasing the capacity of Compare and Comply on IBM Cloud Private.
 
-{{site.data.keyword.cnc_short}} can be scaled on two dimensions: _vertical_ and _horizontal_.
+Compare and Comply can be scaled on two dimensions: _vertical_ and _horizontal_.
 
  - _Vertical_ scaling increases the throughput at which a document is parsed.
  - _Horizontal_ scaling increases the number of concurrent documents parsed.
 
-Both scaling options require increasing the number of Virtual Processor Cores (VPCs) used by {{site.data.keyword.cnc_short}}. For information about VPCs, see the IBM Cloud Private [licensing documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_cluster/licensing.html){: new_window}.
+Both scaling options require increasing the number of Virtual Processor Cores (VPCs) used by Compare and Comply. For information about VPCs, see the IBM Cloud Private [licensing documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_cluster/licensing.html){: new_window}.
 
 Vertical scaling options include the following:
 
@@ -47,11 +47,11 @@ Horizontal scaling options include the following:
 
 \***Note**: Throughput estimates are based on internal testing. Throughput in a production environment depends on multiple factors including other workloads on the same IBM Cloud Private cluster, latencies between the client application and the IBM Cloud Private cluster, and other environmental conditions.
 
-To change the deployment configuration by adding or removing {{site.data.keyword.cnc_short}} clusters, perform the following steps.
+To change the deployment configuration by adding or removing Compare and Comply clusters, perform the following steps.
 
-**Note**: If you scale down a {{site.data.keyword.cnc_short}} deployment, IBM Cloud Private immediately reclaims the released resources, thus reducing the processing capacity of the deployment. Do not scale down a deployment that is being used, particularly if the deployment is in a production environment.
+**Note**: If you scale down a Compare and Comply deployment, IBM Cloud Private immediately reclaims the released resources, thus reducing the processing capacity of the deployment. Do not scale down a deployment that is being used, particularly if the deployment is in a production environment.
 	
-Similarly, if you scale up a {{site.data.keyword.cnc_short}} deployment, IBM Cloud Private immediately applies the requested resources to the deployment, assuming the resources are available. If you need more resources than your IBM Cloud Private installation can provide, talk with your IBM sales representative about increasing the capacity of your IBM Cloud Private installation.
+Similarly, if you scale up a Compare and Comply deployment, IBM Cloud Private immediately applies the requested resources to the deployment, assuming the resources are available. If you need more resources than your IBM Cloud Private installation can provide, talk with your IBM sales representative about increasing the capacity of your IBM Cloud Private installation.
 
   1. Log in to your IBM Cloud Private cluster.
 

@@ -22,7 +22,7 @@ lastupdated: "2018-07-25"
 
 ## Importing the logging dashboards
 
-To import the logging dashboards for {{site.data.keyword.cnc_short}} into IBM Cloud Private, perform the following steps.
+To import the logging dashboards for Compare and Comply into IBM Cloud Private, perform the following steps.
 
   1. Ensure that you have extracted and generated the logging dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/services/compare-and-comply/monitor.html#monitor).
 
