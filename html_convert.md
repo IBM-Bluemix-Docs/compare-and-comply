@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-10-01"
 
 ---
 
@@ -35,7 +35,7 @@ Replace `{apikey_value}` with the API key you copied earlier and `{PDF_file}` wi
 
 ```bash
 curl -X POST -k -H 'Content-Type: application/json'
--F 'file=@{PDF_file};type=application/pdf' https://{ICP_IP_address}/compare-and-comply/api/v1/tables?version=2018-08-24
+-F 'file=@{PDF_file};type=application/pdf' https://{ICP_IP_address}/compare-and-comply/api/v1/html_conversion?version=2018-08-24
 ```
 {: pre}
 
