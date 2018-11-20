@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-25"
+lastupdated: "2018-11-17"
 
 ---
 
@@ -12,6 +12,8 @@ lastupdated: "2018-09-25"
 {:pre: .pre}
 {:codeblock: .codeblock}
 {:screen: .screen}
+{:note: .note}
+{:important: .important}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
@@ -20,184 +22,186 @@ lastupdated: "2018-09-25"
 # Getting started
 {: #getting_started}
 
-In this short tutorial, we introduce IBM Watson&trade; Compare and Comply and go through the process of parsing a contract to identify component pieces, their nature, the parties affected, and any identified categories.
+In this short tutorial, we introduce IBM Watson&reg; Compare and Comply on IBM Cloud Private and go through the process of classifying a contract to identify component pieces, their nature, the parties affected, and any identified categories.
 
 ## Before you begin
 {: #before-you-begin}
 
-Before you can use the Compare and Comply service, the service must be deployed and configured on your IBM Cloud Private cluster. On your workstation, you must also install the IBM Cloud Private CLI and log in to your IBM Cloud Private cluster as described in [Installing the IBM Cloud Private CLI](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/manage_cluster/install_cli.html).
+Before you can use the Compare and Comply service, the service must be deployed and configured on your IBM Cloud Private cluster. On your workstation, you must also install the IBM Cloud Private CLI and log in to your IBM Cloud Private cluster as described in [Installing the IBM Cloud Private CLI](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_cluster/install_cli.html).
+
+This tutorial uses an API key to authenticate. For production uses, make sure that you review the [API key management APIs](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/apis/cfc_api_files/api_keys.html).
+{: tip}
 
 ## Step 1: Identify content
 {: #identify_content}
 
-Identify appropriate documents to analyze. Compare and Comply has been designed to analyze contract <!-- and regulatory -->documents that meet the following criteria:
+Identify appropriate documents to analyze. Compare and Comply can analyze contractual <!-- and regulatory -->documents that meet the criteria listed in [Supported input formats](/docs/services/compare-and-comply/formats.html#formats).
 
-- Files to be analyzed are in PDF format.
-- The PDF contents are in text form.
-
-  **Note:** You can identify a PDF that is in text by opening the document in a PDF viewer and using the **Text select** tool to select a single word. If you cannot select a single word in the document, the file cannot be parsed.
+For the example in this tutorial, the file must be in PDF or a supported image format.
   
   You can now submit PDF files that have been scanned and processed by an optical character reader (OCR).
   {: tip}
 
-- Files are no larger than 50 MB in size.
-- Secure PDFs (with a password to open) and editing restricted PDFs (with a password to edit) cannot be parsed.
+- The maximum size of a file you can submit to the service is 50 MB. However, if you submit multiple files simultaneously or in close succession, you can experience relatively long processing times, depending on the capacity of your IBM Cloud Private cluster.
+- Secure PDFs (with a password to open) and restricted PDFs (with a password to edit) cannot be processed.
 
-## Step 2: Parse a contract
+## Step 2: Classify a contract's elements
 {: #parse_contract}
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/element_classification` method to classify your contract. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
-  - `file` (**required** `file`): The input file that is to be classified
+  - `file` (**required** `file`): The input file that is to be classified.
   - `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
 
-Replace `{ICP_IP_address}` with the IP address for your IBM Cloud Private cluster. Replace `{PDF_file}` with the path to the PDF to parse.
+Replace the following values:
+  - `{ICP_IP_address}:{port}` with the IP address for your IBM Cloud Private cluster
+  - `{input_file}` with the path to the file that is to be classified.
+  - Replace `{apikey_value}` with the API key you copied earlier
 
 ```bash
-curl -k -X POST -F 'file=@{PDF_file};type=application/pdf' https://{ICP_IP_address}/compare-and-comply/api/v1/element_classification?version=2018-09-28
+curl -X POST -u "apikey":"{apikey_value}" -F "file=@{input_file}" https://{ICP_IP_address}:{port}/compare-and comply/api/v1/element_classification?version=2018-10-15
 ```
 {: pre}
 
 The method returns a JSON object that contains:
 
- - An HTML conversion of the source PDF file.
- - The extracted document title.
- - An array of `elements` that define the component parts of the contract.
- - An array of `parties` that define entities that have been identified as parties.
- 
-**Important**: The Compare and Comply API on IBM Cloud Private does not require authorization as APIs on the public IBM Cloud do.
+  - [A `documents` object](#documents) that includes the input document's title,  an HTML version of the input document, and the MD5 hash of the input document.
+  - Information about the model used to classify the input document.  
+  - [An `elements` array](#elements) that details semantic elements identified in the input document.
+  - [A `tables` array](#tables) that breaks down the tables identified in the input document.
+  - [A `document_structure` object](#doc_struct) that lists section titles and leading sentences identified in the input document.
+  - [A `parties` array](#parties) that lists the parties, roles, addresses, and contacts of parties identified in the input document.
+  - [Arrays defining `effective_dates`, `contract_amounts`, and `termination_dates`.](#other_arrays)
 
 ## Step 3: Review the analysis
 {: #review_analysis}
+
+This section provides a high-level overview of the output of the `POST /v1/element_classification` method, focusing on the major sections. See [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) for a detailed discussion of the method's output.
+
+### Documents
+{: #documents}
+
+The `documents` object provides basic information about the input document.
+
+### Elements
+{: #elements}
 
 Each object in the `elements` array describes an element of the contract that Compare and Comply has identified. The following code represents a typical element:
 
 ```
 {
-  "sentence_text": "If the parties are unable to agree on the License Price within thirty (30) days after Richmond Enterprises provides the written notice of its exercise of the Optional Patent License to Savage Narwhal Studios in Section 2.3(a), such FMV Dispute shall, at either party's request, be resolved solely and exclusively by final, binding and confidential arbitration to be filed and the decision rendered in New York, New York (with hearings at the request of either party to be held in San Francisco, California or other mutually agreeable place convenient for the parties) in accordance with the Commercial Arbitration Rules of the American Arbitration Association (\" AAA \"), including as supplemented by the Procedures for Large, Complex Commercial Disputes.",
-  "attributes": [
-    {
-      "type": "Location",
-      "text": "New York",
-      "attribute": {
-        "begin": 58372,
-        "end": 58380
-      }
+    "location" : {
+      "begin" : 134323,
+      "end" : 135109
     },
-    {
-      "type": "Location",
-      "text": "New York",
-      "attribute": {
-        "begin": 58382,
-        "end": 58390
-      }
-    },
-    {
-      "type": "Location",
-      "text": "San Francisco",
-      "attribute": {
-        "begin": 58451,
-        "end": 58464
-      }
-    },
-    {
-      "type": "Location",
-      "text": "California",
-      "attribute": {
-        "begin": 58466,
-        "end": 58476
-      }
-    }
-  ],
-  "categories": [
-    {
-      "label": "Communication",
-      "assurance": "High",
-      "provenance": [
-        {
-          "id": "C7xhbsepUodh09zmJdUXSvYZCdixx00wFyCZuAnTujok="
-        }
-      ]
-    },
-    {
-      "label": "Dispute Resolution",
-      "assurance": "High",
-      "provenance": [
-        {
-          "id": "Ck8vgUWOj41OutOOLJ38b2Q7jOj3F30ABGaGLKKxppFA="
-        },
-        {
-          "id": "CdPeg8mAxM5YIsdpzzaluDg7jOj3F30ABGaGLKKxppFA="
-        }
-      ]
-    },
-    {
-      "label": "Intellectual Property",
-      "assurance": "High",
-      "provenance": [
-        {
-          "id": "Cor/mgcf1UE/zmsKm68M6+a9LSRCpcKe8EWCUdwsjrgs="
-        }
-      ]
-    }
-  ],
-  "types": [
-    {
-      "label": {
-        "nature": "Obligation",
-        "party": "All Parties"
+    "text" : "9. In the event that the Participant's total vested account balance is determined to be less than or equal to $2,000.00 as of the date that the Order is received, the parties will be informed in writing that the QDRO determination fee may potentially liquidate the account.",
+    "types" : [ {
+      "label" : {
+        "nature" : "Obligation",
+        "party" : "All Parties"
       },
-      "assurance": "High",
-      "provenance": [
-        {
-          "id": "NNpSqaNkY2zHtxI6Zh78NaZccVNtutrQxISkzdnaVjx0="
-        },
-        {
-          "id": "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
-        }
+      "provenance_ids" : ["Nlu0ogWAEGms4vjhhzpMv3iXhm8b8fBqMBNtT/bXH8JI=", "PlyERkjg5is36RpFjVUFXp69eDmGmCxLCXRs1sDMDUCo="
       ]
-    }
-  ],
-  "sentence": {
-    "begin": 57998,
-    "end": 58952
-  }
+    } ],
+    "categories" : [ {
+      "label" : "Communication",
+      "provenance_ids" : [ "Cs38YyU6VBFtJK1/bgtEJBlqqWmX5F6OYUciRxQXf7HrN5TOCPuI7QXbkbj4LRXoxVuB3/i9H15q5TU+vFxorhUBeWFfF998OYQiPYViD2yI="
+      ]
+    } ],
+    "attributes" : [ {
+      "type" : "Currency",
+      "text" : "$2,000.00",
+      "attribute" : {
+        "begin" : 134780,
+        "end" : 134789
+      }
+    } ]
 }
 ```
+{: screen}
 
-The element has five important sections:
-  - `sentence_text`: The text that was analyzed.
-  - `attributes`: An array that lists one or more attributes of the element. Currently supported objects in the `attributes` array include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). 
-  - `categories`: An array that lists the functional categories into which the identified sentence falls; in other words, the subject matter of the sentence.
-  - `types`: An array that describes what the element is and whom it affects. It consists of one or more sets of `nature` keys (the effect of the sentence on the identified `party`) and `party` keys (whom the sentence affects).
-  - `sentence`: An object that describes where the element was found in the converted HTML. It contains a `start` character value and an `end` character value.
+Each element has five important sections:
+  - `location`: The `begin` and `end` indexes indicating the location of the element in the input document.
+  - `text`: The text of the classified element.
+  - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties affected by the element. See [Types](/docs/services/compare-and-comply/parsing.html#contract_types) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information. 
+  - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. See [Categories](/docs/services/compare-and-comply/parsing.html#contract_categories) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information. 
+  - `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. See [Attributes](/docs/services/compare-and-comply/parsing.html#attributes) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information.
+  
+Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis associated with the element.
 
-**Note**: Some sentences do not fall under any type or category, in which case the service returns the `types` and `categories` arrays as empty objects.
+Some sentences do not fall under any type or category, in which case the service returns the `types` and `categories` arrays as empty objects.
+{: note}
 
-**Note:** Some sentences cover multiple topics, in which case the service returns multiple sets of `types` and `categories` objects.
+Some sentences cover multiple topics, in which case the service returns multiple sets of `types` and `categories` objects.
+{: note}
+  
+Some sentences do not contain any identifiable attributes, in which case the service returns the `attributes` array as empty objects.
+{: note}
 
-**Note**: Some sentences do not contain any identifiable attributes, in which case the service returns the `attributes` array as empty objects.
 
-Additionally, any identified parties are defined in the `parties` array. The `parties` array is located after the `elements` array in the JSON output.
+### Tables
+{: tables}
 
-```json
-  "parties" : [ {
-    "party" : "Customer",
-    "role" : "Buyer"
-  } ]
+The `tables` array details the structure and content of any tables found in the input document. See [Classifying tables](/docs/services/compare-and-comply/tables.html#understanding_tables) and [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) for details.
+
+### Document structure
+{: #doc_struct}
+
+The `document_structure` object identifies the section titles and leading sentences of the input document. See [Understanding document structure](/docs/services/compare-and-comply/doc_structure.html_#doc_struct) for details.
+
+### Parties
+{: #parties}
+
+The `parties` array lists available information about parties affected by the input document, including the party's name, role, address or addresses, and contacts. See [Parties](/docs/services/compare-and-comply/parsing.html##contract_parties) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information.
+
 ```
+  "parties": [
+      {
+      "party": "Wolfbone Investments, LLC",
+      "role": "Supplier",
+      "addresses": [],
+      "contacts": [
+        {
+         "name": "Will Smith",
+         "role": "business contact"
+        },
+        ...
+      ]
+    },
+    {
+      "party": "Torchlight Energy, Inc.",
+      "role": "Buyer",
+      "addresses": [
+       {
+       "text": "5700 W. Plano Pkwy., Ste. 3600, Plano, Texas 75093",
+       "location": {
+          "begin": 150,
+          "end": 200
+        }
+       },
+       ...
+      ],
+      "contacts": [ ]
+    }
+  ]
+```
+{: screen}
+  
+### Other arrays
+{: #other_arrays}
 
-The `parties` array includes two important sections:
+The following arrays provide useful information about the input document. Each of the arrays contains zero or more objects that list the `text` in which the information was identified and the `location` of that text as defined by the text's `begin` and `end` indexes.
 
-  - `party`: The text that was identified as a party within the document.
-  - `role`: The role of the identified party. Roles changed based on subdomain; see [the documentation on the specified subdomain for a list of possible roles](/docs/services/compare-and-comply/parsing.html#contract_parties). Parties that cannot be identified as having a specific role are listed with the `unknown` value.
+  - The `effective_dates` array lists any effective dates identified in the input document.
+  - The `contract_amounts` array lists monetary amounts specified by the input document.
+  - The `termination_dates` array lists the input document's termination dates.
 
 ## Next steps
 {: #next_steps}
 
-You have successfully parsed a contract to identify the nature, parties, and categories of the component parts of the document. You can use the analysis to quickly understand and enforce the parsed contract. The next steps are:
+You have successfully classified a contract to identify its elements, tables, structure, parties, and other information. You can use the analysis to quickly understand and enforce the classified contract. The next steps are:
 
  - [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing)
- - [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) and [table parsing](/docs/services/compare-and-comply/tables.html#understanding_tables).
+ - [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) and [classifying tables](/docs/services/compare-and-comply/tables.html#understanding_tables).
 
 

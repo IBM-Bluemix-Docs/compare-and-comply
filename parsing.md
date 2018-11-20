@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-21"
+lastupdated: "2018-10-29"
 
 ---
 
@@ -11,6 +11,8 @@ lastupdated: "2018-09-21"
 {:tip: .tip}
 {:pre: .pre}
 {:codeblock: .codeblock}
+{:note: .note}
+{:important: .important}
 {:screen: .screen}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
@@ -20,7 +22,7 @@ lastupdated: "2018-09-21"
 # Understanding contract parsing
 {: #contract_parsing}
 
-Compare and Comply returns parsed contracts with an analysis of each identified element.
+When you upload a contract to Compare and Comply by specifying the `model_id` value `contracts` on the `/v1/element_classification` method, the service returns the contract with an analysis of each identified element.
 
 The following sections describe how the returned JSON provides the analysis.
 
@@ -39,7 +41,7 @@ The following tables list the possible values of the `nature` and `party` keys.
 |`Obligation`      |The `party` in the element is required to fulfill the terms specified by the element.|
 |`Right`           |The `party` in the element is guaranteed to receive the terms specified by the element.|
 
-Each `nature` key is paired with a `party` key, which will contain either the name or the role of the party or parties that apply to the nature (examples include, but are not limited to, `Buyer`, `IBM`, or `All Parties`). Note that for the `Definition` nature, the party is always `None`.
+Each `nature` key is paired with a `party` key, which contains either the name or the role of the party or parties that apply to the nature (examples include, but are not limited to, `Buyer`, `IBM`, or `All Parties`). Note that for the `Definition` nature, the party is always `None`.
 
 ## Parties
 {: #contract_parties}
@@ -56,7 +58,7 @@ The separate `parties` array specifies the participants listed in the contract. 
 ## Categories
 {: #contract_categories}
 
-The `categories` array defines the subject matter of the sentence. Currently supported categories include:
+The `categories` array defines the the subject matter of the sentence. Currently supported categories include:
 
 | `categories`     |Description                                                |
 |:----------------:|-----------------------------------------------------------|
@@ -88,7 +90,7 @@ The `categories` array defines the subject matter of the sentence. Currently sup
 ## Attributes
 {: #attributes}
 
-The `attributes` array specifies any attributes identified in the sentence. Each object in the array includes three keys: `type` (the type of attribute from the following table), `text` (the applicable text), and `attribute` (the start and end points of the attribute in the document). Currently supported attributes include:
+The `attributes` array specifies any attributes identified in the sentence. Each object in the array includes three keys: `type` (the type of attribute from the following table), `text` (the applicable text), and `location` (the `begin` and `end` indexes of the attribute in the input document). Currently supported attributes include:
 
 | `attributes`     |Description                                                |
 |:----------------:|-----------------------------------------------------------|
@@ -96,13 +98,8 @@ The `attributes` array specifies any attributes identified in the sentence. Each
 |`DateTime`        |A date, time, date range, or time range.                   |
 |`Currency`        |Monetary value and units.                                  |
 
-# Assurance
-{: #assurance}
-
-Compare and Comply gives an assurance rating to each `type` or `category` element it identifies. There is currently one assurance value, `High`, which indicates there is significant evidence that the listed classification is representative of the content.
-
 ## Provenance
 {: #provenance}
 
-Each object in the `types` and `categories` arrays includes a `provenance` object. The `provenance` object has one or more `id` keys. Each `id` key has a hashed value that you can send to IBM to provide feedback or receive support.
+Each object in the `types` and `categories` arrays includes a `provenance_ids` array. The `provenance_ids` array has one or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
 

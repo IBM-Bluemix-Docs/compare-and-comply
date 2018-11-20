@@ -1,9 +1,8 @@
-
 ---
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-21"
+lastupdated: "2018-11-19"
 
 ---
 
@@ -12,6 +11,8 @@ lastupdated: "2018-09-21"
 {:tip: .tip}
 {:pre: .pre}
 {:codeblock: .codeblock}
+{:note: .note}
+{:important: .important}
 {:screen: .screen}
 {:javascript: .ph data-hd-programlang='javascript'}
 {:java: .ph data-hd-programlang='java'}
@@ -34,7 +35,21 @@ API requests require a version parameter that takes a date in the format `versio
 
 Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Do not default to the current date. Instead, specify a date that matches a version that is compatible with your application, and do not change it until your application is ready for a later version.
 
-The current version is `2018-09-28`.
+The current version is `2018-10-15`.
+
+## Changes
+{: #changes}
+
+The following new features and changes to the service are available.
+
+## Service API Versioning
+{: #api_versioning}
+
+API requests require a version parameter that takes a date in the format `version=YYYY-MM-DD`. Whenever we change the API in a backwards-incompatible way, we release a new minor version of the API.
+
+Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Do not default to the current date. Instead, specify a date that matches a version that is compatible with your application, and do not change it until your application is ready for a later version.
+
+The current version is `2018-10-15`.
 
 ## Changes
 {: #changes}
@@ -43,7 +58,54 @@ The following new features and changes to the service are available.
 
 **Important**: The version number referred to in the following sections is the version of the IBM Watson Compare and Comply Helm chart that you have deployed on your IBM Cloud Private cluster.
 
-### 1.1.0 28 September 2018
+### 1.1.1, 16 November 2018
+{: #111}
+
+Version 1.1.1 includes the following changes and updates:
+
+#### API and schema updates
+
+  - A new API version date (`2018-10-15`). If you specify an API version date earlier than `2018-10-15`, you call an older API that most likely has different method names and parameters than those documented for the current release.
+  - Changes to the output schema for the `/v1/element_classification` method. See [Getting started](/docs/services/compare-and-comply/getting-started.html#getting_started) and [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) for details.
+  - Changes to the `/v1/tables` method's output schema. See [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) and [Classifying tables](/docs/services/compare-and-comply/tables.html#understanding_tables) for information about the table parsing format.
+  - The `/v1/feedback` methods enable users to submit feedback to the output of the service to suggest future refinements to the model. See [Using the feedback APIs](/docs/services/compare-and-comply/feedback.html#feedback) for more information.
+  - The `/v1/batches` methods enable users to create batch-processing requests for multiple documents. See [Using batch processing](/docs/services/compare-and-comply/batching.html#batching) for more information.
+  
+  The `/v1/batches` methods require the use of Cloud Object Storage, which must also be installed on your ICP cluster. See the `README.md` file for the IBM Cloud Object Storage Plug-In at https://{ICP_IP_address}:{port}/catalog/catalogdetails/ibm-charts-public/ibmcloud-object-storage-plugin/1.0.1.
+  {: important}
+  
+#### New input formats
+
+Compare and Comply now has the ability to process certain image files and text files as listed at [Supported input formats](/docs/services/compare-and comply/formats.html#formats).
+
+The service can process "plain" text (ASCII) files that use a monospaced font and page breaks. Richer text formats that include non-monospaced fonts and style attributes such as bold and italics are not yet supported. If you need to process an enriched text file, convert it to PDF before submitting it to the service.
+
+Supported image formats currently include the following. Scanned image files must have a resolution of at least 300 DPI.
+  - BMP
+  - GIF
+  - JPEG
+  - JPEG2000
+  - PNG
+  - RAW
+  - TIFF
+
+The service's methods can accept different types of files as specified in the following table.
+
+| Method           |Image support    |Text support                             |
+|------------------|-----------------|-----------------------------------------|
+|`/v1/html_conversion`| All supported image formats | Supported |
+|`/v1/element_classification`|  All supported image formats | **Not** supported|
+|`/v1/tables`      | All supported image formats | Supported |
+|`/v1/comparison`*  | All supported image formats | **Not** supported|
+
+\*The `/v1/comparison` method still accepts JSON files.
+{: note}
+
+The `/v1/feedback` methods do not accept image or text files. 
+
+The `/v1/batches` methods accept images and text files according to the method called in the batch job. For example, if your batch job calls the `/v1/html_conversion` method, it accepts both images and text files. Similarly, if your batch job calls the `/v1/element_classification` method, it accepts images but not text files.
+
+### 1.1.0, 28 September 2018
 {: #110}
 
 Version 1.1.0 includes the following changes and updates:
@@ -155,6 +217,6 @@ The following notes apply to the General Availability (GA) release of the IBM Wa
 ## Known issues
 {: #known_issues}
 
-- The maximum size of a PDF file that can be uploaded is 50 MB.
+- The maximum size of an input file that can be uploaded to the service in interactive mode (that is, with a method not called by the `/v1/batches` interface, as well as in the Compare and Comply Tooling) is 1.5 MB. Files submitted through the `/v1/batches` interface can be up to 50 MB. See [Using batch processing](/docs/services/compare-and-comply/batching.html#batching) for information on the `/v1/batches` interface.
 - PDFs with security enabled cannot be parsed.
 - Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
