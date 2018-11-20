@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2018
-lastupdated: "2018-09-21"
+lastupdated: "2018-11-19"
 
 ---
 
@@ -31,23 +31,23 @@ Before using the dashboards, you must generate and install them as described in 
 
 Perform the following steps to prepare the dashboard templates for installation.
 
-1. Download the Compare and Comply image from Passport Advantage (PPA). The file is a zipped tar file with a name similar to `ibm-watson-compare-comply-prod-1.1.0.tar.gz`. The file includes the dashboard templates and a `bash` script to render the dashboards from the templates.
+1. Download the Compare and Comply image from Passport Advantage (PPA). The file is a zipped tar file with a name similar to `ibm-watson-compare-comply-prod-1.1.1.tar.gz`. The file includes the dashboard templates and a `bash` script to render the dashboards from the templates.
 
 1. Uncompress and expand the tar file:
   ```bash
-  mkdir ibm-watson-compare-comply-prod-1.1.0 && tar -xvzf ibm-watson-compare-comply-prod-1.1.0.tar.gz -C ibm-watson-compare-comply-prod-1.1.0
+  mkdir ibm-watson-compare-comply-prod-1.1.1 && tar -xvzf ibm-watson-compare-comply-prod-1.1.1.tar.gz -C ibm-watson-compare-comply-prod-1.1.1
   ``` 
   {: pre}
 
 1. Change to the `charts` directory in the extracted directory:
   ```bash
-  cd ibm-watson-compare-comply-prod-1.1.0/charts
+  cd ibm-watson-compare-comply-prod-1.1.1/charts
   ```
   {: pre}
 
 1. Uncompress and expand the zipped tar file in the `charts` directory:
   ```bash
-  tar -xvzf ibm-watson-compare-comply-prod-1.1.0.tgz
+  tar -xvzf ibm-watson-compare-comply-prod-1.1.1.tgz
   ```
   {: pre}
 
@@ -69,13 +69,13 @@ from templates.
 
 1. Run the `render-dashboards.sh` script to render the templates. Options for the script include:
   
-    - `-v`, `--version {chart_version}`: The chart version; for example, `1.1.0`.
+    - `-v`, `--version {chart_version}`: The chart version; for example, `1.1.1`.
     - `-h`, `--help`: Print command help and exit.
     - `-r`, `--release {release_name}`: The Helm release name.
     - `-n`, `--namespace {namespace}`: The namespace of the deployment. The default namespace is `default`.
 
   ```bash
-  ./render-dashboards.sh -v 1.1.0 -r my-test-release -n default
+  ./render-dashboards.sh -v 1.1.1 -r my-test-release -n default
   ```
   {: pre}
 
