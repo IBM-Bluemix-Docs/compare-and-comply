@@ -42,20 +42,6 @@ The current version is `2018-10-15`.
 
 The following new features and changes to the service are available.
 
-## Service API Versioning
-{: #api_versioning}
-
-API requests require a version parameter that takes a date in the format `version=YYYY-MM-DD`. Whenever we change the API in a backwards-incompatible way, we release a new minor version of the API.
-
-Send the version parameter with every API request. The service uses the API version for the date you specify, or the most recent version before that date. Do not default to the current date. Instead, specify a date that matches a version that is compatible with your application, and do not change it until your application is ready for a later version.
-
-The current version is `2018-10-15`.
-
-## Changes
-{: #changes}
-
-The following new features and changes to the service are available.
-
 **Important**: The version number referred to in the following sections is the version of the IBM Watson Compare and Comply Helm chart that you have deployed on your IBM Cloud Private cluster.
 
 ### 1.1.1, 16 November 2018
@@ -68,12 +54,7 @@ Version 1.1.1 includes the following changes and updates:
   - A new API version date (`2018-10-15`). If you specify an API version date earlier than `2018-10-15`, you call an older API that most likely has different method names and parameters than those documented for the current release.
   - Changes to the output schema for the `/v1/element_classification` method. See [Getting started](/docs/services/compare-and-comply/getting-started.html#getting_started) and [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) for details.
   - Changes to the `/v1/tables` method's output schema. See [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) and [Classifying tables](/docs/services/compare-and-comply/tables.html#understanding_tables) for information about the table parsing format.
-  - The `/v1/feedback` methods enable users to submit feedback to the output of the service to suggest future refinements to the model. See [Using the feedback APIs](/docs/services/compare-and-comply/feedback.html#feedback) for more information.
-  - The `/v1/batches` methods enable users to create batch-processing requests for multiple documents. See [Using batch processing](/docs/services/compare-and-comply/batching.html#batching) for more information.
-  
-  The `/v1/batches` methods require the use of Cloud Object Storage, which must also be installed on your ICP cluster. See the `README.md` file for the IBM Cloud Object Storage Plug-In at https://{ICP_IP_address}:{port}/catalog/catalogdetails/ibm-charts-public/ibmcloud-object-storage-plugin/1.0.1.
-  {: important}
-  
+
 #### New input formats
 
 Compare and Comply now has the ability to process certain image files and text files as listed at [Supported input formats](/docs/services/compare-and comply/formats.html#formats).
@@ -101,7 +82,7 @@ The service's methods can accept different types of files as specified in the fo
 \*The `/v1/comparison` method still accepts JSON files.
 {: note}
 
-The `/v1/feedback` methods do not accept image or text files. 
+The `/v1/feedback` methods do not accept image or text files.
 
 The `/v1/batches` methods accept images and text files according to the method called in the batch job. For example, if your batch job calls the `/v1/html_conversion` method, it accepts both images and text files. Similarly, if your batch job calls the `/v1/element_classification` method, it accepts images but not text files.
 
@@ -122,14 +103,14 @@ Note the following changes:
     - The `POST /v1/tables` method analyzes the contents of tables in a PDF input document. The method does not analyze content that is not in tables. See [Classifying tables](/docs/services/compare-and-comply/tables.html#understanding_tables) and [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) for more information.
     - The `POST /v1/comparison` method analyzes the difference between two PDF or JSON input documents. See [Comparing two documents](/docs/services/compare-and-comply/compare.html#compare) for more information.
   - The `v1/subdomain` methods have been deprecated.
-  
+
 #### Other updates and issues
 {: #110_other}
 
   - **Important:** You cannot upgrade from a previous version of Compare and Comply to version 1.1.0. You must deploy version 1.1.0 and, if necessary, delete previous versions of the service. You can delete previous versions either by following the instructions at [Removing a deployment](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_applications/remove_app.html) or by using the `helm delete {old_release} --purge` command, where `{old_release}` is the previous version of the service.
   - You can now analyze scanned PDF files that have been processed by an optical character reader (OCR).
   - The maximum size of a file you can submit to the service is 50 MB. However, if you submit multiple files simultaneously or in close succession, you can experience relatively long processing times, depending on the capacity of your IBM Cloud Private cluster.
-  
+
 ### 1.0.5, 2 August 2018
 {: #105}
 
