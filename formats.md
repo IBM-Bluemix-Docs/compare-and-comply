@@ -74,6 +74,3 @@ The service's methods can accept different types of files as specified in the fo
 \*The `/v1/comparison` method also accepts JSON files from the output of the `/v1/element_classification` method.
 {: note}
 
-The `/v1/feedback` methods do not accept image or text files. 
-
-The `/v1/batches` methods accept images and text files according to the method called in the batch job. For example, if your batch job calls the `/v1/html_conversion` method, it accepts both images and text files. Similarly, if your batch job calls the `/v1/element_classification` method, it accepts images but not text files.
