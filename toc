@@ -2,21 +2,25 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="compare-and-comply" audience="service" href="/docs/services/compare-and-comply/index.html" path="services/compare-and-comply"}
-Compare and Comply
+Compare and Comply for IBM Cloud Private
 
     {: .navgroup id="learn"}
     index.md
     getting-started.md
-    parsing.md
-    schema.md
-    doc_structure.md
+    formats.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
-    config.md
+    html_convert.md
+
+    {: topicgroup}
+    Element classification
+        schema.md
+        parsing.md
+        doc_structure.md
+
     compare.md
     tables.md
-    html_convert.md
 
     {: topicgroup}
     Using monitoring
@@ -25,9 +29,9 @@ Compare and Comply
     	logging.md
     	alerts.md
     {: .navgroup-end}
-    
+
     {: .navgroup id="reference"}
-    [API Docs](https://console.bluemix.net/apidocs/compare-comply-icp)
+    [API Docs](https://cloud.ibm.com/apidocs/compare-comply-icp)
 
     {: .navgroup-end}
 

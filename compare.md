@@ -19,10 +19,10 @@ lastupdated: "2018-11-17"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Comparing two documents
+# Comparing documents
 {: #compare}
 
-You can use the service to compare two documents. For example, you can compare a new, unsigned contract with a signed contract from the previous year. 
+You can use the service to compare two documents. For example, you can compare a new, unsigned contract with a signed contract from the previous year.
 {: shortdesc}
 
 The `POST /v1/comparison` method enables you to compare two documents. Specifically, the method finds and reports semantically aligned elements from the documents. It also reports elements from each document that do not semantically align with any other element.
@@ -42,14 +42,14 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
   - Optionally specify the value `contracts` for the `model` parameter. The only model value accepted by the `POST /v1/comparison` method is `contracts`.
 
 ```bash
-curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: multipart/form-data" -F "file1=@/Users/Downloads/{file_1}" -F "file2=@/Users/Downloads/{file_2}" -F file_1_label="document_1" -F file_2_label="document_2" https://{ICP_IP_address}:{port}/compare-and-comply/api/v1/comparison?version=2018-10-15&model=contracts
+curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: multipart/form-data" -F "file_1=@/Users/Downloads/{file_1}" -F "file_2=@/Users/Downloads/{file_2}" -F file_1_label="document_1" -F file_2_label="document_2" https://{ICP_IP_address}:{port}/{deployment-name}/compare-and-comply/api/v1/comparison?version=2018-10-15&model=contracts
 ```
 {: pre}
 
 If you are submitting JSON files for comparison, specify the media type for the JSON files as follows:
 
 ```bash
-curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: multipart/form-data" -F "file_1=@/Users/Downloads/{file_1}.json;type=application/json" -F "file_2=@/Users/Downloads/{file_2}.json;type=application/json" -F file_1_label="document_1" -F file_2_label="document_2" https://{ICP_IP_address}:{port}/compare-and-comply/api/v1/comparison?version=2018-10-15
+curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: multipart/form-data" -F "file_1=@/Users/Downloads/{file_1}.json;type=application/json" -F "file_2=@/Users/Downloads/{file_2}.json;type=application/json" -F file_1_label="document_1" -F file_2_label="document_2" https://{ICP_IP_address}:{port}/{deployment-name}/compare-and-comply/api/v1/comparison?version=2018-10-15
 ```
 {: pre}
 
@@ -103,7 +103,7 @@ The method returns a JSON object that contains the aligned and unaligned element
             },
             ...
           ]
-        }, 
+        },
         {
           "document_label": string,
           "location": { "begin": int, "end", int },
@@ -131,6 +131,7 @@ The method returns a JSON object that contains the aligned and unaligned element
         }
       ],
       "identical_text": boolean,
+      "significant_elements": boolean,
       "provenance_ids": [ string, ... ]
     },
     ...
@@ -162,7 +163,7 @@ The method returns a JSON object that contains the aligned and unaligned element
       ]
     },
     ...
-  ] 
+  ]
 }
 ```
 {: screen}
@@ -176,11 +177,13 @@ The JSON output includes five objects, three of which are arrays:
     - The `hash` key contains the MD5 hash value of the input file.
     - The `label` keys that appear inside the arrays contain the values passed as `file_1_label` or `file_2_label`, depending on which input document the entry represents.
   - `aligned_elements`: An array that lists pairs of elements that semantically align in the compared documents.
+     - The `identical_text` key is a boolean that indicates if the aligned text is identical.
+     - The `significant_elements` key is a boolean that indicates if the aligned text contains contractual clauses of significance. An _insignificant_ element is one that has no `types` or `categories`, has text that is shorter in length, and is not a structural element such as a section title, a leading sentence, or a list item.
   - `unaligned_elements`: An array that lists elements that do not semantically align between the compared documents.
-  
+
   The `provenance_ids` field is useful when applying feedback to compared documents.
   {: tip}
-  
+
 A sample output file resembles the following:
 
 ```
@@ -242,6 +245,7 @@ A sample output file resembles the following:
         }
       ],
       "identical_text": true,
+      "significant_elements": true,
       "provenance_ids": [ "R1432223" ]
     },
     ...

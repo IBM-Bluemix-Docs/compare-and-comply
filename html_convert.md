@@ -19,25 +19,25 @@ lastupdated: "2018-11-12"
 {:python: .ph data-hd-programlang='python'}
 {:swift: .ph data-hd-programlang='swift'}
 
-# Converting an input document into HTML
+# Converting a PDF, Word, image, or text document into HTML
 {: #html_conversion}
 
-You can transform an [input document](/docs/services/compare-and-comply/formats.html#formats) into HTML by using the `POST /v1/html_conversion` method. 
+You can transform an [input document](/docs/services/compare-and-comply/formats.html#formats)(PDF, Word, image, text) into HTML by using the `POST /v1/html_conversion` method.
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/html_conversion` method to convert an input document into HTML. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
   - `file` (**required** `file`): The input file that is to be converted into HTML.
   - `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
-  
+
 You can specify the response content type to return the converted HTML in either JSON (the default) or raw HTML. See the examples following the command example for the different formats.
   - To return JSON explicitly, specify the header `-H "Accept: application/json"`. This is the default.
   - To return raw HTML, specify the header `-H "Accept: text/html"`.
-  
+
 Replace `{apikey_value}` with the API key you copied earlier and `{input_file}` with the path to the input file to convert.
 
 ```bash
 curl -X POST -u "apikey":"{apikey_value}" -H "Accept: application/json"
--F "file=@{input_file}" https://{ICP_IP_address}:{port}/compare-and-comply/api/v1/html_conversion?version=2018-10-15
+-F "file=@{input_file}" https://{ICP_IP_address}:{port}/{deployment-name}/compare-and-comply/api/v1/html_conversion?version=2018-10-15
 ```
 {: pre}
 
