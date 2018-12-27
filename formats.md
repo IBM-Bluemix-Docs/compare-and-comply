@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-11-19"
+lastupdated: "2018-12-27"
 
 ---
 
@@ -75,7 +75,7 @@ The service's methods can accept different types of files as specified in the fo
 |`/v1/html_conversion`| Supported | All supported image formats | Supported |
 |`/v1/element_classification`| Supported | All supported image formats | **Not** supported|
 |`/v1/tables`      | Supported | All supported image formats | Supported |
-|`/v1/comparison`*  | Supported | All supported image formats | **Not** supported|
+|`/v1/comparison`*  | Supported | All supported image formats | **Not** supported |
 
 \*The `/v1/comparison` method also accepts JSON files from the output of the `/v1/element_classification` method.
 {: note}

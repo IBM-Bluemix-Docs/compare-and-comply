@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2018
-lastupdated: "2018-11-19"
+lastupdated: "2018-12-27"
 
 ---
 
@@ -36,7 +36,7 @@ Perform the following steps to prepare the dashboard templates for installation.
 1. Uncompress and expand the tar file:
   ```bash
   mkdir ibm-watson-compare-comply-prod-1.1.1 && tar -xvzf ibm-watson-compare-comply-prod-1.1.1.tar.gz -C ibm-watson-compare-comply-prod-1.1.1
-  ``` 
+  ```
   {: pre}
 
 1. Change to the `charts` directory in the extracted directory:
@@ -55,7 +55,7 @@ Perform the following steps to prepare the dashboard templates for installation.
 from templates.
   ```
   $ cd ibm-watson-compare-comply-prod/dashboard
-  
+
   $ tree
   .
   ├── alerts.json.tpl
@@ -68,7 +68,7 @@ from templates.
   ```
 
 1. Run the `render-dashboards.sh` script to render the templates. Options for the script include:
-  
+
     - `-v`, `--version {chart_version}`: The chart version; for example, `1.1.1`.
     - `-h`, `--help`: Print command help and exit.
     - `-r`, `--release {release_name}`: The Helm release name.

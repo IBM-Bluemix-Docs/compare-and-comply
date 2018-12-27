@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-11-19"
+lastupdated: "2018-12-27"
 
 ---
 
@@ -114,4 +114,3 @@ To create a PagerDuty notification, perform the following steps.
     {: codeblock}
 
   1. In the **Edit ConfigMap** window, click **Submit**.
-  
