@@ -32,8 +32,7 @@ Observe the following notes regarding files submitted to Compare and Comply.
 
   - The maximum size of a file you can submit to the service is 50 MB. However, if you submit multiple files simultaneously or in close succession, you can experience relatively long processing times, depending on the capacity of your IBM Cloud Private cluster.
   - Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
-  - The [Compare and Comply Tooling](/docs/services/compare-and-comply/tooling.html#tooling) currently accepts **only** PDF files.
-  
+
 ## PDF support
 {: #pdfs}
 
@@ -42,10 +41,17 @@ Compare and Comply can process PDF files. Note the following.
   - Both programmatic and scanned PDF files are supported. Files that have been scanned and processed by an optical character reader (OCR) are also supported.
   - Secure PDFs, which require a password to open, and restricted PDFs, which require a password to edit, cannot be processed.
 
+## Microsoft Word support
+{: #word}
+
+Compare and Comply can process Microsoft Word files in the following formats.
+  - DOC (`application/msword`)
+  - DOCX (`application/vnd.openxmlformats-officedocument.wordprocessingml.document`)
+
 ## Image support
 {: #images}
 
-Compare and Comply can process image files in the following formats. Scanned image files must have a resolution of at least 300 DPI.
+Compare and Comply can process image files in the following formats.
   - BMP
   - GIF
   - JPEG
@@ -53,7 +59,7 @@ Compare and Comply can process image files in the following formats. Scanned ima
   - PNG
   - RAW
   - TIFF
-  
+
 ## Text support
 {: #text}
 
@@ -64,7 +70,7 @@ The service can process "plain" text (ASCII) files that use a monospaced font an
 
 The service's methods can accept different types of files as specified in the following table.
 
-| Method           |PDF support    |Image support             |Text support    
+| Method           |PDF/Word support    |Image support             |Text support        
 |------------------|-----------------|-----------------------------------------|
 |`/v1/html_conversion`| Supported | All supported image formats | Supported |
 |`/v1/element_classification`| Supported | All supported image formats | **Not** supported|
@@ -73,4 +79,3 @@ The service's methods can accept different types of files as specified in the fo
 
 \*The `/v1/comparison` method also accepts JSON files from the output of the `/v1/element_classification` method.
 {: note}
-

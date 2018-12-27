@@ -35,10 +35,10 @@ This tutorial uses an API key to authenticate. For production uses, make sure th
 ## Step 1: Identify content
 {: #identify_content}
 
-Identify appropriate documents to analyze. Compare and Comply can analyze contractual <!-- and regulatory -->documents that meet the criteria listed in [Supported input formats](/docs/services/compare-and-comply/formats.html#formats).
+Identify appropriate documents to analyze. Compare and Comply can analyze contractual documents that meet the criteria listed in [Supported input formats](/docs/services/compare-and-comply/formats.html#formats).
 
 For the example in this tutorial, the file must be in PDF or a supported image format.
-  
+
   You can now submit PDF files that have been scanned and processed by an optical character reader (OCR).
   {: tip}
 
@@ -59,7 +59,7 @@ Replace the following values:
   - Replace `{apikey_value}` with the API key you copied earlier
 
 ```bash
-curl -X POST -u "apikey":"{apikey_value}" -F "file=@{input_file}" https://{ICP_IP_address}:{port}/compare-and comply/api/v1/element_classification?version=2018-10-15
+curl -X POST -u "apikey":"{apikey_value}" -F "file=@{input_file}" https://{ICP_IP_address}:{port}/{deployment-name}/compare-and-comply/api/v1/element_classification?version=2018-10-15
 ```
 {: pre}
 
@@ -123,10 +123,10 @@ Each object in the `elements` array describes an element of the contract that Co
 Each element has five important sections:
   - `location`: The `begin` and `end` indexes indicating the location of the element in the input document.
   - `text`: The text of the classified element.
-  - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties affected by the element. See [Types](/docs/services/compare-and-comply/parsing.html#contract_types) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information. 
-  - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. See [Categories](/docs/services/compare-and-comply/parsing.html#contract_categories) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information. 
+  - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties affected by the element. See [Types](/docs/services/compare-and-comply/parsing.html#contract_types) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information.
+  - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. See [Categories](/docs/services/compare-and-comply/parsing.html#contract_categories) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information.
   - `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. See [Attributes](/docs/services/compare-and-comply/parsing.html#attributes) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information.
-  
+
 Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis associated with the element.
 
 Some sentences do not fall under any type or category, in which case the service returns the `types` and `categories` arrays as empty objects.
@@ -134,7 +134,7 @@ Some sentences do not fall under any type or category, in which case the service
 
 Some sentences cover multiple topics, in which case the service returns multiple sets of `types` and `categories` objects.
 {: note}
-  
+
 Some sentences do not contain any identifiable attributes, in which case the service returns the `attributes` array as empty objects.
 {: note}
 
@@ -186,7 +186,7 @@ The `parties` array lists available information about parties affected by the in
   ]
 ```
 {: screen}
-  
+
 ### Other arrays
 {: #other_arrays}
 
@@ -203,5 +203,3 @@ You have successfully classified a contract to identify its elements, tables, st
 
  - [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing)
  - [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) and [classifying tables](/docs/services/compare-and-comply/tables.html#understanding_tables).
-
-

@@ -32,7 +32,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/ta
 Replace `{apikey_value}` with the API key you copied earlier and `{input_file}` with the path to the input file to parse.
 
 ```bash
-curl -X POST -u "apikey":"{apikey_value}" -F 'file=@{input_file}' https://{ICP_IP_address}:{port}/compare-and-comply/api/v1/tables?version=2018-10-15
+curl -X POST -u "apikey":"{apikey_value}" -F 'file=@{input_file}' https://{ICP_IP_address}:{port}/{deployment-name}/compare-and-comply/api/v1/tables?version=2018-10-15
 ```
 {: pre}
 

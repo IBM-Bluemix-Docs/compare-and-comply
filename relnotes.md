@@ -44,6 +44,26 @@ The following new features and changes to the service are available.
 
 **Important**: The version number referred to in the following sections is the version of the IBM Watson Compare and Comply Helm chart that you have deployed on your IBM Cloud Private cluster.
 
+### 1.1.2, 27 December 2018
+{: #112}
+
+Version 1.1.2 includes the following changes and updates:
+
+#### Method paths
+
+The API method paths have been changed to more closely match the public API. Previously the URL was `{ICP-cluster}/{deployment-name}-api/`. The new URL is `{ICP-cluster}/{deployment-name}/compare-and-comply/api`. Both paths can be used with this release. In future releases only the new path will be valid.
+
+#### API Authentication
+
+-  Added standard Watson authentication to service instances. An API key is created with each service instance. This API key must be used to authenticate to the service when making calls.
+
+#### Support for Microsoft Word documents
+
+- Microsoft Word documents can now be used with the service in the same way that PDFs are.
+
+#### Updates to the Compare method output
+
+
 ### 1.1.1, 16 November 2018
 {: #111}
 
@@ -54,6 +74,7 @@ Version 1.1.1 includes the following changes and updates:
   - A new API version date (`2018-10-15`). If you specify an API version date earlier than `2018-10-15`, you call an older API that most likely has different method names and parameters than those documented for the current release.
   - Changes to the output schema for the `/v1/element_classification` method. See [Getting started](/docs/services/compare-and-comply/getting-started.html#getting_started) and [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) for details.
   - Changes to the `/v1/tables` method's output schema. See [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) and [Classifying tables](/docs/services/compare-and-comply/tables.html#understanding_tables) for information about the table parsing format.
+
 
 #### New input formats
 
@@ -82,9 +103,6 @@ The service's methods can accept different types of files as specified in the fo
 \*The `/v1/comparison` method still accepts JSON files.
 {: note}
 
-The `/v1/feedback` methods do not accept image or text files.
-
-The `/v1/batches` methods accept images and text files according to the method called in the batch job. For example, if your batch job calls the `/v1/html_conversion` method, it accepts both images and text files. Similarly, if your batch job calls the `/v1/element_classification` method, it accepts images but not text files.
 
 ### 1.1.0, 28 September 2018
 {: #110}
@@ -198,6 +216,5 @@ The following notes apply to the General Availability (GA) release of the IBM Wa
 ## Known issues
 {: #known_issues}
 
-- The maximum size of an input file that can be uploaded to the service in interactive mode (that is, with a method not called by the `/v1/batches` interface, as well as in the Compare and Comply Tooling) is 1.5 MB. Files submitted through the `/v1/batches` interface can be up to 50 MB. See [Using batch processing](/docs/services/compare-and-comply/batching.html#batching) for information on the `/v1/batches` interface.
 - PDFs with security enabled cannot be parsed.
 - Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
