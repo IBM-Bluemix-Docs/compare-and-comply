@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-29"
+lastupdated: "2018-12-27"
 
 ---
 
@@ -102,4 +102,3 @@ The `attributes` array specifies any attributes identified in the sentence. Each
 {: #provenance}
 
 Each object in the `types` and `categories` arrays includes a `provenance_ids` array. The `provenance_ids` array has one or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
-

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-25"
+lastupdated: "2018-12-27"
 
 ---
 
@@ -76,4 +76,3 @@ You can edit the metrics dashboard or create a new dashboard by performing the f
     1. The results of the queries are displayed in real time in the new dashboard panel.
 
     1. Multiple queries can be added to a single panel. For example, you can display read and write operations on the same graph, or total visits and total visitors in the same table.
-        

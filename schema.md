@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018
-lastupdated: "2018-10-31"
+lastupdated: "2018-12-27"
 
 ---
 
@@ -35,7 +35,7 @@ After a document has been processed by the `/v1/element_classification` method, 
   "model_version" : string,  
   "elements": [
     {
-      "location": { 
+      "location": {
         "begin": int,
         "end": int
       },
@@ -205,7 +205,7 @@ After a document has been processed by the `/v1/element_classification` method, 
       "contacts": [
         {
           "name": string,
-          "role": string 
+          "role": string
         },
         ...
       ]
@@ -278,7 +278,7 @@ The schema is arranged as follows.
       - `cell_id`: A string value in the format `columnHeader-x-y`, where `x` and `y` are the begin and end offsets of this column header cell in the input document.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
       - `text`: The textual contents of the cell from the input document without associated markup content.
-      - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`. 
+      - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`.
       - `row_index_begin`: The `begin` index of the cell's `row` location in the current table.
       - `row_index_end`: The `end` index of the cell's `row` location in the current table.
       - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
@@ -287,7 +287,7 @@ The schema is arranged as follows.
       - `cell_id`: A string value in the format `rowHeader-x-y`, where `x` and `y` are the begin and end offsets of this row header cell in the input document.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
       - `text`: The textual contents of the cell from the input document without associated markup content.
-      - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`. 
+      - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`.
       - `row_index_begin`: The `begin` index of the cell's `row` location in the current table.
       - `row_index_end`: The `end` index of the cell's `row` location in the current table.
       - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
@@ -302,7 +302,7 @@ The schema is arranged as follows.
       - `column_index_end`: The `end` index of this cell's `column` location in the current table.
       - `row_header_ids`: An array of values, each being the `cell_id` value of a row header that is applicable to this body cell.
       - `row_header_texts`: An array of values, each being the `text` value of a row header that is applicable to this body cell.
-      - `row_header_texts_normalized`: If you provide customization input, the normalized version of the row header texts according to the customization; otherwise, the same value as `row_header_texts`. 
+      - `row_header_texts_normalized`: If you provide customization input, the normalized version of the row header texts according to the customization; otherwise, the same value as `row_header_texts`.
       - `column_header_ids`: An array of values, each being the `cell_id` value of a column header that is applicable to this body cell.
       - `column_header_texts`: An array of values, each being the `text` value of a column header that is applicable to this body cell.
       - `column_header_texts_normalized`: If you provide customization input, the normalized version of the column header texts according to the customization; otherwise, the same value as `column_header_texts`.

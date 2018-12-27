@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018
-lastupdated: "2018-11-19"
+lastupdated: "2018-12-27"
 
 ---
 
@@ -22,13 +22,13 @@ lastupdated: "2018-11-19"
 # Classifying tables
 {: #understanding_tables}
 
-You can classify the contents of tables in your [input document](/docs/services/compare-and-comply/formats.html#formats) by using the `POST /v1/tables` method. 
+You can classify the contents of tables in your [input document](/docs/services/compare-and-comply/formats.html#formats) by using the `POST /v1/tables` method.
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/tables` method to classify the contents of tables in your document. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
   - `file` (**required** `file`): The input file that is to be classified.
   - `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
-  
+
 Replace `{apikey_value}` with the API key you copied earlier and `{input_file}` with the path to the input file to parse.
 
 ```bash
@@ -43,7 +43,7 @@ The following is an example table from an input document.
 
 The table is composed as follows:
  ![Table composition](images/table-comp.png)
- 
+
 where:
 
 <ul>
@@ -52,7 +52,7 @@ where:
   <li><em>Italic text</em> indicates a row header</li>
   <li>Unstyled text indicates a body cell</li>
 </ul>
-  
+
 The output from service represents the example's first body cell (that is, the first cell in row 3 with a value of `35.0%`) as follows.
 
 ```json
@@ -62,7 +62,7 @@ The output from service represents the example's first body cell (that is, the f
       "end": 5879
     },
     "text": "...",
-    "section_title": { 
+    "section_title": {
       "text": "",
       "location": {
         "begin": 0,
@@ -282,10 +282,9 @@ The output from service represents the example's first body cell (that is, the f
       "column_header_ids" : [ "colHeader-1270-1301", "colHeader-2057-2061" ],
       "column_header_texts" : [ "Nine months ended September 30,", "2004" ],
       "column_header_texts_normalized" : [ "Nine months ended September 30,", "Year 2" ]
-    }, 
+    },
     ...
   ]
 }
 ```
 {: screen}
-    
