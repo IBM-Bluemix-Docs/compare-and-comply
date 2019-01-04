@@ -51,7 +51,7 @@ Version 1.1.2 includes the following changes and updates:
 
 #### Method paths
 
-The API method paths have been changed to more closely match the public API. Previously the URL was `{ICP-cluster}/{deployment-name}-api/`. The new URL is `{ICP-cluster}/{deployment-name}/compare-and-comply/api`. Both paths can be used with this release. In future releases only the new path will be valid.
+The API method paths have been changed to more closely match the public API. Previously the URL was `{ICP_IP_cluster}/{deployment_name}-api/`. The new URL is `{cluster_CA_domain}/{deployment_name}/compare-and-comply/api`. Both paths can be used with this release. In future releases only the new path will be valid.
 
 #### API Authentication
 
