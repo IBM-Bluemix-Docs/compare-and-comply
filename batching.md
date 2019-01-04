@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-11-19"
+  years: 2018, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -22,7 +22,7 @@ lastupdated: "2018-11-19"
 # Using batch processing
 {: #batching}
 
-The `/v1/batches` APIs enable you to run Compare and Comply methods over a collection of input documents. Batch processing is available only for the `POST /v1/html_conversion`, `POST /v1/element_classification`, and `POST /v1/tables` methods. Batch processing is _not_ available for the `POST /v1/comparison` method. 
+The `/v1/batches` APIs enable you to run Compare and Comply methods over a collection of input documents. Batch processing is available only for the `POST /v1/html_conversion`, `POST /v1/element_classification`, and `POST /v1/tables` methods. Batch processing is _not_ available for the `POST /v1/comparison` method.
 
 All batch requests return a batch status object that include a `batch_id`. The `batch_id` can be used to monitor the status of a request and to cancel a request.
 
@@ -46,9 +46,9 @@ The batching API endpoints are as follows.
 {: #before-you-batch}
 
 Before you use batch processing, ensure that you are set with the following:
- - All of the items listed in [Before you begin in Getting Started](/docs/services/compare-and-comply/getting-started.html#before-you-begin). 
+ - All of the items listed in [Before you begin in Getting Started](/docs/services/compare-and-comply/getting-started.html#before-you-begin).
  - A [Cloud Object Storage (COS) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/catalog/services/cloud-object-storage){:new_window} instance on your IBM Cloud Private cluster. For information, see the COS documentation at:
- 
+
   - [About IBM Cloud Object Storage ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage){: new_window}
   - [Storing data on IBM Cloud Object Storage ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/containers/cs_storage_cos.html#object_storage){: new_window}
 
@@ -67,10 +67,10 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/ba
   - `output_credentials_file` (**required** `file`): A JSON file that lists the COS output credentials. At a minimum, the credentials must enable `READ` and `WRITE` permissions on the bucket defined by the `output_bucket_name` parameter.
   - `output_bucket_location` (**required** `string`): The geographical location of the COS output bucket as listed on the **Endpoint** tab of your COS instance; for example, `us-geo`, `eu-geo`, or `ap-geo`.
   - `output_bucket_name` (**required** `string`): The name of the COS output bucket.
-  
+
 ```bash
 curl -X POST -u "apikey":"{apikey_value}" \ 
-https://{ICP_IP_address}:{port}/compare-and-comply/api/v1/batches?version=2018-10-15&function=element_classification \
+https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches?version=2018-10-15&function=element_classification \
   -F input_credentials_file=@{path/to/input_credentials_file} \
   -F input_bucket_location={geography} \
   -F input_bucket_name={input_bucket_name} \
@@ -79,7 +79,7 @@ https://{ICP_IP_address}:{port}/compare-and-comply/api/v1/batches?version=2018-1
   -F output_bucket_name={output_bucket_name}
   ```
 {: codeblock}
-  
+
 The values of the `input_credentials_file` and `output_credentials_file` are files that contain the COS service credentials as a JSON object. You can obtain the JSON from the COS web console page on the **Service credentials** tab. The JSON resembles the following:
 {: note}
 
@@ -105,11 +105,11 @@ The following example command creates and runs a batch request with the followin
   - `output_credentials_file`: `/Users/jsmith/cos_output_creds.json`
   - `output_bucket_location`: `us-geo`
   - `output_bucket_name`: `my_cos_output_bucket`
-  
- 
+
+
 ```bash
 curl -X POST -u "apikey":"{apikey_value}" \ 
-https://{ICP_IP_address}:{port}/compare-and-comply/api/v1/batches?version=2018-10-15&function=element_classification \
+https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches?version=2018-10-15&function=element_classification \
     -F input_credentials_file=@/Users/jsmith/cos_input_creds.json \
     -F input_bucket_location=us-geo \
     -F input_bucket_name=my_cos_input_bucket \
@@ -149,14 +149,14 @@ The returned status object, which is identical for all `/v1/batches` methods, co
 
 Batch processing proceeds as follows:
 
-  - When you first submit a batch request, the status is `pending`. 
+  - When you first submit a batch request, the status is `pending`.
   - When the batch engine starts handling documents, the status changes to `active` until the service attempts to process all documents in the batch or the batch job is cancelled by using the [`PUT /v1/batches/{batch_id}` method](#put-cancel-batch).
   - When all documents in the batch job have been processed, the status changes to `completed`.
-  
+
 ## Get a list of submitted batch requests
 {: #get-list-batch}
 
-You can get a list of batch requests you have submitted by using the `GET /v1/batches` method. 
+You can get a list of batch requests you have submitted by using the `GET /v1/batches` method.
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `GET /v1/batches` method to get the status of all batch processing requests. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
@@ -164,7 +164,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `GET /v1/bat
 
 ```bash
 curl -X GET -u "apikey":"{apikey_value}" \ 
-https://{ICP_IP_address}:{port}/compare-and-comply/api/v1/batches?version=2018-10-15
+https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches?version=2018-10-15
 ```
 {: codeblock}
 
@@ -223,7 +223,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `GET /v1/bat
 
 ```bash
 curl -X GET -u "apikey":"{apikey_value}" \ 
-https://{ICP_IP_address}:{port}/compare-and-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15
+https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15
 ```
 {: codeblock}
 
@@ -261,7 +261,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `PUT /v1/bat
 
 ```bash
 curl -X PUT -u "apikey":"{apikey_value}" \ 
-https://{ICP_IP_address}:{port}/compare-and-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=rescan
+https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=rescan
 ```
 {: codeblock}
 
@@ -299,7 +299,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `PUT /v1/bat
 
 ```bash
 curl -X PUT -u "apikey":"{apikey_value}" \ 
-https://{ICP_IP_address}:{port}/compare-and-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=cancel
+https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches/0a7f8ab8-97a0-4b67-9fea-feacafbb0b20?version=2018-10-15&action=cancel
 ```
 {: codeblock}
 
@@ -324,5 +324,3 @@ The method returns a JSON object that provides the status of the specified batch
 }
 ```
 {: screen}
-
-

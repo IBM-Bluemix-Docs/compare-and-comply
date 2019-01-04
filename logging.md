@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2018
-lastupdated: "2018-07-25"
+lastupdated: "2018-12-27"
 
 ---
 
@@ -61,4 +61,3 @@ To view the logging dashboards, perform the following steps.
 
 You can easily change the time range and the frequency of auto-refreshing:
   ![Change the time range and refresh rate](images/log-dboard-change.png)
-

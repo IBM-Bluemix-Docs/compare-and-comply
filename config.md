@@ -2,7 +2,7 @@
 
 copyright:
 years: 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-12-27"
 
 ---
 
@@ -50,24 +50,21 @@ Horizontal scaling options include the following:
 To change the deployment configuration by adding or removing Compare and Comply clusters, perform the following steps.
 
 **Note**: If you scale down a Compare and Comply deployment, IBM Cloud Private immediately reclaims the released resources, thus reducing the processing capacity of the deployment. Do not scale down a deployment that is being used, particularly if the deployment is in a production environment.
-	
+
 Similarly, if you scale up a Compare and Comply deployment, IBM Cloud Private immediately applies the requested resources to the deployment, assuming the resources are available. If you need more resources than your IBM Cloud Private installation can provide, talk with your IBM sales representative about increasing the capacity of your IBM Cloud Private installation.
 
   1. Log in to your IBM Cloud Private cluster.
 
   1. From the menu icon near the upper left-hand corner, select **Workloads -> Deployments**.
-  
-  1. The console displays the **Deployments** page. Locate the deployment you want to scale in the table of deployments.
-  
-  1. In the table row that lists your deployment, click the **Action** icon in the last column of the table, then click **Scale**.
-  
-  1. The console displays the **Scale Deployment** window. In the **Instances** field, enter the desired number of instances, or use the up and down arrows to select the desired value.
-  
-  1. Click **Scale Deployment**.
-  
-  1. The **Scale Deployment** window closes and the console returns to displaying the **Deployments** page. Find your deployment and use the **Desired** and **Current** columns to verify that your requested number of instances have been allocated to the deployment.
-  
-  1. Optionally, click the name of the deployment on the **Deployments** page to view details of the deployment.
-  
-  
 
+  1. The console displays the **Deployments** page. Locate the deployment you want to scale in the table of deployments.
+
+  1. In the table row that lists your deployment, click the **Action** icon in the last column of the table, then click **Scale**.
+
+  1. The console displays the **Scale Deployment** window. In the **Instances** field, enter the desired number of instances, or use the up and down arrows to select the desired value.
+
+  1. Click **Scale Deployment**.
+
+  1. The **Scale Deployment** window closes and the console returns to displaying the **Deployments** page. Find your deployment and use the **Desired** and **Current** columns to verify that your requested number of instances have been allocated to the deployment.
+
+  1. Optionally, click the name of the deployment on the **Deployments** page to view details of the deployment.

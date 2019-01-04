@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-29"
+  years: 2017, 2019
+lastupdated: "2018-01-03"
 
 ---
 
@@ -98,8 +98,37 @@ The `attributes` array specifies any attributes identified in the sentence. Each
 |`DateTime`        |A date, time, date range, or time range.                   |
 |`Currency`        |Monetary value and units.                                  |
 
+## Effective dates
+{: #effective_dates}
+
+The `effective_dates` array identifies the dates during which the document is in effect.
+
+| `effective_dates`|Description                                                |
+|:----------------:|-----------------------------------------------------------|
+|`text`            |An effective date, listed as a string.                   |
+|`location`        |The location of the date as defined by its `begin` and `end` indexes.|
+
+## Contract amounts
+{: #contract_amounts}
+
+The `contract_amounts` array identifies the monetary amounts specified in the document.
+
+| `contract_amounts`|Description                                               |
+|:----------------:|-----------------------------------------------------------|
+|`text`            |A contract amount, listed as a string.                  |
+|`location`        |The location of the contract amount as defined by its `begin` and `end` indexes.|
+
+## Termination dates
+{: #termination_dates}
+
+The `termination_dates` array identifies the document's termination dates.
+
+| `contract_amounts`|Description                                               |
+|:----------------:|-----------------------------------------------------------|
+|`text`            |The termination date, listed as a string.                  |
+|`location`        |The location of the termination date as defined by its `begin` and `end` indexes.|
+
 ## Provenance
 {: #provenance}
 
 Each object in the `types` and `categories` arrays includes a `provenance_ids` array. The `provenance_ids` array has one or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
-

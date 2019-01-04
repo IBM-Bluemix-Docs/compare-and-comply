@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018
-lastupdated: "2018-11-17"
+  years: 2018, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -36,7 +36,7 @@ You need the following before you can use the Compare and Comply Tooling:
  - An IBM Cloud Private account.
  - A Compare and Comply service instance. If you already have a service instance, go to Step 1. If you do not have a service instance, see [Getting Started](/docs/services/compare-and-comply/getting-started.html).
  - Service credentials for the service instance as described in [Before you begin in Getting Started](/docs/services/compare-and-comply/getting-started.html#before-you-begin).
- 
+
 ## Step 1: Launch the Compare and Comply Tooling
 {: #step1}
 
@@ -67,19 +67,19 @@ The maximum file size for the Tooling is 1.5 MB.
 The Compare and Comply Tooling displays three panes. The top pane lists the name of the PDF file and provides the **Upload New Contract** button. The left-side pane enables you to select specific labeled elements to display. The right-side pane displays the document in HTML format.
 
 ![Compare and Comply Tooling with opened document](images/tooling-open-doc.png)
- 
+
 1. In the left-hand pane, select one or more labels from the **Category** listings. When you select an item, the Tooling highlights the elements in that category. For example, selecting **Dispute Resolution** highlights all elements in the document that match that category.
 
   Category selections are logical `AND` operations. That is, if you select more than one category, the Tooling highlights only the elements that match all of the selections.
   {: note}
   ![Compare and Comply Tooling with category selection](images/tooling-category.png)
- 
+
 1. After selecting the category, you can select one or more active labels from the **Nature** listings, the **Party** listings, or both. As you make additional selections, the highlights change to match the combination of selected labels.
 
   Nature and party selections are logical `OR` operations. That is, if you select more than one nature or party, the Tooling highlights all elements that match any of the selections.
   {: note}
   ![Compare and Comply Tooling with category and nature selections](images/tooling-cat-nature.png)
- 
+
 1. Click a highlighted element to display all labels applied to the element. You can optionally provide _feedback_ to the labels and elements, as described in [Adding feedback](#tool-add-feedback).
    ![Compare and Comply Tooling displaying element-specific information](images/tool-highlight.png)
 
@@ -105,14 +105,14 @@ To provide feedback in the Tooling, perform the following steps:
 
 1. If you disagree with the information displayed in the pop-up, click the **Report Feedback** link. The **Feedback** panel opens.
    ![Compare and Comply Tooling: Feedback panel](images/tool-feedback-panel.png).
-   
+
 1. The panel lists each labeled element in the highlighted passage. Perform one or more of the following actions:
    - Mark the label as incorrect by clicking the ![Feedback incorrect icon](images/mark-icon.png) icon. The Tooling displays the status message **Marked incorrect** for the element. If you click the icon by accident or change your mind at a later time, click the ![Undo icon](images/tool-undo.png) icon.
    - Suggest a different label for the element by clicking **+ Suggest Label** and selecting a label from the drop-down menu. The Tooling displays the status message **Suggested**. You can undo the suggestion by clicking the  ![Undo icon](images/tool-undo.png) icon.
    - Explain about your feedback by clicking **Add Comments (optional)** and entering a brief text description.
-   
+
    To dismiss the **Feedback** panel and abandon your feedback, click the **X** in the upper right-hand corner of the panel.
-   
+
 1. When you have finished providing feedback on the highlighted element, click **Report Feedback**.
 
 The following screen image shows the **Feedback** panel with feedback provided for an arbitrary element.
