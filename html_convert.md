@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-12-27"
+  years: 2018, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -37,7 +37,7 @@ Replace `{apikey_value}` with the API key you copied earlier and `{input_file}` 
 
 ```bash
 curl -X POST -u "apikey":"{apikey_value}" -H "Accept: application/json"
--F "file=@{input_file}" https://{ICP_IP_address}:{port}/{deployment-name}/compare-and-comply/api/v1/html_conversion?version=2018-10-15
+-F "file=@{input_file}" https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/html_conversion?version=2018-10-15
 ```
 {: pre}
 

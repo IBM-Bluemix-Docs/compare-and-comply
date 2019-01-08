@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-27"
+  years: 2018, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -54,12 +54,12 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/el
   - `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
 
 Replace the following values:
-  - `{ICP_IP_address}:{port}` with the IP address for your IBM Cloud Private cluster
+  - `{cluster_CA_domain}/{deployment_name}` with the IP address for your IBM Cloud Private cluster
   - `{input_file}` with the path to the file that is to be classified.
   - Replace `{apikey_value}` with the API key you copied earlier
 
 ```bash
-curl -X POST -u "apikey":"{apikey_value}" -F "file=@{input_file}" https://{ICP_IP_address}:{port}/{deployment-name}/compare-and-comply/api/v1/element_classification?version=2018-10-15
+curl -X POST -u "apikey":"{apikey_value}" -F "file=@{input_file}" https://{cluster_CA_domain}/{deployment_name}/compare-and comply/api/v1/element_classification?version=2018-10-15
 ```
 {: pre}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-27"
+  years: 2018, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -51,7 +51,7 @@ Version 1.1.2 includes the following changes and updates:
 
 #### Method paths
 
-The API method paths have been changed to more closely match the public API. Previously the URL was `{ICP-cluster}/{deployment-name}-api/`. The new URL is `{ICP-cluster}/{deployment-name}/compare-and-comply/api`. Both paths can be used with this release. In future releases only the new path will be valid.
+The API method paths have been changed to more closely match the public API. Previously the URL was `{ICP_IP_cluster}/{deployment_name}-api/`. The new URL is `{cluster_CA_domain}/{deployment_name}/compare-and-comply/api`. Both paths can be used with this release. In future releases only the new path will be valid.
 
 #### API Authentication
 
@@ -74,7 +74,6 @@ Version 1.1.1 includes the following changes and updates:
   - A new API version date (`2018-10-15`). If you specify an API version date earlier than `2018-10-15`, you call an older API that most likely has different method names and parameters than those documented for the current release.
   - Changes to the output schema for the `/v1/element_classification` method. See [Getting started](/docs/services/compare-and-comply/getting-started.html#getting_started) and [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) for details.
   - Changes to the `/v1/tables` method's output schema. See [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) and [Classifying tables](/docs/services/compare-and-comply/tables.html#understanding_tables) for information about the table parsing format.
-
 
 #### New input formats
 

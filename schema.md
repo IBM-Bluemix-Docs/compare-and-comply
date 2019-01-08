@@ -326,13 +326,13 @@ The schema is arranged as follows.
       - `name`: A string listing the name of an identified contact.
       - `role`: A string listing the role of the identified contact.  
   - `effective_dates`: An array identifying the effective dates of the document.
-    - `text`: The effective dates, listed as a string.
-    - `location`: The location of the date or dates as defined by its `begin` and `end` indexes.
-  - `contract_amounts`: An array identifying the monetary amounts identified in the document.
-    - `text`: The contract amounts, listed as a string.
-    - `location`: The location of the amount or amounts as defined by its `begin` and `end` indexes.
+    - `text`: An effective date, which is listed as a string.
+    - `location`: The location of the date as defined by its `begin` and `end` indexes.
+  - `contract_amounts`: An array identifying the monetary amounts specified in the document.
+    - `text`: A contract amount, which is listed as a string.
+    - `location`: The location of the amount as defined by its `begin` and `end` indexes.
   - `termination_dates`: An array identifying the document's termination dates.
-    - `text`: The termination date, listed as a string.
+    - `text`: A termination date, which is listed as a string.
     - `location`: The location of the date as defined by its `begin` and `end` indexes.
 
 **\*Notes on tables:**

@@ -31,7 +31,7 @@ Compare and Comply for IBM Cloud Private
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    [API Docs](https://cloud.ibm.com/apidocs/compare-comply-icp)
+    [API reference](https://cloud.ibm.com/apidocs/compare-comply-icp)
 
     {: .navgroup-end}
 

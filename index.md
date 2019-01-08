@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-27"
+  years: 2018, 2019
+lastupdated: "2019-01-03"
 
 ---
 
@@ -32,5 +32,8 @@ Compare and Comply provides:
   - Automatic labeling of sentences in contracts with categories such as  termination, privacy, payment terms, and more
   - A Compare API that analyzes two contracts, side-by-side, and highlights similarities and differences at the level of individual clauses
   - Table extraction, which parses each cell in the table and associates metadata such as row and column headers
+  <!-- 
+  - A feedback API and user interface that lets subject matter experts send corrections and suggestions to IBM data science teams for continuous improvements of models
+  -->
 
 To get started with the service, see the [Getting started](/docs/services/compare-and-comply/getting-started.html) page.
