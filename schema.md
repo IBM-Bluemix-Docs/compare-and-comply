@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018
-lastupdated: "2018-12-27"
+years: 2018, 2019
+lastupdated: "2019-01-18"
 
 ---
 
@@ -22,7 +22,7 @@ lastupdated: "2018-12-27"
 # Understanding the output schema
 {: #output_schema}
 
-After a document has been processed by the `/v1/element_classification` method, the service provides JSON output in the following schema.
+After a document has been processed by the **classify the elements of a document** method, the service provides JSON output in the following schema.
 
 ```json
 {
@@ -144,12 +144,22 @@ After a document has been processed by the `/v1/element_classification` method, 
           "row_header_texts_normalized": [ string ],
           "column_header_ids": [ string ],
           "column_header_texts": [ string ],
-          "column_header_texts_normalized": [ string ]
+          "column_header_texts_normalized": [ string ],
+          "attributes" : [
+             {
+               "type" : string,
+               "text" : string,
+               "location" : {
+                 "begin" : int,
+                 "end" : int
+               }
+             },
+             ...
+           ]
         },
         ...
       ]
     },
-    ...
   ],
   "document_structure": {
     "section_titles": [
@@ -192,6 +202,7 @@ After a document has been processed by the `/v1/element_classification` method, 
     {
       "party": string,
       "role": string,
+      "importance": string,
       "addresses": [
         {
           "text": string,
@@ -215,6 +226,7 @@ After a document has been processed by the `/v1/element_classification` method, 
   "effective_dates": [
     {
       "text": string,
+      "confidence_level": string,
       "location": { "begin": int, "end": int }
      },
      ...
@@ -222,6 +234,7 @@ After a document has been processed by the `/v1/element_classification` method, 
   "contract_amounts": [
     {
       "text": string,
+      "confidence_level": string,
       "location": { "begin": int, "end": int }
     },
     ...
@@ -229,6 +242,7 @@ After a document has been processed by the `/v1/element_classification` method, 
   "termination_dates": [
     {
       "text": string,
+      "confidence_level": string,
       "location": { "begin": int, "end": int }
     },
     ...
@@ -306,6 +320,10 @@ The schema is arranged as follows.
       - `column_header_ids`: An array of values, each being the `cell_id` value of a column header that is applicable to this body cell.
       - `column_header_texts`: An array of values, each being the `text` value of a column header that is applicable to this body cell.
       - `column_header_texts_normalized`: If you provide customization input, the normalized version of the column header texts according to the customization; otherwise, the same value as `column_header_texts`.
+      - `attributes`: An array that identifies document attributes. Each object in the array consists of three elements:
+        - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`.
+        - `text`: The text that is associated with the attribute.
+        - `location`: The location of the attribute as defined by its `begin` and `end` indexes.      
   - `document_structure`: An object describing the structure of the input document.
     - `section_titles`: An array containing one object per section or subsection detected in the input document. Sections and subsections are not nested; instead, they are flattened out and can be placed back in order by using the `begin` and `end` values of the element and the `level` value of the section.
       - `text`: A string listing the section title, if detected.
@@ -319,6 +337,7 @@ The schema is arranged as follows.
   - `parties`: An array defining the parties identified by the service.
     - `party`: A string value identifying the party.
     - `role`: A string value identifying the role of the party.
+    - `importance`: A string value that identifies the importance of the party. Possible values include `Primary` for a primary party and `Unknown` for a non-primary party.
     - `addresses`: An array of objects that identify addresses.
       - `text`: A string containing the address.
       - `location`: The location of the address as defined by its `begin` and `end` indexes.
@@ -327,12 +346,15 @@ The schema is arranged as follows.
       - `role`: A string listing the role of the identified contact.  
   - `effective_dates`: An array identifying the effective dates of the document.
     - `text`: An effective date, which is listed as a string.
+    - `confidence_level`: The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.    
     - `location`: The location of the date as defined by its `begin` and `end` indexes.
   - `contract_amounts`: An array identifying the monetary amounts specified in the document.
     - `text`: A contract amount, which is listed as a string.
+    - `confidence_level`: The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.
     - `location`: The location of the amount as defined by its `begin` and `end` indexes.
   - `termination_dates`: An array identifying the document's termination dates.
     - `text`: A termination date, which is listed as a string.
+    - `confidence_level`: The confidence level of the identification of the termination date. Possible values include `High`, `Medium`, and `Low`.
     - `location`: The location of the date as defined by its `begin` and `end` indexes.
 
 **\*Notes on tables:**

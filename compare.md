@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-14"
 
 ---
 
@@ -42,7 +42,7 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
   - Optionally specify the value `contracts` for the `model` parameter. The only model value accepted by the `POST /v1/comparison` method is `contracts`.
 
 ```bash
-curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: multipart/form-data" -F "file_1=@/Users/Downloads/{file_1}" -F "file_2=@/Users/Downloads/{file_2}" -F file_1_label="document_1" -F file_2_label="document_2" https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/comparison?version=2018-10-15&model=contracts
+curl -X POST -u "apikey":"{apikey_value}" -H "Content-Type: multipart/form-data" -F "file1=@/Users/Downloads/{file_1}" -F "file2=@/Users/Downloads/{file_2}" -F file_1_label="document_1" -F file_2_label="document_2" https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/comparison?version=2018-10-15&model=contracts
 ```
 {: pre}
 

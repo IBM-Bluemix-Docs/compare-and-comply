@@ -45,11 +45,13 @@ Horizontal scaling options include the following:
 |`4Cores 20G 2 concurrent documents (8 VPC)`  |5000 pages per hour             |
 |`8Cores 40G 2 concurrent documents (16 VPC)` |6000 pages per hour             |
 
-\***Note**: Throughput estimates are based on internal testing. Throughput in a production environment depends on multiple factors including other workloads on the same IBM Cloud Private cluster, latencies between the client application and the IBM Cloud Private cluster, and other environmental conditions.
+* Throughput estimates are based on internal testing. Throughput in a production environment depends on multiple factors including other workloads on the same IBM Cloud Private cluster, latencies between the client application and the IBM Cloud Private cluster, and other environmental conditions.
+{: note}
 
 To change the deployment configuration by adding or removing Compare and Comply clusters, perform the following steps.
 
-**Note**: If you scale down a Compare and Comply deployment, IBM Cloud Private immediately reclaims the released resources, thus reducing the processing capacity of the deployment. Do not scale down a deployment that is being used, particularly if the deployment is in a production environment.
+If you scale down a Compare and Comply deployment, IBM Cloud Private immediately reclaims the released resources, thus reducing the processing capacity of the deployment. Do not scale down a deployment that is being used, particularly if the deployment is in a production environment.
+{: note}
 
 Similarly, if you scale up a Compare and Comply deployment, IBM Cloud Private immediately applies the requested resources to the deployment, assuming the resources are available. If you need more resources than your IBM Cloud Private installation can provide, talk with your IBM sales representative about increasing the capacity of your IBM Cloud Private installation.
 

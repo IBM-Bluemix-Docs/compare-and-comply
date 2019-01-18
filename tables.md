@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-14"
 
 ---
 
@@ -230,7 +230,8 @@ The output from service represents the example's first body cell (that is, the f
       "row_header_texts_normalized" : [ "Statutory tax rate" ],
       "column_header_ids" : [ "colHeader-1050-1082", "colHeader-1544-1548" ],
       "column_header_texts" : [ "Three months ended September 30,", "2005" ],
-      "column_header_texts_normalized" : [ "Three months ended September 30,", "Year 1" ]
+      "column_header_texts_normalized" : [ "Three months ended September 30,", "Year 1" ],
+      "attributes": [ ]
     }, {
       "cell_id" : "bodyCell-2633-2638",
       "location" : {
@@ -247,7 +248,8 @@ The output from service represents the example's first body cell (that is, the f
       "row_header_texts_normalized" : [ "Statutory tax rate" ],
       "column_header_ids" : [ "colHeader-1050-1082", "colHeader-1712-1716" ],
       "column_header_texts" : [ "Three months ended September 30,", "2004" ],
-      "column_header_texts" : [ "Three months ended September 30,", "Year 2" ]
+      "column_header_texts" : [ "Three months ended September 30,", "Year 2" ],
+      "attributes": [ ]
     }, {
       "cell_id" : "bodyCell-2825-2830",
       "location" : {
@@ -264,7 +266,8 @@ The output from service represents the example's first body cell (that is, the f
       "row_header_texts_normalized" : [ "Statutory tax rate" ],
       "column_header_ids" : [ "colHeader-1270-1301", "colHeader-1889-1893" ],
       "column_header_texts" : [ "Nine months ended September 30,", "2005" ],
-      "column_header_texts_normalized" : [ "Nine months ended September 30,", "Year 1" ]
+      "column_header_texts_normalized" : [ "Nine months ended September 30,", "Year 1" ],
+      "attributes": [ ]
     }, {
       "cell_id" : "bodyCell-3008-3013",
       "location" : {
@@ -281,7 +284,8 @@ The output from service represents the example's first body cell (that is, the f
       "row_header_texts_normalized" : [ "Statutory tax rate" ],
       "column_header_ids" : [ "colHeader-1270-1301", "colHeader-2057-2061" ],
       "column_header_texts" : [ "Nine months ended September 30,", "2004" ],
-      "column_header_texts_normalized" : [ "Nine months ended September 30,", "Year 2" ]
+      "column_header_texts_normalized" : [ "Nine months ended September 30,", "Year 2" ],
+      "attributes": [ ]
     },
     ...
   ]

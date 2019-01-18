@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-01-03"
+lastupdated: "2018-01-14"
 
 ---
 
@@ -46,7 +46,18 @@ Each `nature` key is paired with a `party` key, which contains either the name o
 ## Parties
 {: #contract_parties}
 
-The separate `parties` array specifies the participants listed in the contract. Each identified `party` object lists the identified party by name and is matched with a `role` that classifies the role of the `party` object. The values of `role` that can be returned for contracts include, but are not limited to:
+The `parties` array specifies the participants that are listed in the contract. Each `party` object is associated with other objects that provide details about the party, including:
+
+  - `role`: The party's role. Values are listed in the table that follows this list.
+  - `importance`: The importance of the party. Possible values are `Primary` for a primary party and `Unknown` for a non-primary party.
+  - `addresses`: An array that identifies addresses.
+    - `text`: An address.
+    - `location`: The location of the address as defined by its `begin` and `end` indexes.
+  - `contacts`: An array that defines the names and roles of contacts that are identified in the input document.
+    - `name`: The name of a contact.
+    - `role`: The role of the contact.
+     
+The values of `role` that can be returned for contracts include, but are not limited to:
 
 | `role`           |Description                                                |
 |:----------------:|-----------------------------------------------------------|
@@ -90,13 +101,16 @@ The `categories` array defines the the subject matter of the sentence. Currently
 ## Attributes
 {: #attributes}
 
-The `attributes` array specifies any attributes identified in the sentence. Each object in the array includes three keys: `type` (the type of attribute from the following table), `text` (the applicable text), and `location` (the `begin` and `end` indexes of the attribute in the input document). Currently supported attributes include:
+The `attributes` array specifies any attributes that are identified in the sentence. Each object in the array includes three keys: `type` (the type of attribute from the following table), `text` (the applicable text), and `location` (the `begin` and `end` indexes of the attribute in the input document). Currently supported attributes include:
 
 | `attributes`     |Description                                                |
 |:----------------:|-----------------------------------------------------------|
-|`Location`        |A geographical location or region.                         |
-|`DateTime`        |A date, time, date range, or time range.                   |
+|`Address`         |A postal address.                                          |
 |`Currency`        |Monetary value and units.                                  |
+|`DateTime`        |A date, time, date range, or time range.                   |
+|`Location`        |A geographical location or region.                         |
+|`Organization`    |An organization.                                           |
+|`Person`          |A person.                                                  |
 
 ## Effective dates
 {: #effective_dates}
@@ -106,6 +120,7 @@ The `effective_dates` array identifies the dates during which the document is in
 | `effective_dates`|Description                                                |
 |:----------------:|-----------------------------------------------------------|
 |`text`            |An effective date, listed as a string.                   |
+|`confidence_level`|The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.|
 |`location`        |The location of the date as defined by its `begin` and `end` indexes.|
 
 ## Contract amounts
@@ -116,6 +131,7 @@ The `contract_amounts` array identifies the monetary amounts specified in the do
 | `contract_amounts`|Description                                               |
 |:----------------:|-----------------------------------------------------------|
 |`text`            |A contract amount, listed as a string.                  |
+|`confidence_level`|The confidence level of the identification of the contract amount. Possible values include `High`, `Medium`, and `Low`.|
 |`location`        |The location of the contract amount as defined by its `begin` and `end` indexes.|
 
 ## Termination dates
@@ -126,6 +142,7 @@ The `termination_dates` array identifies the document's termination dates.
 | `contract_amounts`|Description                                               |
 |:----------------:|-----------------------------------------------------------|
 |`text`            |The termination date, listed as a string.                  |
+|`confidence_level`|The confidence level of the identification of the termination date. Possible values include `High`, `Medium`, and `Low`.|
 |`location`        |The location of the termination date as defined by its `begin` and `end` indexes.|
 
 ## Provenance
