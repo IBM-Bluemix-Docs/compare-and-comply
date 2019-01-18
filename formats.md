@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018
-lastupdated: "2018-12-27"
+  years: 2018, 2019
+lastupdated: "2019-01-14"
 
 ---
 
@@ -22,7 +22,7 @@ lastupdated: "2018-12-27"
 # Supported input formats
 {: #formats}
 
-IBM Watson&reg; Compare and Comply supports a variety of input formats, including PDF, JSON, images, and text.
+IBM Watson&reg; Compare and Comply supports a variety of input formats, including PDF, JSON, Microsoft Word, images, and text.
 {: shortdesc}
 
 ## General support
@@ -38,6 +38,7 @@ Observe the following notes regarding files submitted to Compare and Comply.
 
 Compare and Comply can process PDF files. Note the following.
 
+  - The MIME type is `application/pdf`.
   - Both programmatic and scanned PDF files are supported. Files that have been scanned and processed by an optical character reader (OCR) are also supported.
   - Secure PDFs, which require a password to open, and restricted PDFs, which require a password to edit, cannot be processed.
 
@@ -51,19 +52,23 @@ Compare and Comply can process Microsoft Word files in the following formats.
 ## Image support
 {: #images}
 
-Compare and Comply can process image files in the following formats.
-  - BMP
-  - GIF
-  - JPEG
-  - JPEG2000
-  - PNG
-  - RAW
-  - TIFF
+  - BMP (`image/bmp`)
+  - GIF (`image/gif`)
+  - JPEG (`image/jpeg`)
+  - JPEG2000 (`image/jpeg`)
+  - PNG (`image/png`)
+  - RAW (no specific MIME type)
+  - TIFF (`image/tiff`)
+  
+For best results, use image files with a resolution of 300 DPI or higher. Using image files with a resolution under 300 DPI can result in non-optimal output.
+{: note}
 
 ## Text support
 {: #text}
 
 The service can process "plain" text (ASCII) files that use a monospaced font and page breaks. Richer text formats that include non-monospaced fonts and style attributes such as bold and italics are not yet supported. If you need to process an enriched text file, convert it to PDF before submitting it to the service.
+
+The MIME type is `text/plain`.
 
 ## Support by method
 {: #methods}
