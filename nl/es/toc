@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="compare-and-comply" audience="service" href="/docs/services/compare-and-comply/index.html"}
+{: .toc subcollection="compare-and-comply" audience="service" href="/docs/services/compare-and-comply/index.html" path="services/compare-and-comply"}
 Comparar y cumplir: Clasificación de elementos
 
     {: .navgroup id="learn"}

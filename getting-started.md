@@ -54,7 +54,7 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/el
   - `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
 
 Replace the following values:
-  - `{cluster_CA_domain}/{deployment_name}` with the IP address for your IBM Cloud Private cluster
+  - `{cluster_CA_domain}/{deployment_name}` with the names of your IBM Cloud Private cluster's domain and your service-instance deployment, respectively.
   - `{input_file}` with the path to the file that is to be classified.
   - Replace `{apikey_value}` with the API key you copied earlier
 
