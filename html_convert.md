@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-21"
 
 ---
 
@@ -33,10 +33,10 @@ You can specify the response content type to return the converted HTML in either
   - To return JSON explicitly, specify the header `-H "Accept: application/json"`. This is the default.
   - To return raw HTML, specify the header `-H "Accept: text/html"`.
 
-Replace `{apikey_value}` with the API key you copied earlier and `{input_file}` with the path to the input file to convert.
+Replace `{apikey}` with the API key you copied earlier and `{input_file}` with the path to the input file to convert.
 
 ```bash
-curl -X POST -u "apikey":"{apikey_value}" -H "Accept: application/json"
+curl -X POST -u "apikey:{apikey}" -H "Accept: application/json"
 -F "file=@{input_file}" https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/html_conversion?version=2018-10-15
 ```
 {: pre}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-14"
+lastupdated: "2019-01-21"
 
 ---
 
@@ -29,10 +29,10 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/ta
   - `file` (**required** `file`): The input file that is to be classified.
   - `model` (optional `string`): If this parameter is specified, the service runs the specified type of element classification. Currently, the only supported value is `contracts`.
 
-Replace `{apikey_value}` with the API key you copied earlier and `{input_file}` with the path to the input file to parse.
+Replace `{apikey}` with the API key you copied earlier and `{input_file}` with the path to the input file to parse.
 
 ```bash
-curl -X POST -u "apikey":"{apikey_value}" -F 'file=@{input_file}' https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/tables?version=2018-10-15
+curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/tables?version=2018-10-15
 ```
 {: pre}
 
