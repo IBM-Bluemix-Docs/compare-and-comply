@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-22"
 
 ---
 
@@ -56,10 +56,10 @@ In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/el
 Replace the following values:
   - `{cluster_CA_domain}/{deployment_name}` with the name or address of your IBM Cloud Private cluster's domain and the name of your Compare and Comply instance's deployment, respectively.
   - `{input_file}` with the path to the file that is to be classified.
-  - `{apikey_value}` with the API key you copied earlier.
+  - `{apikey}` with the API key you copied earlier.
 
 ```bash
-curl -X POST -u "apikey":"{apikey_value}" -F "file=@{input_file}" https://{cluster_CA_domain}/{deployment_name}/compare-and comply/api/v1/element_classification?version=2018-10-15
+curl -X POST -u "apikey:{apikey}" -F "file=@{input_file}" https://{cluster_CA_domain}/{deployment_name}/compare-and comply/api/v1/element_classification?version=2018-10-15
 ```
 {: pre}
 
@@ -125,7 +125,7 @@ Each element has five important sections:
   - `text`: The text of the classified element.
   - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties affected by the element. See [Types](/docs/services/compare-and-comply/parsing.html#contract_types) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information.
   - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. See [Categories](/docs/services/compare-and-comply/parsing.html#contract_categories) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information.
-  - `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Location` (geographic location or region referenced by the element), `DateTime` (date, time, date range, or time range specified by the element), and `Currency` (monetary values and units). Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. See [Attributes](/docs/services/compare-and-comply/parsing.html#attributes) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information.
+  - `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`. Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. See [Attributes](/docs/services/compare-and-comply/parsing.html#attributes) in [Understanding contract parsing](/docs/services/compare-and-comply/parsing.html#contract_parsing) for additional information.
 
 Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis associated with the element.
 
@@ -159,6 +159,7 @@ The `parties` array lists available information about parties affected by the in
       {
       "party": "Wolfbone Investments, LLC",
       "role": "Supplier",
+      "importance": "Primary",
       "addresses": [],
       "contacts": [
         {
@@ -171,6 +172,7 @@ The `parties` array lists available information about parties affected by the in
     {
       "party": "Torchlight Energy, Inc.",
       "role": "Buyer",
+      "importance": "Primary",
       "addresses": [
        {
        "text": "5700 W. Plano Pkwy., Ste. 3600, Plano, Texas 75093",
@@ -190,7 +192,7 @@ The `parties` array lists available information about parties affected by the in
 ### Other arrays
 {: #other_arrays}
 
-The following arrays provide useful information about the input document. Each of the arrays contains zero or more objects that list the `text` in which the information was identified and the `location` of that text as defined by the text's `begin` and `end` indexes.
+The following arrays provide useful information about the input document. Each of the arrays contains zero or more objects that list the `text` in which the information was identified, the confidence level of the identification (`High`, `Medium`, or `Low`), and the `location` of that text as defined by the text's `begin` and `end` indexes.
 
   - The `effective_dates` array lists any effective dates identified in the input document.
   - The `contract_amounts` array lists monetary amounts specified by the input document.
