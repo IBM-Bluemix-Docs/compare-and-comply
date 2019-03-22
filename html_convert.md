@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-03-11"
 
-subcollection=compare-and-comply
+subcollection: compare-and-comply
 
 ---
 

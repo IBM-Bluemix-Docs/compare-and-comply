@@ -4,6 +4,8 @@ copyright:
   years: 2018, 2019
 lastupdated: "2019-03-22"
 
+subcollection: compare-and-comply
+
 ---
 
 {:shortdesc: .shortdesc}
