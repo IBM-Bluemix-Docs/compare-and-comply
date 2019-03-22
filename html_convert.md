@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-21"
+lastupdated: "2019-03-11"
+
+subcollection=compare-and-comply
 
 ---
 
@@ -22,7 +24,8 @@ lastupdated: "2019-01-21"
 # Converting a PDF, Word, image, or text document into HTML
 {: #html_conversion}
 
-You can transform an [input document](/docs/services/compare-and-comply/formats.html#formats)(PDF, Word, image, text) into HTML by using the `POST /v1/html_conversion` method.
+You can transform an [input document](/docs/services/compare-and-comply?topic=compare-and-comply-formats)(PDF, Word, image, text) into HTML by using the `POST /v1/html_conversion` method.
+{: shortdesc}
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/html_conversion` method to convert an input document into HTML. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-21"
+lastupdated: "2019-03-12"
 
 ---
 
@@ -22,7 +22,8 @@ lastupdated: "2019-01-21"
 # Classifying tables
 {: #understanding_tables}
 
-You can classify the contents of tables in your [input document](/docs/services/compare-and-comply/formats.html#formats) by using the `POST /v1/tables` method.
+You can classify the contents of tables in your [input document](/docs/services/compare-and-comply?topic=compare-and-comply-formats) by using the `POST /v1/tables` method.
+{: shortdesc}
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/tables` method to classify the contents of tables in your document. The method takes the following input parameters:
   - `version` (**required** `string`): A date in the format `YYYY-MM-DD` that identifies the specific version of the API to use when processing the request.
@@ -36,7 +37,7 @@ curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://{cluster_CA_do
 ```
 {: pre}
 
-See [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) for information about the table parsing format.
+See [Understanding the output schema](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) for information about the table parsing format.
 
 The following is an example table from an input document.
  ![Example table](images/example-table.png)

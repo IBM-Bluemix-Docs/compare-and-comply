@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2018-01-14"
+lastupdated: "2019-03-12"
 
 ---
 
@@ -23,6 +23,7 @@ lastupdated: "2018-01-14"
 {: #contract_parsing}
 
 When you upload a contract to Compare and Comply by specifying the `model_id` value `contracts` on the `/v1/element_classification` method, the service returns the contract with an analysis of each identified element.
+{: shortdesc}
 
 The following sections describe how the returned JSON provides the analysis.
 

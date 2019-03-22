@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-21"
+lastupdated: "2019-03-11"
+
+subcollection: compare-and-comply
 
 ---
 
@@ -23,10 +25,11 @@ lastupdated: "2019-01-21"
 {: #batching}
 
 The `/v1/batches` APIs enable you to run Compare and Comply methods over a collection of input documents. Batch processing is available only for the `POST /v1/html_conversion`, `POST /v1/element_classification`, and `POST /v1/tables` methods. Batch processing is _not_ available for the `POST /v1/comparison` method.
+{: shortdesc}
 
 All batch requests return a batch status object that include a `batch_id`. The `batch_id` can be used to monitor the status of a request and to cancel a request.
 
-Batch-processing requests require access credentials for a Cloud Object Storage (COS) instance and the name of an input and output bucket in that instance. Details are provided in [Before you begin](/docs/services/compare-and-comply/batching.html#before-you-batch).
+Batch-processing requests require access credentials for a Cloud Object Storage (COS) instance and the name of an input and output bucket in that instance. Details are provided in [Before you begin](#before-you-batch).
 {: important}
 
 Files submitted through the `/v1/batches` APIs can be up to 50 MB in size.
@@ -46,11 +49,12 @@ The batching API endpoints are as follows.
 {: #before-you-batch}
 
 Before you use batch processing, ensure that you are set with the following:
- - All of the items listed in [Before you begin in Getting Started](/docs/services/compare-and-comply/getting-started.html#before-you-begin).
- - A [Cloud Object Storage (COS) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/catalog/services/cloud-object-storage){:new_window} instance on your IBM Cloud Private cluster. For information, see the COS documentation at:
-
-  - [About IBM Cloud Object Storage ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/cloud-object-storage/about-cos.html#about-ibm-cloud-object-storage){: new_window}
-  - [Storing data on IBM Cloud Object Storage ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/containers/cs_storage_cos.html#object_storage){: new_window}
+ - All of the items listed in [Before you begin in Getting started](/docs/services/compare-comply?topic=compare-comply-getting_started#gs-before-you-begin). 
+ - A [Cloud Object Storage (COS) ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/cloud-object-storage){:new_window} instance on the IBM Cloud. For information, see the COS documentation, particularly the following:
+   - [About IBM Cloud Object Storage ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-cos#about-ibm-cloud-object-storage){: new_window}
+    - [Order storage ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic-cloud-object-storage-order-storage){: new_window}
+    - [Service credentials ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-service-credentials){: new_window}
+    - [Bucket permissions ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/services/cloud-object-storage?topic=cloud-object-storage-buckets#bucket-permissions){: new_window}
 
 ## Create and run a batch processing request
 {: #post-batch}
@@ -83,7 +87,7 @@ https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches?
 The values of the `input_credentials_file` and `output_credentials_file` are files that contain the COS service credentials as a JSON object. You can obtain the JSON from the COS web console page on the **Service credentials** tab. The JSON resembles the following:
 {: note}
 
-```
+```json
 {
   "apikey": "ursB8336HDIeqbUmz1D1iuK_ddM0K2bKxvZjY3EEbl98",
   "endpoints": "https://cos-service.bluemix.net/endpoints",
@@ -121,7 +125,7 @@ https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches?
 
 The method returns the batch-request status as a JSON object, as in the following example.
 
-```
+```json
 {
   "function": "element_classification",
   "input_bucket_location": "us-geo",
@@ -170,7 +174,7 @@ https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches?
 
 The method returns a JSON object that contains batch-request status objects, as in the following example:
 
-```
+```json
 {
     "batches": [
         {
@@ -229,7 +233,7 @@ https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches/
 
 The method returns a JSON object that provides the status of the specified batch request, as in the following example:
 
-```
+```json
 {
     "function": "html_conversion",
     "input_bucket_location": "us-geo",
@@ -267,7 +271,7 @@ https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches/
 
 The method returns a JSON object that provides the status of the specified batch request, as in the following example:
 
-```
+```json
 {
   "function": "html_conversion",
   "input_bucket_location": "us-geo",
@@ -305,7 +309,7 @@ https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/batches/
 
 The method returns a JSON object that provides the status of the specified batch request, as in the following example:
 
-```
+```json
 {
   "function": "html_conversion",
   "input_bucket_location": "us-geo",

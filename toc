@@ -1,13 +1,14 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="compare-and-comply" audience="service" href="/docs/services/compare-and-comply/index.html" path="services/compare-and-comply"}
+{: .toc subcollection="compare-and-comply" audience="service" href="/docs/services/compare-and-comply?topic=compare-and-comply-about" path="services/compare-and-comply"}
 Compare and Comply for IBM Cloud Private
 
     {: .navgroup id="learn"}
     index.md
     getting-started.md
     formats.md
+    config.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -32,7 +33,9 @@ Compare and Comply for IBM Cloud Private
 
     {: .navgroup id="reference"}
     [API reference](https://cloud.ibm.com/apidocs/compare-comply-icp)
-
+    /watson/watson-using-sdks
+    [Watson GitHub repos](https://github.com/watson-developer-cloud)
+    
     {: .navgroup-end}
 
     {: .navgroup id="help"}

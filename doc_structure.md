@@ -1,8 +1,10 @@
 ---
 
 copyright:
-years: 2018
-lastupdated: "2018-12-27"
+years: 2018, 2019
+lastupdated: "2018-03-11"
+
+subcollection: compare-and-comply
 
 ---
 
@@ -22,14 +24,15 @@ lastupdated: "2018-12-27"
 # Understanding document structure
 {: #doc_struct}
 
-The output of the `POST /v1/element_classification` method includes a `document_structure` object that details the structural composition of the input document. See [Understanding the output schema](/docs/services/compare-and comply/schema.html#output_schema) for the placement of the `document_structure` information in the output of the method.
+The output of the `POST /v1/element_classification` method includes a `document_structure` object that details the structural composition of the input document. See [Understanding the output schema](/docs/services/compare-and comply?topic=compare-and-comply-output_schema) for the placement of the `document_structure` information in the output of the method.
+{: shortdesc}
 
 ## Document structure output
 {: #struct_output}
 
 Document structure information is represented in the output as follows. The object is located immediately after the top-level `tables` array.
 
-```
+```json
   "document_structure": {
     "section_titles": [
       {

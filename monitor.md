@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2017, 2018
-lastupdated: "2018-12-27"
+years: 2017, 2019
+lastupdated: "2019-03-12"
 
 ---
 
@@ -21,6 +21,7 @@ lastupdated: "2018-12-27"
 {: #monitor}
 
 You can monitor the status of Compare and Comply by using IBM Cloud Private's monitoring dashboards. The monitoring dashboards use Grafana, Kibana, and Prometheus to display detailed, customizable information about your Compare and Comply instance.
+{: shortdesc}
 
 For information about monitoring your IBM Cloud Private cluster, see [https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_metrics/monitoring_service.html ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/manage_metrics/monitoring_service.html){: new_window}.
 
@@ -31,11 +32,11 @@ Before using the dashboards, you must generate and install them as described in 
 
 Perform the following steps to prepare the dashboard templates for installation.
 
-1. Download the Compare and Comply image from Passport Advantage (PPA). The file is a zipped tar file with a name similar to `ibm-watson-compare-comply-prod-1.1.1.tar.gz`. The file includes the dashboard templates and a `bash` script to render the dashboards from the templates.
+1. Download the Compare and Comply image from Passport Advantage (PPA). The file is a zipped tar file with a name similar to `ibm-watson-compare-comply-prod-1.1.4.tar.gz`. The file includes the dashboard templates and a `bash` script to render the dashboards from the templates.
 
 1. Uncompress and expand the tar file:
   ```bash
-  mkdir ibm-watson-compare-comply-prod-1.1.1 && tar -xvzf ibm-watson-compare-comply-prod-1.1.1.tar.gz -C ibm-watson-compare-comply-prod-1.1.1
+  mkdir ibm-watson-compare-comply-prod-1.1.4 && tar -xvzf ibm-watson-compare-comply-prod-1.1.4.tar.gz -C ibm-watson-compare-comply-prod-1.1.4
   ```
   {: pre}
 
@@ -102,15 +103,15 @@ The dashboard JSON files are generated under `ibm-watson-compare-comply-prod-1.1
 
 After you render the dashboards, import one or more of them as described in the following sections:
 
-  - [Importing the metrics dashboard](metrics.html#import)
-  - [Importing the logging dashboards](logging.html#import)
-  - [Importing the alerts dashboard](alerts.html#import)
+  - [Importing the metrics dashboard](/docs/services/compare-and-comply?topic-compare-and-comply-metrics#import-metrics)
+  - [Importing the logging dashboards](/docs/services/compare-and-comply?topic-compare-and-comply-logging#import-logging-dashboards)
+  - [Importing the alerts dashboard](/docs/services/compare-and-comply?topic=compare-and-comply-alerts#import-alert-dashboards)
 
 ## Step 3: View and customize dashboards
 {: #use-dboards}
 
 After you import your selected dashboards, view and customize them as described in the following sections:
 
-  - [Viewing the metrics dashboard](metrics.html#view)
-  - [Viewing the logging dashboards](logging.html#view)
-  - [Adding alert rules](alerts.html#add)
+  - [Viewing the metrics dashboard](/docs/services/compare-and-comply?topic-compare-and-comply-metrics#view-metrics)
+  - [Viewing the logging dashboards](/docs/services/compare-and-comply?topic-compare-and-comply-logging#view-logging)
+  - [Adding alert notifications](/docs/services/compare-and-comply?topic=compare-and-comply-alerts#add-alert-notifications)

@@ -1,8 +1,10 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-27"
+  years: 2017, 2019
+lastupdated: "2018-03-11"
+
+subcollection: compare-and-comply
 
 ---
 
@@ -21,13 +23,14 @@ lastupdated: "2018-12-27"
 {: #alerts}
 
 You can set up Prometheus alerts for your Compare and Comply instance after you import the alerts dashboard, as described in the following sections.
+{: shortdesc}
 
 ## Importing the alerts dashboard and adding alert rules
-{: #import}
+{: #import-alert-dashboards}
 
 To import the alerts dashboard and add alert rules to the dashboard, perform the following steps.
 
-  1. Ensure that you have extracted and generated the alerts dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/services/compare-and-comply/monitor.html#monitor).
+  1. Ensure that you have extracted and generated the alerts dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/services/compare-and-comply?topic=compare-and-comply-monitor).
 
   1. Log in to your ICP cluster.
 
@@ -38,7 +41,7 @@ To import the alerts dashboard and add alert rules to the dashboard, perform the
   1. The **ConfigMaps** page opens to display a table of configmaps. In the table, locate the row labeled `alert-rules`. In the **Action** column of the `alert-rules` row, click the menu icon and select **Edit**.
      ![alert-rules Edit](images/configmaps-page.png)
 
-  1. Open the `.../ibm-watson-compare-comply-prod-1.1.0/charts/ibm-watson-compare-comply-prod/dashboard/alerts.json` file in a text editor and copy the line that begins with `cnc.rules`.
+  1. Open the `.../ibm-watson-compare-comply-prod-1.1.4/charts/ibm-watson-compare-comply-prod/dashboard/alerts.json` file in a text editor and copy the line that begins with `cnc.rules`.
 
   1. The **Edit ConfigMap** window opens. In the `data` object, add a comma at the end of the last line of the object, then paste in the `cnc.rules` line you copied in the preceding step. <br />
      ![Edit the ConfigMap](images/edit-configmap.png)
@@ -46,6 +49,7 @@ To import the alerts dashboard and add alert rules to the dashboard, perform the
   1. Click **Submit** in the **Edit ConfigMap** window.
 
 ## Viewing alert rules
+{: #view-alert-rules}
 
 To view the list of alert rules, perform the following steps.
 
@@ -55,14 +59,17 @@ To view the list of alert rules, perform the following steps.
     ![Prometheus alerts](images/prometheus-dboard.png)
 
 ## Adding alert notifications
+{: #add-alert-notifications}
 
 You can add alert notifications for numerous paging systems, including Slack, PagerDuty, HipChat, email, and others. Prometheus provides support for notifications as documented at the following sites:
 
  - [Prometheus Alerting Configuration documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://prometheus.io/docs/alerting/configuration/){: new_window}
  - [Prometheus Notification Examples documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://prometheus.io/docs/alerting/notification_examples/){: new_window}
 
-To create a notification receiver for Compare and Comply on IBM Cloud Private, perform the following steps.
+### Creating a notification receiver
 {: #create-notification-receiver}
+
+To create a notification receiver for Compare and Comply on IBM Cloud Private, perform the following steps.
 
   1. Log in to your ICP cluster.
 
@@ -78,6 +85,7 @@ To create a notification receiver for Compare and Comply on IBM Cloud Private, p
   1. Click **Submit** in the **Edit ConfigMap** window.
 
 ### Examples
+{: #alert-examples}
 
 To create a Slack notification, perform the following steps.
 

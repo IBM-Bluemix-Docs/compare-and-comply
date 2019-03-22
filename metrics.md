@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-12-27"
+  years: 2017, 2019
+lastupdated: "2019-03-12"
 
 ---
 
@@ -21,12 +21,14 @@ lastupdated: "2018-12-27"
 {: #metrics}
 
 You can monitor the status of Compare and Comply by using IBM Cloud Private's monitoring dashboard. The monitoring dashboard uses Grafana for metrics, Prometheus for alerts, and Kibana for logging to present detailed information about your Compare and Comply instance.
+{: shortdesc}
 
 ## Importing the metrics dashboard
+{: #import-metrics}
 
 To import the metrics dashboard for Compare and Comply into IBM Cloud Private, perform the following steps.
 
-  1. Ensure that you have extracted and generated the metrics dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/services/compare-and-comply/monitor.html#monitor).
+  1. Ensure that you have extracted and generated the metrics dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/services/compare-and-comply?topic=compare-and-comply-monitor).
 
   1. Log in to your IBM Cloud Private cluster.
 
@@ -47,7 +49,7 @@ To import the metrics dashboard for Compare and Comply into IBM Cloud Private, p
        ![Select Prometheus](images/prometheus.png)
 
 ## Viewing the metrics dashboard
-{: #view}
+{: #view-metrics}
 
 The metrics dashboard resembles the following:
 ![The metrics dashboard](images/metrics-dboard.png)
@@ -56,6 +58,7 @@ You can easily change the time range and the frequency of auto-refreshing:
 ![Change the time range and refresh rate](images/dboard-change.png)
 
 ## Editing the metrics dashboard
+{: #edit-metrics}
 
 You can edit the metrics dashboard or create a new dashboard by performing the following steps.
 
