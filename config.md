@@ -1,8 +1,10 @@
 ---
 
 copyright:
-years: 2018
-lastupdated: "2018-12-27"
+years: 2018, 2019
+lastupdated: "2019-03-11"
+
+subcollection: compare-and-comply
 
 ---
 
@@ -21,13 +23,14 @@ lastupdated: "2018-12-27"
 {: #configs}
 
 The default deployment configuration for Compare and Comply is `2Cores 10G 1 concurrent document (2 VPC)`. This configuration can process approximately 1500 pages per hour. You can scale up your Compare and Comply deployment on IBM Cloud Private to different levels depending on your throughput requirements. Contact your IBM sales representative for more information on increasing the capacity of Compare and Comply on IBM Cloud Private.
+{: shortdesc}
 
 Compare and Comply can be scaled on two dimensions: _vertical_ and _horizontal_.
 
  - _Vertical_ scaling increases the throughput at which a document is parsed.
  - _Horizontal_ scaling increases the number of concurrent documents parsed.
 
-Both scaling options require increasing the number of Virtual Processor Cores (VPCs) used by Compare and Comply. For information about VPCs, see the IBM Cloud Private [licensing documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/manage_cluster/licensing.html){: new_window}.
+Both scaling options require increasing the number of Virtual Processor Cores (VPCs) used by Compare and Comply. For information about VPCs, see the IBM Cloud Private [licensing documentation ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.1/manage_cluster/licensing.html){: new_window}.
 
 Vertical scaling options include the following:
 

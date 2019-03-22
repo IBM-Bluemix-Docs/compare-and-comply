@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-18"
+lastupdated: "2019-03-22"
+
+subcollection: compare-and-comply
 
 ---
 
@@ -23,6 +25,7 @@ lastupdated: "2019-01-18"
 {: #release_notes}
 
 The release notes provide information about changes to the IBM Watson&trade; Compare and Comply service release on IBM Cloud Private.
+{: shortdesc}
 
 This documentation set applies only to the Compare and Comply service on IBM Cloud Private. It does not apply to other Watson services that are available on the public IBM Cloud, including the public version of Compare and Comply.
 {: important}
@@ -47,6 +50,15 @@ The following new features and changes to the service are available.
 The version number referred to in the following sections is the version of the IBM Watson Compare and Comply Helm chart that you have deployed on your IBM Cloud Private cluster.
 {: important}
 
+### 1.1.4, 22 March 2019
+{: #114}
+
+Version 1.1.4 includes the following updates:
+
+  - Updated analysis models for [Element Classification](/docs/services/compare-and-comply?topic=compare-and-comply-getting_started#parse_contract) and [Table Understanding](/docs/services/compare-and-comply?topic-compare-and-comply-understanding_tables).
+  - Updated PDF parser.
+  - Updated IBM Cloud Private components for authentication and provisioning.
+
 ### 1.1.3, 18 January 2019
 {: #113}
 
@@ -54,12 +66,11 @@ Version 1.1.3 includes the following changes and updates:
 
   - Support for IBM Cloud Private for Data.
   - The Compare and Comply service on IBM Cloud Private is no longer supported on IBM Private Cloud 2.1.0.3 or earlier.
-  - The output of the `/v1/tables` method now includes an `attributes` array for each body cell. For more information, see [Classifying elements](/docs/services/compare-and-comply/schema.html#output_schema) and [Attributes](/docs/services/compare-and-comply/parsing.html#attributes).
+  - The output of the `/v1/tables` method now includes an `attributes` array for each body cell. For more information, see [Classifying elements](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) and [Attributes](/docs/services/compare-and-comply?topic=compare-and-comply-output_schemal#attributes).
   - The output of the `/v1/element_classification` method now includes the following:
     - The `parties` array now includes an `importance` field that indicates whether the party is a `Primary` party or an `Unknown` (non-primary) party.
     - The `effective_dates`, `contract_amounts`, and `termination_dates` arrays now each include a `confidence_level` field that indicates a value of `High`, `Medium`, or `Low`.
-    For more information, see [Classifying elements](/docs/services/compare-and-comply/schema.html#output_schema) and [Understanding element classification](/docs/services/compare-and-comply/parsing.html#contract_parsing).
-  - The Compare and Comply Tooling includes several enhancements and bug fixes. For more information, see [Using the Compare and Comply Tooling](/docs/services/compare-and-comply/tooling.html#using_tool).
+    For more information, see [Classifying elements](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) and [Understanding element classification](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing).
 
 
 ### 1.1.2, 27 December 2018
@@ -79,8 +90,6 @@ The API method paths have been changed to more closely match the public API. Pre
 
 - Microsoft Word documents can now be used with the service in the same way that PDFs are.
 
-#### Updates to the Compare method output
-
 
 ### 1.1.1, 16 November 2018
 {: #111}
@@ -90,12 +99,12 @@ Version 1.1.1 includes the following changes and updates:
 #### API and schema updates
 
   - A new API version date (`2018-10-15`). If you specify an API version date earlier than `2018-10-15`, you call an older API that most likely has different method names and parameters than those documented for the current release.
-  - Changes to the output schema for the `/v1/element_classification` method. See [Getting started](/docs/services/compare-and-comply/getting-started.html#getting_started) and [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) for details.
-  - Changes to the `/v1/tables` method's output schema. See [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) and [Classifying tables](/docs/services/compare-and-comply/tables.html#understanding_tables) for information about the table parsing format.
+  - Changes to the output schema for the `/v1/element_classification` method. See [Getting started](/docs/services/compare-and-comply?topic=compare-and-comply-getting_started) and [Understanding the output schema](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) for details.
+  - Changes to the `/v1/tables` method's output schema. See [Understanding the output schema](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) and [Classifying tables](/docs/services/compare-and-comply?topic=compare-and-comply-understanding_tables) for information about the table parsing format.
 
 #### New input formats
 
-Compare and Comply now has the ability to process certain image files and text files as listed at [Supported input formats](/docs/services/compare-and comply/formats.html#formats).
+Compare and Comply now has the ability to process certain image files and text files as listed at [Supported input formats](/docs/services/compare-and comply?topic=compare-and-comply-formats).
 
 The service can process "plain" text (ASCII) files that use a monospaced font and page breaks. Richer text formats that include non-monospaced fonts and style attributes such as bold and italics are not yet supported. If you need to process an enriched text file, convert it to PDF before submitting it to the service.
 
@@ -133,10 +142,10 @@ Note the following changes:
 
   - The version date on all calls is updated to `2018-09-28`.
   - The `POST /v1/parse` method has been deprecated and superseded by several more specific methods:
-    - The `POST /v1/html_conversion` method converts a PDF input document to HTML without performing any enhancements or analysis. See [Converting an input document into HTML](/docs/services/compare-and-comply/html_convert.html#html_conversion) for more information.
-    - The `POST /v1/element_classification` method analyzes the semantics and structure of a PDF input document. The output of the method has several enhancements. See [Getting started](/docs/services/compare-and-comply/getting-started.html#getting_started) and [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) for more information.
-    - The `POST /v1/tables` method analyzes the contents of tables in a PDF input document. The method does not analyze content that is not in tables. See [Classifying tables](/docs/services/compare-and-comply/tables.html#understanding_tables) and [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) for more information.
-    - The `POST /v1/comparison` method analyzes the difference between two PDF or JSON input documents. See [Comparing two documents](/docs/services/compare-and-comply/compare.html#compare) for more information.
+    - The `POST /v1/html_conversion` method converts a PDF input document to HTML without performing any enhancements or analysis. See [Converting an input document into HTML](/docs/services/compare-and-comply?topic=compare-and-comply-html_conversion) for more information.
+    - The `POST /v1/element_classification` method analyzes the semantics and structure of a PDF input document. The output of the method has several enhancements. See [Getting started](/docs/services/compare-and-comply?topic=compare-and-comply-getting_started) and [Understanding the output schema](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) for more information.
+    - The `POST /v1/tables` method analyzes the contents of tables in a PDF input document. The method does not analyze content that is not in tables. See [Classifying tables](/docs/services/compare-and-comply?topic=compare-and-comply-understanding_tables) and [Understanding the output schema](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) for more information.
+    - The `POST /v1/comparison` method analyzes the difference between two PDF or JSON input documents. See [Comparing two documents](/docs/services/compare-and-comply?topic=compare-and-comply-compare) for more information.
   - The `v1/subdomain` methods have been deprecated.
 
 #### Other updates and issues
@@ -151,8 +160,7 @@ You cannot upgrade from a previous version of Compare and Comply to version 1.1.
 ### 1.0.5, 2 August 2018
 {: #105}
 
-  - The addition of table parsing as described at [Understanding the output schema](/docs/services/compare-and-comply/schema.html#output_schema) and [Understanding table parsing](/docs/services/compare-and-comply/tables.html#understanding_tables).
-
+  - The addition of table parsing as described at [Understanding the output schema](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) and [Understanding table parsing](/docs/services/compare-and-comply?topic=compare-and-comply-understanding_tables).
 
 ### 1.0.4, 5 July 2018
 {: #ingress}
@@ -164,7 +172,7 @@ You must redeploy Compare and Comply as follows:
 
 1.  Remove the existing Compare and Comply deployment as described in [Removing a deployment ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/manage_applications/remove_app.html){: new_window}.
 
-1.  Deploy Compare and Comply version 1.0.4 or later as described in the Compare and Comply Helm chart's `README.md` file and in [Deploying the service](/docs/services/compare-and-comply/deploy.html).
+1.  Deploy Compare and Comply version 1.0.4 or later as described in the Compare and Comply Helm chart's `README.md` file.
 
 Observe the following if you need to redeploy the service.
 {: important}
@@ -186,7 +194,6 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 
 #### Additional notes
 
--   Additional deployment instructions are now provided at [Deploying the service](/docs/services/compare-and-comply/deploy.html).
 -   The Compare and Comply service is now integrated with IBM Cloud Private's [ingress controller ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0.3/getting_started/components.html){: new_window}. This change enables you to call the service's API methods without specifying a port number in the calls' URLs. The following is a typical API call before the **ingress** integration:
 
     ```bash
@@ -212,7 +219,7 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 
 ### 1.0.3, 25 May 2018
 
-- The output of the `parse` method now includes the `attributes` array. See [Review the analysis](/docs/services/compare-and-comply/getting-started.html#review_analysis) and [Attributes](/docs/services/compare-and-comply/parsing.html#attributes) for information. You can use the information in the `attributes` array to search for document elements that refer to specific locations; times, dates, time range, or date range; and monetary value and units.
+- The output of the `parse` method now includes the `attributes` array. See [Review the analysis](/docs/services/compare-and-comply?topic=compare-and-comply-getting_started#review_analysis) and [Attributes](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing_#attributes) for information. You can use the information in the `attributes` array to search for document elements that refer to specific locations; times, dates, time range, or date range; and monetary value and units.
 - Each object in the `types` and `categories` arrays includes a `provenance` object. The `provenance` object has one or more `id` keys. Each `id` key has a hashed value that you can send to IBM to provide feedback or receive support.
 - Improvements to the accuracy of PDF parsing and to the performance of parsing large PDF files.
 - This release is available on IBM Cloud Private 2.1.0.2 or higher. See the catalog entry for the service for details on IBM Cloud Private requirements.
@@ -220,11 +227,11 @@ curl -k -X POST -F 'file=@./myPDF.pdf;type=application/pdf' https://10.19.74.45:
 
 ### 1.0.2, 19 April 2018
 
-- Additional supported categories. See the [Categories documentation](/docs/services/compare-and-comply/parsing.html#contract_categories) for the most recent list of supported categories.
+- Additional supported categories. See the [Categories documentation](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_categories) for the most recent list of supported categories.
     - `Asset Use`
     - `Communication`
     - `Safety and Security`
--  Documentation updates, including corrections to the examples in [Getting Started](/docs/services/compare-and-comply/getting-started.html).
+-  Documentation updates, including corrections to the examples in [Getting Started](/docs/services/compare-and-comply?topic=compare-and-comply-getting_started).
 
 ### 1.0.1 (General Availability release), 23 March 2018
 

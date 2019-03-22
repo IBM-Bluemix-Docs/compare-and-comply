@@ -2,7 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-21"
+lastupdated: "2019-03-11"
+
+subcollection: compare-and-comply
 
 ---
 
@@ -23,6 +25,7 @@ lastupdated: "2019-01-21"
 {: #feedback}
 
 Users, preferably subject-matter experts (SMEs), can use the IBM Watson Compare and Comply service's feedback APIs to provide feedback on a parsed document. You can provide feedback on any element that has been labeled by the service. The feedback is associated with the document for future review and consideration. The feedback APIs enable users to submit, get, and delete feedback.
+{: shortdesc}
 
 Feedback is not immediately incorporated into the training model, nor is it guaranteed to be incorporated at a later date. Instead, submitted feedback is used to suggest future updates to the training model.
 {: important}
@@ -62,18 +65,15 @@ In the following scenario, an SME named Stuart reviews a parsed governing docume
 
 These steps are described in more detail in the following sections.
 
-  You can also provide feedback by using the Compare and Comply Tooling as described at [Adding feedback in Using the Compare and Comply Tooling](/docs/services/compare-and-comply/tooling.html#tool-add-feedback).
-  {: tip}
-
 ## Adding feedback
 {: #add_feedback}
 
 You can add feedback to a document programmatically by using the `POST /v1/feedback` method.
 
 In a `bash` shell or equivalent environment such as Cygwin, issue the following command to add feedback to a document, with values as follows:
-  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting Started](/docs/services/compare-and-comply/getting-started.html#before-you-begin).
+  - Replace `{apikey}` with the API key you copied in [Before you begin in Getting Started](/docs/services/compare-and-comply?topic=compare-and-comply-getting_started#before-you-begin).
   - Create a `feedback_data` object, which is a specifically formatted object specifying the feedback you want to add to the document. The `feedback_data` object must be in the following format.
-    ```
+    ```json
     {
       "document": {
         "hash": string,
@@ -130,7 +130,7 @@ In a `bash` shell or equivalent environment such as Cygwin, issue the following 
 <!--
 You can assemble the body of the `feedback_data` object as follows:
 
-  1. Run the `POST /v1/element_classification` method as described at [Step 2: Classify a contract's elements in Getting Started](/docs/services/compare-and-comply/getting-started.html#parse_contract), and save its output to a file.
+  1. Run the `POST /v1/element_classification` method as described at [Step 2: Classify a contract's elements in Getting Started](/docs/services/compare-and-comply?topic=compare-and-comply-getting_started#parse_contract), and save its output to a file.
   1. For the `feedback_type` field, specify a value of `"element_classification"`.
   1. For the `collection_id` field, optionally specify a value of your choosing.
   1. In the saved output file, look in the `elements` array for the element for which you want to provide feedback. The most common element for posting feedback is `sentence`.
@@ -226,13 +226,13 @@ https://{cluster_CA_domain}/{deployment_name}/compare-and-comply/api/v1/feedback
           ]
         }
       }
-    }
+    }'
 ```
 {: codeblock}
 
 The output of the command resembles the following.
 
-```
+```json
 {
   "feedback_id": "9gh7c1f4-57dd-42b5-9586-a2ddf3ed8b34",
   "user_id": "7uy9c1f4-57dd-42b5-9586-a2ddf3ed8b64",
@@ -353,12 +353,12 @@ You can retrieval all feedback that has been added to a document by using the `G
   - `document_title` (optional `string`): If this parameter is specified, the service returns only the records associated with the specified title.
   - `model_id` (optional `string`): If this parameter is specified, the service returns only the records with the specified element model ID.
   - `model_version` (optional `string`): If this parameter is specified, the service returns only the records with the specified element model version.  
-  - `category_removed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` removed. See [Categories](/docs/services/compare-and-comply/parsing.html#contract_categories) for a table of valid `categories`.
-  - `category_added` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` added. See [Categories](/docs/services/compare-and-comply/parsing.html#contract_categories) for a table of valid `categories`.
-  - `category_not_changed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` unchanged. See [Categories](/docs/services/compare-and-comply/parsing.html#contract_categories) for a table of valid `categories`.
-  - `type_removed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types removed. See [Types](/docs/services/compare-and-comply/parsing.html#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
-  - `type_added` (optional `string`): A comma-separated list of `types` in which each `type` object is of the form `{"nature": "{nature}", "party": "{party}"}`. If this parameter is specified, the service returns only the records that have one or more of the specified types added. See [Types](/docs/services/compare-and-comply/parsing.html#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
-  - `type_not_changed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types unchanged. See [Types](/docs/services/compare-and-comply/parsing.html#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
+  - `category_removed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` removed. See [Categories](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_categories) for a table of valid `categories`.
+  - `category_added` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` added. See [Categories](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_categories) for a table of valid `categories`.
+  - `category_not_changed` (optional `string`): A comma-separated list of `categories`. If this parameter is specified, the service returns only the records that have one or more of the specified `categories` unchanged. See [Categories](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_categories) for a table of valid `categories`.
+  - `type_removed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types removed. See [Types](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
+  - `type_added` (optional `string`): A comma-separated list of `types` in which each `type` object is of the form `{"nature": "{nature}", "party": "{party}"}`. If this parameter is specified, the service returns only the records that have one or more of the specified types added. See [Types](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
+  - `type_not_changed` (optional `string`): A comma-separated list of `types` in which each `type` value is of the form `nature:party`. If this parameter is specified, the service returns only the records that have one or more of the specified types unchanged. See [Types](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_types) for a table of valid `types` (that is, `nature` and `party` pairs).
   - `page_limit` (optional `int`): The number of documents that you want to be returned in the response. The default is `10`. The maximum is `100`.
   - `cursor` (optional `string`): A string that lists the documents you want to be returned in the response.
   - `sort` (optional `string`): A comma-separated list of fields in the document on which to sort returned results. You can optionally specify a sort direction by prefixing the field with `-` for descending order or `+` for ascending order. Ascending order is the default sort direction.
