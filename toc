@@ -33,6 +33,7 @@ Compare and Comply for IBM Cloud Private
 
     {: .navgroup id="reference"}
     [API reference](https://cloud.ibm.com/apidocs/compare-comply-icp)
+    information-security.md
     /watson/watson-using-sdks
     [Watson GitHub repos](https://github.com/watson-developer-cloud)
     
