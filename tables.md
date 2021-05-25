@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-03-12"
+  years: 2018, 2021
+lastupdated: "2021-05-25"
 
 subcollection: compare-and-comply
 
@@ -24,7 +24,7 @@ subcollection: compare-and-comply
 # Classifying tables
 {: #understanding_tables}
 
-You can classify the contents of tables in your [input document](/docs/services/compare-and-comply?topic=compare-and-comply-formats) by using the `POST /v1/tables` method.
+You can classify the contents of tables in your [input document](/docs/compare-and-comply?topic=compare-and-comply-formats) by using the `POST /v1/tables` method.
 {: shortdesc}
 
 In a `bash` shell or equivalent environment such as Cygwin, use the `POST /v1/tables` method to classify the contents of tables in your document. The method takes the following input parameters:
@@ -39,7 +39,7 @@ curl -X POST -u "apikey:{apikey}" -F 'file=@{input_file}' https://{cluster_CA_do
 ```
 {: pre}
 
-See [Understanding the output schema](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) for information about the table parsing format.
+See [Understanding the output schema](/docs/compare-and-comply?topic=compare-and-comply-output_schema) for information about the table parsing format.
 
 The following is an example table from an input document.
  ![Example table](images/example-table.png)

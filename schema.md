@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2018, 2019
-lastupdated: "2019-01-18"
+  years: 2018, 2021
+lastupdated: "2021-05-25"
 
 subcollection: compare-and-comply
 
@@ -35,10 +35,10 @@ After a document has been processed by the **classify the elements of a document
     "hash": string
   },
   "model_id" : string,
-  "model_version" : string,  
+  "model_version" : string,
   "elements": [
     {
-      "location": { 
+      "location": {
         "begin": int,
         "end": int
       },
@@ -184,7 +184,7 @@ After a document has been processed by the **classify the elements of a document
           ]
         },
         ...
-      ]      
+      ]
     },
     ...
   ],
@@ -243,7 +243,7 @@ After a document has been processed by the **classify the elements of a document
       "contacts": [
         {
           "name": string,
-          "role": string 
+          "role": string
         },
         ...
       ]
@@ -310,7 +310,7 @@ The schema is arranged as follows.
         - `party`: A string that identifies the party to whom the sentence applies.
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `categories`: An array that lists the functional categories into which the element falls; in other words, the subject matter of the element.
-      - `label`: A string that lists the identified category. You can find a list of [categories](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_categories) in [Understanding element classification](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing).
+      - `label`: A string that lists the identified category. You can find a list of [categories](/docs/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_categories) in [Understanding element classification](/docs/compare-and-comply?topic=compare-and-comply-contract_parsing).
       - `provenance_ids`: An array of one or more hashed values that you can send to IBM to provide feedback or receive support.
     - `attributes`: An array that identifies document attributes. Each object in the array consists of three elements:
       - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`.
@@ -334,7 +334,7 @@ The schema is arranged as follows.
       - `cell_id`: The unique ID of the cell in the current table.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
       - `text`: The textual contents of the cell from the input document without associated markup content.
-      - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`. 
+      - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`.
       - `row_index_begin`: The `begin` index of the cell's `row` location in the current table.
       - `row_index_end`: The `end` index of the cell's `row` location in the current table.
       - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
@@ -343,7 +343,7 @@ The schema is arranged as follows.
       - `cell_id`: The unique ID of the cell in the current table.
       - `location`: The location of the cell in the input document as defined by its `begin` and `end` indexes.
       - `text`: The textual contents of the cell from the input document without associated markup content.
-      - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`. 
+      - `text_normalized`: If you provide customization input, the normalized version of the cell text according to the customization; otherwise, the same value as `text`.
       - `row_index_begin`: The `begin` index of the cell's `row` location in the current table.
       - `row_index_end`: The `end` index of the cell's `row` location in the current table.
       - `column_index_begin`: The `begin` index of the cell's `column` location in the current table.
@@ -358,7 +358,7 @@ The schema is arranged as follows.
       - `column_index_end`: The `end` index of this cell's `column` location in the current table.
       - `row_header_ids`: An array of values, each being the `cell_id` value of a row header that is applicable to this body cell.
       - `row_header_texts`: An array of values, each being the `text` value of a row header that is applicable to this body cell.
-      - `row_header_texts_normalized`: If you provide customization input, the normalized version of the row header texts according to the customization; otherwise, the same value as `row_header_texts`. 
+      - `row_header_texts_normalized`: If you provide customization input, the normalized version of the row header texts according to the customization; otherwise, the same value as `row_header_texts`.
       - `column_header_ids`: An array of values, each being the `cell_id` value of a column header that is applicable to this body cell.
       - `column_header_texts`: An array of values, each being the `text` value of a column header that is applicable to this body cell.
       - `column_header_texts_normalized`: If you provide customization input, the normalized version of the column header texts according to the customization; otherwise, the same value as `column_header_texts`.
@@ -366,14 +366,14 @@ The schema is arranged as follows.
         - `type`: The type of attribute. Possible values are `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`.
         - `text`: The text that is associated with the attribute.
         - `location`: The location of the attribute as defined by its `begin` and `end` indexes.
-    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/services/compare-and-comply?topic=compare-and-comply-understanding_tables#key-value-pairs).
+    - `key_value_pairs`: An array that specifies any key-value pairs in tables in the input document. For more information, see [Understanding key-value pairs](/docs/compare-and-comply?topic=compare-and-comply-understanding_tables#key-value-pairs).
       - `key`: An object that specifies a key for a key-value pair.
         - `cell_id`: The unique ID of the key in the table.
         - `location`: The location of the key cell in the input document as defined by its `begin` and `end` indexes.
         - `text`: The text content of the table cell without HTML markup.
       - `value`: An array that specifies the value or values for a key-value pair.
         - `cell_id`: The unique ID of the value in the table.
-        - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.  
+        - `location`: The location of the value cell in the input document as defined by its `begin` and `end` indexes.
         - `text`: The text content of the table cell without HTML markup.
   - `document_structure`: An object that describes the structure of the input document.
     - `section_titles`: An array that contains one object per section or subsection that is detected in the input document. Sections and subsections are not nested. Instead, they are flattened out and can be placed back in order by using the `begin` and `end` values of the element and the `level` value of the section.
@@ -394,7 +394,7 @@ The schema is arranged as follows.
       - `location`: The location of the address as defined by its `begin` and `end` indexes.
     - `contacts`: An array that defines the name and role of contacts that are identified in the input document.
       - `name`: A string that lists the name of an identified contact.
-      - `role`: A string that lists the role of the identified contact.  
+      - `role`: A string that lists the role of the identified contact.
   - `effective_dates`: An array that identifies the effective dates of the document.
     - `confidence_level`: The confidence level of the identification of the effective date. Possible values include `High`, `Medium`, and `Low`.
     - `text`: An effective date, which is listed as a string.
@@ -413,19 +413,19 @@ The schema is arranged as follows.
   - `contract_types`: An array that identifies the document's contract type or types.
     - `confidence_level`: The confidence level of the identification of the contract type. Possible values include `High`, `Medium`, and `Low`.
     - `text`: A contract type, which is listed as a string.
-    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.    
+    - `provenance_ids`: An array that contains zero or more keys. Each key is a hashed value that you can send to IBM to provide feedback or receive support.
     - `location`: The location of the contract as defined by its `begin` and `end` indexes.
 
 **\*Notes on tables:**
   - Row and column index values per cell are zero-based and so begin with `0`.
   - Multiple values in arrays of `row_header_ids` and `row_header_texts` elements indicate a possible hierarchy of row headers.
   - Multiple values in arrays of `column_header_ids` and `column_header_texts` elements indicate a possible hierarchy of column headers.
-  
+
 ### Understanding the `location` objects
 {: #understand-location}
 
-The `location` object is contained inside the vast majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document. 
-  
+The `location` object is contained inside the vast majority of element definitions. The object identifies the location of an element. The object contains two index numbers, `begin` and `end`. The index numbers indicate the beginning and ending positions, respectively, of the element as character numbers in the HTML document that the service created from your input document.
+
 For example, a `text` string with the value `Amount due` might have a corresponding `location` object such as
 ```json
 {

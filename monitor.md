@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2017, 2019
-lastupdated: "2019-03-12"
+  years: 2017, 2021
+lastupdated: "2021-05-25"
 
 subcollection: compare-and-comply
 
@@ -105,15 +105,15 @@ The dashboard JSON files are generated under `ibm-watson-compare-comply-prod-1.1
 
 After you render the dashboards, import one or more of them as described in the following sections:
 
-  - [Importing the metrics dashboard](/docs/services/compare-and-comply?topic-compare-and-comply-metrics#import-metrics)
-  - [Importing the logging dashboards](/docs/services/compare-and-comply?topic-compare-and-comply-logging#import-logging-dashboards)
-  - [Importing the alerts dashboard](/docs/services/compare-and-comply?topic=compare-and-comply-alerts#import-alert-dashboards)
+  - [Importing the metrics dashboard](/docs/compare-and-comply?topic-compare-and-comply-metrics#import-metrics)
+  - [Importing the logging dashboards](/docs/compare-and-comply?topic-compare-and-comply-logging#import-logging-dashboards)
+  - [Importing the alerts dashboard](/docs/compare-and-comply?topic=compare-and-comply-alerts#import-alert-dashboards)
 
 ## Step 3: View and customize dashboards
 {: #use-dboards}
 
 After you import your selected dashboards, view and customize them as described in the following sections:
 
-  - [Viewing the metrics dashboard](/docs/services/compare-and-comply?topic-compare-and-comply-metrics#view-metrics)
-  - [Viewing the logging dashboards](/docs/services/compare-and-comply?topic-compare-and-comply-logging#view-logging)
-  - [Adding alert notifications](/docs/services/compare-and-comply?topic=compare-and-comply-alerts#add-alert-notifications)
+  - [Viewing the metrics dashboard](/docs/compare-and-comply?topic-compare-and-comply-metrics#view-metrics)
+  - [Viewing the logging dashboards](/docs/compare-and-comply?topic-compare-and-comply-logging#view-logging)
+  - [Adding alert notifications](/docs/compare-and-comply?topic=compare-and-comply-alerts#add-alert-notifications)

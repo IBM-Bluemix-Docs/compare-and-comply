@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-03-11"
+  years: 2018, 2021
+lastupdated: "2021-05-25"
 
 subcollection: compare-and-comply
 
@@ -37,4 +37,4 @@ Compare and Comply provides:
   - Table extraction, which parses each cell in the table and associates metadata such as row and column headers
   - A feedback API and user interface that lets subject matter experts send corrections and suggestions to IBM data science teams for continuous improvements of models
 
-To get started with the service, see the [Getting started](/docs/services/compare-and-comply?topic=compare-and-comply-getting_started) page.
+To get started with the service, see the [Getting started](/docs/compare-and-comply?topic=compare-and-comply-getting_started) page.
