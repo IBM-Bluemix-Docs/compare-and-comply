@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-03-12"
+  years: 2017, 2021
+lastupdated: "2021-05-25"
 
 subcollection: compare-and-comply
 
@@ -30,7 +30,7 @@ You can monitor the status of Compare and Comply by using IBM Cloud Private's mo
 
 To import the metrics dashboard for Compare and Comply into IBM Cloud Private, perform the following steps.
 
-  1. Ensure that you have extracted and generated the metrics dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/services/compare-and-comply?topic=compare-and-comply-monitor).
+  1. Ensure that you have extracted and generated the metrics dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/compare-and-comply?topic=compare-and-comply-monitor).
 
   1. Log in to your IBM Cloud Private cluster.
 

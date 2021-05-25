@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-03-11"
+  years: 2018, 2021
+lastupdated: "2021-05-25"
 
 subcollection: compare-and-comply
 
@@ -38,14 +38,14 @@ This tutorial uses an API key to authenticate. For production uses, make sure th
 ## Step 1: Identify content
 {: #identify_content}
 
-Identify appropriate documents to analyze. Compare and Comply can analyze contractual documents that meet the criteria listed in [Supported input formats](/docs/services/compare-and-comply?topic=compare-and-comply-formats).
+Identify appropriate documents to analyze. Compare and Comply can analyze contractual documents that meet the criteria listed in [Supported input formats](/docs/compare-and-comply?topic=compare-and-comply-formats).
 
 For the example in this tutorial, the file must be in PDF or a supported image format.
 
   You can submit PDF files that have been scanned and processed by an optical character reader (OCR).
   {: tip}
 
-- Files can be up to 1.5 MB when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/services/compare-and-comply?topic=compare-and-comply-batching), files can be up to 50 MB.
+- Files can be up to 1.5 MB when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/compare-and-comply?topic=compare-and-comply-batching), files can be up to 50 MB.
 - Secure PDFs (with a password to open) and restricted PDFs (with a password to edit) cannot be processed.
 
 ## Step 2: Classify a contract's elements
@@ -79,7 +79,7 @@ The method returns a JSON object that contains:
 ## Step 3: Review the analysis
 {: #review_analysis}
 
-This section provides a high-level overview of the output of the `POST /v1/element_classification` method, focusing on the major sections. See [Understanding the output schema](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) for a detailed discussion of the method's output.
+This section provides a high-level overview of the output of the `POST /v1/element_classification` method, focusing on the major sections. See [Understanding the output schema](/docs/compare-and-comply?topic=compare-and-comply-output_schema) for a detailed discussion of the method's output.
 
 ### Documents
 {: #documents}
@@ -126,9 +126,9 @@ Each object in the `elements` array describes an element of the contract that Co
 Each element has five important sections:
   - `location`: The `begin` and `end` indexes indicating the location of the element in the input document.
   - `text`: The text of the classified element.
-  - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties affected by the element. See [Types](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_types) in [Understanding contract parsing](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing) for additional information.
-  - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. See [Categories](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_categories) in [Understanding contract parsing](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing) for additional information.
-  - `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`. Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. See [Attributes](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#attributes) in [Understanding contract parsing](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing) for additional information.
+  - `types`: An array that includes zero or more `label` objects. Each `label` object includes a `nature` field that lists the effect of the element on the identified party (for example, `Right` or `Exclusion`) and a `party` field that identifies the party or parties affected by the element. See [Types](/docs/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_types) in [Understanding contract parsing](/docs/compare-and-comply?topic=compare-and-comply-contract_parsing) for additional information.
+  - `categories`: An array that contains zero or more `label` objects. The value of each `label` object lists a functional category into which the identified element falls. See [Categories](/docs/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_categories) in [Understanding contract parsing](/docs/compare-and-comply?topic=compare-and-comply-contract_parsing) for additional information.
+  - `attributes`: An array that lists zero or more objects that define attributes of the element. Currently supported attribute types include `Address`, `Currency`, `DateTime`, `Location`, `Organization`, and `Person`. Each object in the `attributes` array also includes the identified element's text and location; location is defined by the `begin` and `end` indexes of the text in the input document. See [Attributes](/docs/compare-and-comply?topic=compare-and-comply-contract_parsing#attributes) in [Understanding contract parsing](/docs/compare-and-comply?topic=compare-and-comply-contract_parsing) for additional information.
 
 Additionally, each object in the `types` and `categories` arrays includes a `provenance_ids` array. The values listed in the `provenance_ids` array are hashed values that you can send to IBM to provide feedback or receive support about the part of the analysis associated with the element.
 
@@ -145,17 +145,17 @@ Some sentences do not contain any identifiable attributes, in which case the ser
 ### Tables
 {: tables}
 
-The `tables` array details the structure and content of any tables found in the input document. See [Classifying tables](/docs/services/compare-and-comply?topic=compare-and-comply-understanding_tables) and [Understanding the output schema](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) for details.
+The `tables` array details the structure and content of any tables found in the input document. See [Classifying tables](/docs/compare-and-comply?topic=compare-and-comply-understanding_tables) and [Understanding the output schema](/docs/compare-and-comply?topic=compare-and-comply-output_schema) for details.
 
 ### Document structure
 {: #gs_doc_struct}
 
-The `document_structure` object identifies the section titles and leading sentences of the input document. See [Understanding document structure](/docs/services/compare-and-comply?topic=compare-and-comply-doc_struct) for details.
+The `document_structure` object identifies the section titles and leading sentences of the input document. See [Understanding document structure](/docs/compare-and-comply?topic=compare-and-comply-doc_struct) for details.
 
 ### Parties
 {: #parties}
 
-The `parties` array lists available information about parties affected by the input document, including the party's name, role, address or addresses, and contacts. See [Parties](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_parties) in [Understanding contract parsing](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing) for additional information.
+The `parties` array lists available information about parties affected by the input document, including the party's name, role, address or addresses, and contacts. See [Parties](/docs/compare-and-comply?topic=compare-and-comply-contract_parsing#contract_parties) in [Understanding contract parsing](/docs/compare-and-comply?topic=compare-and-comply-contract_parsing) for additional information.
 
 ```
   "parties": [
@@ -206,5 +206,5 @@ The following arrays provide useful information about the input document. Each o
 
 You have successfully classified a contract to identify its elements, tables, structure, parties, and other information. You can use the analysis to quickly understand and enforce the classified contract. The next steps are:
 
- - [Understanding contract parsing](/docs/services/compare-and-comply?topic=compare-and-comply-contract_parsing)
- - [Understanding the output schema](/docs/services/compare-and-comply?topic=compare-and-comply-output_schema) and [classifying tables](/docs/services/compare-and-comply?topic=compare-and-comply-understanding_tables)
+ - [Understanding contract parsing](/docs/compare-and-comply?topic=compare-and-comply-contract_parsing)
+ - [Understanding the output schema](/docs/compare-and-comply?topic=compare-and-comply-output_schema) and [classifying tables](/docs/compare-and-comply?topic=compare-and-comply-understanding_tables)

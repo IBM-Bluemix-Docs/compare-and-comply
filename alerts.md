@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2018-03-11"
+  years: 2017, 2021
+lastupdated: "2021-05-25"
 
 subcollection: compare-and-comply
 
@@ -30,7 +30,7 @@ You can set up Prometheus alerts for your Compare and Comply instance after you 
 
 To import the alerts dashboard and add alert rules to the dashboard, perform the following steps.
 
-  1. Ensure that you have extracted and generated the alerts dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/services/compare-and-comply?topic=compare-and-comply-monitor).
+  1. Ensure that you have extracted and generated the alerts dashboards as described in [Step 1: Download, extract, and render the dashboard templates](/docs/compare-and-comply?topic=compare-and-comply-monitor).
 
   1. Log in to your ICP cluster.
 

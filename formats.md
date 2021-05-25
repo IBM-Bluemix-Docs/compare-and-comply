@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-03-11"
+  years: 2018, 2021
+lastupdated: ""
 
 subcollection: compare-and-comply
 
@@ -32,7 +32,7 @@ IBM Watson&reg; Compare and Comply supports a variety of input formats, includin
 
 Observe the following notes regarding files submitted to Compare and Comply.
 
-  - Files can be up to 1.5 MB in size when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/services/compare-and-comply?topic=compare-and-comply-batching), files can be up to 50 MB in size..
+  - Files can be up to 1.5 MB in size when submitted to the service with individual methods. If you submit files through the [`/v1/batches` interface](/docs/compare-and-comply?topic=compare-and-comply-batching), files can be up to 50 MB in size..
   - Documents with non-standard page layouts (such as 2 or 3 columns per page) do not parse correctly.
 
 ## PDF support
